@@ -1,0 +1,87 @@
+/* =========================================
+   Global Resets & Behavior
+   ========================================= */
+body { 
+  -webkit-font-smoothing: antialiased; 
+  overflow-x: hidden; 
+  background-color: #fafafa; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+/* =========================================
+   Custom Scrollbar
+   ========================================= */
+::-webkit-scrollbar { 
+  width: 8px; 
+}
+
+::-webkit-scrollbar-track { 
+  background: #f1f5f9; 
+}
+
+::-webkit-scrollbar-thumb { 
+  background: #cbd5e1; 
+  border-radius: 4px; 
+}
+
+::-webkit-scrollbar-thumb:hover { 
+  background: #94a3b8; 
+}
+
+/* =========================================
+   Glassmorphism Utilities
+   ========================================= */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* =========================================
+   Scroll Reveal Animations
+   ========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay classes for staggering grid items */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+
+/* =========================================
+   Modal Enhancements
+   ========================================= */
+.modal-overlay {
+  background: rgba(11, 17, 32, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+/* =========================================
+   Typography Effects
+   ========================================= */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
