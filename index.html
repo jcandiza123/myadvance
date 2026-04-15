@@ -39,9 +39,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
 
   <style>
-    body { -webkit-font-smoothing: antialiased; }
-    
-    /* Smooth Scroll */
+    body { -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     html { scroll-behavior: smooth; }
 
     /* Custom Scrollbar */
@@ -50,17 +48,32 @@
     ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
     ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-    /* Bento Card Hover Effects */
+    /* Scroll Reveal Animations (High Performance) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Stagger delays for grid items */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    /* Card Hover Effects */
     .bento-card {
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
     .bento-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
-      border-color: rgba(37, 99, 235, 0.2);
+      border-color: rgba(37, 99, 235, 0.3);
     }
 
-    /* Modal Overlay */
     .modal-overlay {
       background: rgba(15, 23, 42, 0.7);
       backdrop-filter: blur(4px);
@@ -69,33 +82,34 @@
 </head>
 <body class="bg-white text-brand-navy font-sans relative">
 
-  <nav class="fixed w-full z-50 bg-white/85 backdrop-blur-md border-b border-brand-border transition-all duration-300">
+  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-brand-border transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20">
         
-        <a href="#" class="flex items-center gap-3 flex-shrink-0">
-          <img src="./index_files/AIcrop.JPG" alt="Logo" class="h-10 w-auto rounded object-cover" onerror="this.src='https://via.placeholder.com/40x40?text=AI'">
+        <a href="https://aimyadvance.com/index.html" class="flex items-center gap-3 flex-shrink-0">
+          <img src="./index_files/AIcrop.JPG" alt="AI My Advance" class="h-10 w-auto rounded object-cover" onerror="this.src='https://via.placeholder.com/40x40?text=AI'">
           <span class="font-bold text-xl tracking-tight text-brand-accent">MyAdvance</span>
         </a>
 
         <div class="hidden md:flex space-x-8 items-center">
           <a href="#process" class="text-sm font-medium text-brand-navy hover:text-brand-accent transition-colors">Solutions</a>
-          <a href="#features" class="text-sm font-medium text-brand-navy hover:text-brand-accent transition-colors">Features</a>
+          <a href="#solution" class="text-sm font-medium text-brand-navy hover:text-brand-accent transition-colors">Features</a>
           <a href="#integration" class="text-sm font-medium text-brand-navy hover:text-brand-accent transition-colors">Integrations</a>
           <a href="#pricing" class="text-sm font-medium text-brand-navy hover:text-brand-accent transition-colors">Pricing</a>
+          <a href="https://aimyadvance.com/contact.html" class="text-sm font-medium text-brand-navy hover:text-brand-accent transition-colors">Contact</a>
         </div>
 
         <div class="hidden md:flex items-center space-x-4">
           <div class="relative group">
             <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-1 px-4 py-2 text-sm font-medium text-brand-navy border border-gray-200 rounded-lg hover:bg-gray-50 transition">
               Login
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg class="w-4 h-4 transition-transform" id="login-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
             <div id="desktop-login-dropdown" class="absolute right-0 mt-2 w-48 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible transition-all duration-200 transform translate-y-2 z-50">
               <div class="py-2">
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent">Funder Portal</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent">ISO Portal</a>
-                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent">Syndicator Portal</a>
+                <a href="https://www.aimyadvance.com/funder/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent">Funder Portal</a>
+                <a href="https://aimyadvance.com/iso" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent">ISO Portal</a>
+                <a href="https://www.aimyadvance.com/syndicator/login" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-accent">Syndicator Portal</a>
               </div>
             </div>
           </div>
@@ -106,24 +120,25 @@
 
         <div class="md:hidden flex items-center">
           <button onclick="toggleMobileMenu()" class="text-brand-navy focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
           </button>
         </div>
       </div>
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
-      <div class="px-4 pt-2 pb-6 space-y-2">
+      <div class="px-4 pt-2 pb-6 space-y-1">
         <a href="#process" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Solutions</a>
-        <a href="#features" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Features</a>
+        <a href="#solution" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Features</a>
         <a href="#integration" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Integrations</a>
         <a href="#pricing" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Pricing</a>
+        <a href="https://aimyadvance.com/contact.html" class="block px-3 py-3 text-base font-medium text-brand-navy hover:bg-gray-50 rounded-md">Contact</a>
         
         <div class="border-t border-gray-100 my-2 pt-2">
           <p class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Login Portals</p>
-          <a href="#" class="block px-3 py-2 text-sm text-gray-600 hover:text-brand-accent">Funder Portal</a>
-          <a href="#" class="block px-3 py-2 text-sm text-gray-600 hover:text-brand-accent">ISO Portal</a>
-          <a href="#" class="block px-3 py-2 text-sm text-gray-600 hover:text-brand-accent">Syndicator Portal</a>
+          <a href="https://www.aimyadvance.com/funder/login" class="block px-3 py-2 text-sm text-gray-600 hover:text-brand-accent">Funder Portal</a>
+          <a href="https://aimyadvance.com/iso" class="block px-3 py-2 text-sm text-gray-600 hover:text-brand-accent">ISO Portal</a>
+          <a href="https://www.aimyadvance.com/syndicator/login" class="block px-3 py-2 text-sm text-gray-600 hover:text-brand-accent">Syndicator Portal</a>
         </div>
         
         <button onclick="openModal()" class="w-full mt-4 bg-brand-navy text-white px-5 py-3 rounded-lg text-sm font-medium hover:bg-gray-800 transition-all">
@@ -135,16 +150,16 @@
 
   <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden" style="background: radial-gradient(circle at 50% 0%, #f1f5f9 0%, #ffffff 100%);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-navy mb-6 leading-tight">
+      <h1 class="reveal text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-navy mb-6 leading-tight">
         Predictive Intelligence <br class="hidden md:block"> For Smarter Lending 
         <span id="animated-text" class="text-brand-accent">deals</span><span id="cursor" class="text-brand-accent font-light">|</span>
       </h1>
-      <p class="mt-4 text-lg md:text-xl text-brand-muted max-w-3xl mx-auto mb-12 leading-relaxed">
+      <p class="reveal delay-100 mt-4 text-lg md:text-xl text-brand-muted max-w-3xl mx-auto mb-12 leading-relaxed">
         The intelligent operating system for funders, syndicators, ISOs, lenders, underwriters, and merchants. Automate underwriting, track repayments, and predict defaults with institutional precision.
       </p>
       
-      <div class="mt-12 relative mx-auto max-w-5xl rounded-2xl border border-brand-border bg-white shadow-2xl overflow-hidden transform hover:-translate-y-2 transition duration-500">
-        <div class="absolute top-0 w-full h-8 bg-gray-50 border-b border-gray-100 flex items-center px-4 gap-2">
+      <div class="reveal delay-200 mt-12 relative mx-auto max-w-5xl rounded-2xl border border-brand-border bg-white shadow-2xl overflow-hidden transform hover:-translate-y-2 transition duration-500">
+        <div class="absolute top-0 w-full h-8 bg-gray-50 border-b border-gray-100 flex items-center px-4 gap-2 z-10">
           <div class="w-3 h-3 rounded-full bg-red-400"></div>
           <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
           <div class="w-3 h-3 rounded-full bg-green-400"></div>
@@ -154,35 +169,39 @@
     </div>
   </section>
 
-  <section id="process" class="py-24 bg-brand-soft">
+  <section id="process" class="py-24 bg-brand-soft border-t border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-16 text-center">
+      <div class="reveal mb-16 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Portals built for your workflow</h2>
-        <p class="text-brand-muted max-w-2xl mx-auto">Seamless experiences tailored specifically for the different stakeholders in your lending ecosystem.</p>
+        <p class="text-brand-muted max-w-2xl mx-auto text-lg">Seamless experiences tailored specifically for the different stakeholders in your lending ecosystem.</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="space-y-6 lg:col-span-1 flex flex-col">
-          <div class="bento-card flex-1 bg-white p-8 rounded-2xl border border-brand-border">
-            <h3 class="text-xl font-semibold text-brand-navy mb-3">Syndicator Portal</h3>
-            <p class="text-brand-muted text-sm leading-relaxed mb-6">Set up your digital wallet in minutes and start managing paybacks with ease. Benefit from auto syndication to seamlessly distribute payments.</p>
-            <img src="./index_files/localhost_3000_application-offer (1).png" alt="Syndicator" class="w-full rounded-lg border border-gray-100" onerror="this.src='https://via.placeholder.com/400x250?text=Syndicator+App'">
+          <div class="reveal delay-100 bento-card flex-1 bg-white p-8 rounded-2xl border border-brand-border flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-semibold text-brand-navy mb-3">Syndicator Portal</h3>
+              <p class="text-brand-muted text-sm leading-relaxed mb-6">Set up your digital wallet in minutes and start managing paybacks with ease. Benefit from auto syndication to seamlessly distribute payments and optimize deal management from the start.</p>
+            </div>
+            <img loading="lazy" src="./index_files/localhost_3000_application-offer (1).png" alt="Syndicator Portal" class="w-full rounded-lg border border-gray-100 shadow-sm" onerror="this.style.display='none'">
           </div>
-          <div class="bento-card flex-1 bg-white p-8 rounded-2xl border border-brand-border">
-            <h3 class="text-xl font-semibold text-brand-navy mb-3">Merchant Portal</h3>
-            <p class="text-brand-muted text-sm leading-relaxed mb-6">Track your merchants financial status, view payment schedules, and request documents securely with ease.</p>
-            <img src="./index_files/performance.png" alt="Merchant" class="w-full rounded-lg border border-gray-100" onerror="this.src='https://via.placeholder.com/400x250?text=Performance+Chart'">
+          <div class="reveal delay-200 bento-card flex-1 bg-white p-8 rounded-2xl border border-brand-border flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-semibold text-brand-navy mb-3">Merchant Portal</h3>
+              <p class="text-brand-muted text-sm leading-relaxed mb-6">Track your merchants financial status, view payment schedules, and request documents with ease.</p>
+            </div>
+            <img loading="lazy" src="./index_files/performance.png" alt="Merchant Portal" class="w-full rounded-lg border border-gray-100 shadow-sm" onerror="this.style.display='none'">
           </div>
         </div>
 
         <div class="lg:col-span-2">
-          <div class="bento-card h-full bg-white p-8 rounded-2xl border border-brand-border flex flex-col justify-between">
+          <div class="reveal delay-300 bento-card h-full bg-white p-8 rounded-2xl border border-brand-border flex flex-col justify-between overflow-hidden">
             <div class="mb-8 max-w-xl">
               <h3 class="text-2xl font-semibold text-brand-navy mb-3">ISO Portal</h3>
               <p class="text-brand-muted leading-relaxed">Automate lead intake, underwriting, and smart matching—instantly route qualified leads to the right funders without manual data entry.</p>
             </div>
-            <div class="flex-1 w-full bg-gray-50 rounded-xl overflow-hidden border border-gray-100">
-               <img src="./index_files/Screenshot 2026-01-30 132835.png" alt="ISO Dashboard" class="w-full h-full object-cover object-top" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'">
+            <div class="flex-1 w-full bg-gray-50 rounded-xl overflow-hidden border border-gray-100 shadow-inner">
+               <img loading="lazy" src="./index_files/Screenshot 2026-01-30 132835.png" alt="ISO Dashboard" class="w-full h-full object-cover object-top" onerror="this.style.display='none'">
             </div>
           </div>
         </div>
@@ -190,120 +209,145 @@
     </div>
   </section>
 
-  <section id="features" class="py-24 bg-white">
+  <section id="solution" class="py-24 bg-white border-t border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Simplify complex processes</h2>
-        <p class="text-brand-muted max-w-2xl text-lg">AI My Advance replaces fragmented spreadsheets with a single source of truth for your entire portfolio.</p>
+      <div class="reveal mb-16 text-center md:text-left">
+        <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Simplify complex process with AI My Advance</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <div class="bento-card p-8 rounded-2xl border border-brand-border bg-white">
-          <div class="w-12 h-12 bg-blue-50 text-brand-accent rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        <div class="reveal delay-100 bento-card p-8 rounded-2xl border border-brand-border bg-white flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-semibold text-brand-accent mb-2">Automated Syndication</h4>
+            <p class="text-brand-muted text-sm leading-relaxed mb-6">Split deals instantly. Manage participants, calculate management fees, and distribute remittances automatically.</p>
           </div>
-          <h4 class="text-lg font-semibold text-brand-navy mb-2">Automated Syndication</h4>
-          <p class="text-brand-muted text-sm leading-relaxed mb-6">Split deals instantly. Manage participants, calculate management fees, and distribute remittances automatically.</p>
+          <img loading="lazy" src="./index_files/syndication_summary.png" alt="Automated Syndication" class="w-full rounded-lg shadow-sm border border-gray-50" onerror="this.style.display='none'">
         </div>
 
-        <div class="bento-card p-8 rounded-2xl border border-brand-border bg-white">
-          <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        <div class="reveal delay-200 bento-card p-8 rounded-2xl border border-brand-border bg-white flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-semibold text-brand-accent mb-2">Real-Time Collections</h4>
+            <p class="text-brand-muted text-sm leading-relaxed mb-6">Direct integration with ACH processors. Track missed payments and trigger automated cure notices instantly.</p>
           </div>
-          <h4 class="text-lg font-semibold text-brand-navy mb-2">Real-Time Collections</h4>
-          <p class="text-brand-muted text-sm leading-relaxed mb-6">Direct integration with ACH processors. Track missed payments and trigger automated cure notices instantly.</p>
+          <img loading="lazy" src="./index_files/payback.png" alt="Real-Time Collections" class="w-full rounded-lg shadow-sm border border-gray-50" onerror="this.style.display='none'">
         </div>
 
-        <div class="bento-card p-8 rounded-2xl border border-brand-border bg-white">
-          <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+        <div class="reveal delay-300 bento-card p-8 rounded-2xl border border-brand-border bg-white flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-semibold text-brand-accent mb-2">Merchant Performance Tracking</h4>
+            <p class="text-brand-muted text-sm leading-relaxed mb-6">Monitor merchant health at a glance. Visualize payment trends, flag at-risk accounts, and get early alerts.</p>
           </div>
-          <h4 class="text-lg font-semibold text-brand-navy mb-2">Performance Tracking</h4>
-          <p class="text-brand-muted text-sm leading-relaxed mb-6">Monitor merchant health. Visualize payment trends, flag at-risk accounts, and get early alerts for missed payments.</p>
+          <img loading="lazy" src="./index_files/performance.png" alt="Performance Tracking" class="w-full rounded-lg shadow-sm border border-gray-50" onerror="this.style.display='none'">
         </div>
 
-        <div class="bento-card p-8 rounded-2xl border border-brand-border bg-white">
-          <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+        <div class="reveal delay-100 bento-card p-8 rounded-2xl border border-brand-border bg-white flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-semibold text-brand-accent mb-2">Customizable Fundings</h4>
+            <p class="text-brand-muted text-sm leading-relaxed mb-6">Create flexible fee structures with tier-based calculations. Configure fees based on fund amount, payback, or factor rate.</p>
           </div>
-          <h4 class="text-lg font-semibold text-brand-navy mb-2">Customizable Fundings</h4>
-          <p class="text-brand-muted text-sm leading-relaxed mb-6">Create flexible fee structures with tier-based calculations based on fund amount, payback, or factor rate.</p>
+          <img loading="lazy" src="./index_files/card-img-4.svg" alt="Customizable Fundings" class="w-full rounded-lg shadow-sm border border-gray-50" onerror="this.style.display='none'">
         </div>
 
-        <div class="bento-card p-8 rounded-2xl border border-brand-border bg-white">
-          <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+        <div class="reveal delay-200 bento-card p-8 rounded-2xl border border-brand-border bg-white flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-semibold text-brand-accent mb-2">Custom Formulas</h4>
+            <p class="text-brand-muted text-sm leading-relaxed mb-6">Build your own fee formulas with tier configurations. Create complex calculation rules that match your business logic.</p>
           </div>
-          <h4 class="text-lg font-semibold text-brand-navy mb-2">Custom Formulas</h4>
-          <p class="text-brand-muted text-sm leading-relaxed mb-6">Build your own fee formulas with tier configurations. Create complex calculation rules that match your logic.</p>
+          <img loading="lazy" src="./index_files/formula.png" alt="Custom Formulas" class="w-full rounded-lg shadow-sm border border-gray-50" onerror="this.style.display='none'">
         </div>
 
-        <div class="bento-card p-8 rounded-2xl border border-brand-border bg-white">
-          <div class="w-12 h-12 bg-gray-100 text-gray-700 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+        <div class="reveal delay-300 bento-card p-8 rounded-2xl border border-brand-border bg-white flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-semibold text-brand-accent mb-2">2FA Security</h4>
+            <p class="text-brand-muted text-sm leading-relaxed mb-6">Secure by default—two‑factor login with backup codes, device trust, and a clear, guided recovery flow when needed.</p>
           </div>
-          <h4 class="text-lg font-semibold text-brand-navy mb-2">2FA Security</h4>
-          <p class="text-brand-muted text-sm leading-relaxed mb-6">Secure by default—two‑factor login with backup codes, device trust, and a clear recovery flow.</p>
+          <img loading="lazy" src="./index_files/card-img-7.svg" alt="2FA Security" class="w-full rounded-lg shadow-sm border border-gray-50 object-contain max-h-32" onerror="this.style.display='none'">
         </div>
 
       </div>
     </div>
   </section>
 
-  <section id="integration" class="py-16 bg-brand-soft border-y border-brand-border">
+  <section class="py-24 bg-brand-soft border-t border-brand-border overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="reveal lg:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6">Infrastructure for scale.</h2>
+          <p class="text-lg text-brand-muted leading-relaxed mb-6">
+            AI My Advance replaces fragmented spreadsheets with a single source of truth for your entire portfolio. Built for institutions that demand precision, speed, and reliability.
+          </p>
+          <ul class="space-y-3 text-brand-navy font-medium">
+            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Global Community Trusted</li>
+            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Institutional Precision</li>
+            <li class="flex items-center gap-3"><svg class="w-5 h-5 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Reliable Data Tracking</li>
+          </ul>
+        </div>
+        <div class="reveal delay-200 lg:w-1/2">
+          <img loading="lazy" src="./index_files/financial report.png" alt="Financial Report" class="w-full rounded-2xl shadow-2xl border border-gray-200" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="integration" class="py-16 bg-white border-t border-brand-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-sm font-semibold text-brand-muted uppercase tracking-wider mb-8">Powering Integrations With Industry Leaders</p>
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-        <img src="./index_files/Experian_logo.svg.png" alt="Experian" class="h-8 object-contain hover:scale-105 transition" onerror="this.style.display='none'">
-        <img src="./index_files/Intuit_QuickBooks_logo.svg.png" alt="QuickBooks" class="h-8 object-contain hover:scale-105 transition" onerror="this.style.display='none'">
-        <img src="./index_files/google-workspace-logo.png" alt="Google Workspace" class="h-8 object-contain hover:scale-105 transition" onerror="this.style.display='none'">
-        <span class="text-xl font-bold text-gray-400">Actum</span>
-        <span class="text-xl font-bold text-gray-400">DataMerch</span>
-        <span class="text-xl font-bold text-gray-400">Thomson Reuters</span>
+      <div class="reveal section-title-block mb-10">
+        <h2 class="text-2xl font-bold text-brand-navy">Powering Integrations With Industry Leaders</h2>
+      </div>
+      <div class="reveal delay-100 flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-70">
+        <img loading="lazy" src="./index_files/actum-logo-dark.png" alt="Actum" class="h-10 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/ACH_PoweredByLogo_concept3B_APPROVED-01-300x79.png" alt="ACH" class="h-10 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/logo.png" alt="Partner Logo" class="h-10 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/Experian_logo.svg.png" alt="Experian" class="h-8 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/datamerchlogo.jpg" alt="DataMerch" class="h-10 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/Intuit_QuickBooks_logo.svg.png" alt="QuickBooks" class="h-8 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/google-workspace-logo.png" alt="Google Workspace" class="h-8 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/1200px-Thomson_Reuters_logo_2020-1024x311.jpg" alt="Thomson Reuters" class="h-8 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/dl_logo_4c_horz_final.png" alt="Partner Logo" class="h-10 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
+        <img loading="lazy" src="./index_files/usio.comcontentuploads201906final-usio-color-1.png" alt="Usio" class="h-10 object-contain hover:scale-105 hover:opacity-100 transition-all duration-300" onerror="this.style.display='none'">
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="py-24 bg-white">
+  <section id="pricing" class="py-24 bg-brand-soft border-t border-brand-border">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-gray-100 text-xs font-bold text-gray-500 uppercase tracking-wide">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.598 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.311c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.598-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.311c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path></svg>
+      <div class="reveal text-center mb-12">
+        <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-white border border-gray-200 text-xs font-bold text-brand-muted uppercase tracking-wide shadow-sm">
+          <svg class="w-4 h-4 text-brand-navy opacity-60" fill="currentColor" viewBox="0 0 20 20"><path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"></path><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.598 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.311c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.598-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.311c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path></svg>
           Pricing Model
         </div>
         <h2 class="text-3xl md:text-5xl font-bold text-brand-navy">You Stop Paying—And Start Earning</h2>
       </div>
 
-      <div class="bento-card bg-white border-2 border-brand-navy rounded-3xl p-8 md:p-12 text-center shadow-xl relative overflow-hidden">
+      <div class="reveal delay-100 bento-card bg-white border border-brand-navy rounded-3xl p-8 md:p-12 text-center shadow-xl relative overflow-hidden">
         
-        <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
-        <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-green-50 rounded-full blur-3xl opacity-50"></div>
+        <div class="absolute -top-24 -right-24 w-48 h-48 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute -bottom-24 -left-24 w-48 h-48 bg-gray-50 rounded-full blur-3xl opacity-60"></div>
 
         <div class="relative z-10">
-          <div class="inline-block bg-brand-soft border border-gray-200 px-5 py-2 rounded-full mb-2">
-            <span class="text-gray-800 font-semibold text-sm md:text-base">Merchants pay $34.99/mo</span>
+          <div class="inline-block bg-gray-50 px-5 py-2 rounded-full mb-2 border border-gray-100">
+            <span class="text-brand-navy font-semibold text-sm md:text-base">Merchants pay $34.99/mo</span>
             <span class="text-gray-300 mx-2">|</span>
             <span class="text-gray-600 text-sm md:text-base">$10 goes to funder/mo</span>
           </div>
           <p class="text-xs text-brand-muted mb-8">(Rate changes to $5/merchant/mo after 2026)</p>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 border-b border-gray-100 pb-8">
-            <div class="p-4 rounded-xl bg-gray-50 border border-gray-100">
+            <div class="p-4 rounded-xl">
               <div class="text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Annual Earnings</div>
-              <div class="text-3xl font-bold text-brand-navy mb-1">$30k – $60k</div>
+              <div class="text-3xl font-bold text-brand-navy tracking-tight mb-1">$30k – $60k</div>
               <div class="text-sm text-red-500 font-medium">instead of paying $50,000</div>
             </div>
             
-            <div class="p-4 rounded-xl bg-green-50 border border-green-100">
-              <div class="text-xs font-bold uppercase tracking-widest text-green-700 mb-2">Total Impact</div>
-              <div class="text-3xl font-bold text-green-600 mb-1">$60k – $120k</div>
-              <div class="text-sm text-green-800 font-medium">back in your pocket</div>
+            <div class="p-4 rounded-xl">
+              <div class="text-xs font-bold uppercase tracking-widest text-brand-muted mb-2">Total Impact</div>
+              <div class="text-3xl font-bold text-green-600 tracking-tight mb-1">$60k – $120k</div>
+              <div class="text-sm text-brand-navy font-medium">back in your pocket</div>
             </div>
           </div>
 
-          <p class="text-brand-muted text-lg max-w-md mx-auto">
+          <p class="text-brand-muted text-base max-w-md mx-auto">
             <strong class="text-brand-navy">No cost to you.</strong> Merchants pay the fee, and you receive a share of every transaction.
           </p>
         </div>
@@ -311,64 +355,59 @@
     </div>
   </section>
 
-  <footer class="bg-gray-50 border-t border-brand-border py-12">
+  <footer class="bg-white border-t border-brand-border py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-        <a href="#" class="flex items-center gap-2 mb-6 md:mb-0">
-          <div class="font-bold text-xl text-brand-accent">MyAdvance</div>
-        </a>
-        
-        <div class="flex flex-wrap gap-6 text-sm font-medium text-brand-muted">
-          <a href="#process" class="hover:text-brand-accent transition">Solutions</a>
-          <a href="#features" class="hover:text-brand-accent transition">Features</a>
-          <a href="#pricing" class="hover:text-brand-accent transition">Pricing</a>
-          <a href="#" class="hover:text-brand-accent transition">Privacy Policy</a>
-          <a href="#" class="hover:text-brand-accent transition">Terms of Use</a>
+      <div class="flex flex-col md:flex-row justify-between items-start mb-12">
+        <div class="flex flex-col gap-3 mb-8 md:mb-0">
+          <a href="#process" class="text-sm font-medium text-brand-muted hover:text-brand-accent transition">Solutions</a>
+          <a href="#solution" class="text-sm font-medium text-brand-muted hover:text-brand-accent transition">Features</a>
+          <a href="#integration" class="text-sm font-medium text-brand-muted hover:text-brand-accent transition">Integrations</a>
+          <a href="#pricing" class="text-sm font-medium text-brand-muted hover:text-brand-accent transition">Pricing</a>
+          <a href="https://aimyadvance.com/contact.html" class="text-sm font-medium text-brand-muted hover:text-brand-accent transition">Contact</a>
+          <a href="https://aimyadvance.com/privacy.html" class="text-sm font-medium text-brand-muted hover:text-brand-accent transition">Privacy Policy</a>
+          <a href="https://aimyadvance.com/terms.html" class="text-sm font-medium text-brand-muted hover:text-brand-accent transition">Terms of Use</a>
+        </div>
+
+        <div class="text-left md:text-right">
+          <div class="font-semibold text-brand-navy mb-2">Contact</div>
+          <p class="text-sm text-brand-muted mb-2">40 Wall Street Suite 3100<br>New York, NY 10005</p>
+          <a href="mailto:eli@simplecodeai.com" class="block text-sm text-brand-muted hover:text-brand-accent transition mb-1">eli@simplecodeai.com</a>
+          <a href="tel:9292165491" class="block text-sm text-brand-muted hover:text-brand-accent transition">(929) 216-5491</a>
         </div>
       </div>
       
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-gray-200 pt-8">
-        <div class="text-sm text-brand-muted mb-4 md:mb-0">
-          <p class="font-semibold text-brand-navy mb-1">Contact Details</p>
-          <p>40 Wall Street Suite 3100, New York, NY 10005</p>
-          <p><a href="mailto:eli@simplecodeai.com" class="hover:text-brand-accent transition">eli@simplecodeai.com</a> | <a href="tel:9292165491" class="hover:text-brand-accent transition">(929) 216-5491</a></p>
+      <div class="flex flex-col md:flex-row justify-between items-center border-t border-gray-100 pt-8">
+        <div class="flex gap-4 mb-4 md:mb-0">
+          <a href="https://www.youtube.com/" target="_blank" class="hover:scale-110 transition-transform"><img loading="lazy" src="./index_files/youtube-logo.svg" alt="Youtube" class="w-6 h-6 opacity-60 hover:opacity-100" onerror="this.style.display='none'"></a>
+          <a href="https://www.facebook.com/" target="_blank" class="hover:scale-110 transition-transform"><img loading="lazy" src="./index_files/facebook.svg" alt="Facebook" class="w-6 h-6 opacity-60 hover:opacity-100" onerror="this.style.display='none'"></a>
+          <a href="https://x.com/" target="_blank" class="hover:scale-110 transition-transform"><img loading="lazy" src="./index_files/twitter.svg" alt="Twitter" class="w-6 h-6 opacity-60 hover:opacity-100" onerror="this.style.display='none'"></a>
+          <a href="https://www.linkedin.com/" target="_blank" class="hover:scale-110 transition-transform"><img loading="lazy" src="./index_files/linkedin-logo.svg" alt="Linkedin" class="w-6 h-6 opacity-60 hover:opacity-100" onerror="this.style.display='none'"></a>
         </div>
-        
-        <div class="flex gap-4">
-          <a href="#" class="text-gray-400 hover:text-brand-accent transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
-          <a href="#" class="text-gray-400 hover:text-brand-accent transition"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+        <div class="text-xs text-brand-muted">
+          © 2026 AI My Advance. All rights reserved.
         </div>
       </div>
-      <div class="mt-8 text-xs text-brand-muted">© 2026 AI My Advance. All rights reserved.</div>
     </div>
   </footer>
 
   <div id="demoModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
     <div class="absolute inset-0 modal-overlay" onclick="closeModal()"></div>
-    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] mx-4 overflow-hidden flex flex-col transform transition-transform scale-95 opacity-0" id="modalContent">
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-[1096px] h-auto max-h-[90vh] mx-4 flex flex-col transform transition-transform scale-95 opacity-0" id="modalContent">
       <div class="flex justify-between items-center p-4 border-b border-gray-100">
         <h3 class="font-bold text-lg text-brand-navy">Book a Demo</h3>
-        <button onclick="closeModal()" class="text-gray-400 hover:text-gray-700 text-2xl leading-none">&times;</button>
+        <button onclick="closeModal()" class="text-gray-400 hover:text-brand-accent transition text-2xl leading-none">&times;</button>
       </div>
-      <div class="flex-1 overflow-y-auto bg-gray-50 p-0">
-        <iframe src="https://example.com" class="w-full h-full min-h-[600px]" style="border:none;"></iframe>
+      <div class="flex-1 overflow-y-auto w-full bg-white flex justify-center">
+        <iframe src="./index_files/QpeZHeWF.html" loading="lazy" style="border:none; min-width: 320px; min-height: 544px; height: 731px; width: 100%; max-width: 1096px;" id="zcal-invite" scrolling="yes"></iframe>
       </div>
     </div>
   </div>
 
   <script>
-    // GSAP Typing Animation
+    // 1. GSAP Typing Animation (Exact Text Preserved)
     gsap.registerPlugin(TextPlugin);
     const words = ["deals.", "funds.", "risk."];
-    
-    gsap.to("#cursor", {
-      opacity: 0,
-      repeat: -1,
-      yoyo: true,
-      duration: 0.5,
-      ease: "power2.inOut"
-    });
-    
+    gsap.to("#cursor", { opacity: 0, repeat: -1, yoyo: true, duration: 0.5, ease: "power2.inOut" });
     let tlMaster = gsap.timeline({ repeat: -1 });
     words.forEach((word) => {
       let tlText = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1.5 });
@@ -376,15 +415,30 @@
       tlMaster.add(tlText);
     });
 
-    // Dropdown Logic
+    // 2. High-Performance Scroll Reveal (Intersection Observer)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target); // Run once per element for performance
+      });
+    }, revealOptions);
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 3. Dropdown Logic
     function toggleDropdown(id) {
       const el = document.getElementById(id);
+      const arrow = document.getElementById('login-arrow');
       if (el.classList.contains('invisible')) {
         el.classList.remove('invisible', 'opacity-0', 'translate-y-2');
         el.classList.add('visible', 'opacity-100', 'translate-y-0');
+        arrow.style.transform = 'rotate(180deg)';
       } else {
         el.classList.add('invisible', 'opacity-0', 'translate-y-2');
         el.classList.remove('visible', 'opacity-100', 'translate-y-0');
+        arrow.style.transform = 'rotate(0deg)';
       }
     }
 
@@ -392,35 +446,33 @@
     document.addEventListener('click', (e) => {
       const dropdown = document.getElementById('desktop-login-dropdown');
       const button = dropdown.previousElementSibling;
+      const arrow = document.getElementById('login-arrow');
       if (!dropdown.contains(e.target) && !button.contains(e.target)) {
         dropdown.classList.add('invisible', 'opacity-0', 'translate-y-2');
         dropdown.classList.remove('visible', 'opacity-100', 'translate-y-0');
+        if(arrow) arrow.style.transform = 'rotate(0deg)';
       }
     });
 
-    // Mobile Menu Logic
+    // 4. Mobile Menu Logic
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('hidden');
     }
 
-    // Modal Logic
+    // 5. Modal Logic
     const modal = document.getElementById('demoModal');
     const modalContent = document.getElementById('modalContent');
-
     function openModal() {
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      document.body.style.overflow = 'hidden'; // Stop scrolling
-      // Animate in
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
       setTimeout(() => {
         modalContent.classList.remove('scale-95', 'opacity-0');
         modalContent.classList.add('scale-100', 'opacity-100');
       }, 10);
     }
-
     function closeModal() {
-      // Animate out
       modalContent.classList.remove('scale-100', 'opacity-100');
       modalContent.classList.add('scale-95', 'opacity-0');
       setTimeout(() => {
@@ -429,12 +481,8 @@
         document.body.style.overflow = '';
       }, 200);
     }
-
-    // Close modal on Escape
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-        closeModal();
-      }
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
     });
   </script>
 </body>
