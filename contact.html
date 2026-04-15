@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | AI My Advance</title>
+  <meta name="description" content="Contact AI My Advance for support, sales, or general inquiries.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#0b1120',
+              accent: '#3b82f6',
+              soft: '#f8fafc',
+              muted: '#64748b'
+            }
+          },
+          animation: {
+            'blob': 'blob 7s infinite',
+          },
+          keyframes: {
+            blob: {
+              '0%': { transform: 'translate(0px, 0px) scale(1)' },
+              '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+              '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+              '100%': { transform: 'translate(0px, 0px) scale(1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { -webkit-font-smoothing: antialiased; overflow-x: hidden; background-color: #fafafa; }
+    html { scroll-behavior: smooth; }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    /* Glassmorphism Styles */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    .modal-overlay {
+      background: rgba(11, 17, 32, 0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    .text-gradient {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="text-brand-navy font-sans relative selection:bg-brand-accent selection:text-white">
+
+  <nav class="fixed w-full z-50 bg-white/70 backdrop-blur-xl border-b border-white/50 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <a href="index.html" class="flex items-center gap-3 flex-shrink-0 group">
+          <div class="relative overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+            <img src="./index_files/AIcrop.JPG" alt="AI My Advance" class="h-10 w-auto object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+          </div>
+          <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-brand-navy to-brand-accent text-gradient">MyAdvance</span>
+        </a>
+
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="index.html#process" class="text-sm font-medium text-slate-600 hover:text-brand-accent transition-colors">Solutions</a>
+          <a href="index.html#solution" class="text-sm font-medium text-slate-600 hover:text-brand-accent transition-colors">Features</a>
+          <a href="index.html#integration" class="text-sm font-medium text-slate-600 hover:text-brand-accent transition-colors">Integrations</a>
+          <a href="index.html#pricing" class="text-sm font-medium text-slate-600 hover:text-brand-accent transition-colors">Pricing</a>
+          <a href="contact.html" class="text-sm font-semibold text-brand-accent transition-colors">Contact</a>
+        </div>
+
+        <div class="hidden md:flex items-center space-x-4">
+          <div class="relative group">
+            <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-slate-700 bg-white/50 border border-slate-200/60 rounded-full hover:bg-white hover:shadow-sm transition-all">
+              Login
+              <svg class="w-4 h-4 text-slate-400 transition-transform duration-300" id="login-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="desktop-login-dropdown" class="absolute right-0 mt-3 w-56 bg-white/90 backdrop-blur-xl border border-white rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] opacity-0 invisible transition-all duration-300 transform translate-y-4 z-50 overflow-hidden p-2">
+              <a href="https://www.aimyadvance.com/funder/login" class="flex items-center px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-accent rounded-xl transition-colors">Funder Portal</a>
+              <a href="https://aimyadvance.com/iso" class="flex items-center px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-accent rounded-xl transition-colors">ISO Portal</a>
+              <a href="https://www.aimyadvance.com/syndicator/login" class="flex items-center px-4 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-accent rounded-xl transition-colors">Syndicator Portal</a>
+            </div>
+          </div>
+          <button onclick="openModal()" class="relative group overflow-hidden rounded-full p-[1px]">
+            <span class="absolute inset-0 bg-gradient-to-r from-brand-accent via-indigo-500 to-brand-accent rounded-full opacity-70 group-hover:opacity-100 blur-sm transition-opacity duration-500"></span>
+            <div class="relative bg-brand-navy text-white px-6 py-2.5 rounded-full text-sm font-medium flex items-center gap-2 group-hover:bg-slate-900 transition-colors">
+              Book Demo
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
+          </button>
+        </div>
+
+        <div class="md:hidden flex items-center">
+          <button onclick="toggleMobileMenu()" class="text-brand-navy focus:outline-none p-2 bg-slate-100 rounded-full">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-3xl border-t border-slate-100 absolute w-full shadow-2xl">
+      <div class="px-4 pt-4 pb-8 space-y-2">
+        <a href="index.html#process" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-accent rounded-xl">Solutions</a>
+        <a href="index.html#solution" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-accent rounded-xl">Features</a>
+        <a href="index.html#integration" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-accent rounded-xl">Integrations</a>
+        <a href="index.html#pricing" class="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-accent rounded-xl">Pricing</a>
+        <a href="contact.html" class="block px-4 py-3 text-base font-semibold text-brand-accent bg-blue-50 rounded-xl">Contact</a>
+        
+        <div class="h-px bg-slate-100 my-4"></div>
+        <p class="px-4 text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Portals</p>
+        <a href="https://www.aimyadvance.com/funder/login" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-accent">Funder Portal</a>
+        <a href="https://aimyadvance.com/iso" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-accent">ISO Portal</a>
+        <a href="https://www.aimyadvance.com/syndicator/login" class="block px-4 py-2 text-sm font-medium text-slate-600 hover:text-brand-accent">Syndicator Portal</a>
+        
+        <button onclick="openModal()" class="w-full mt-6 bg-gradient-to-r from-brand-navy to-slate-800 text-white px-5 py-3.5 rounded-xl text-sm font-semibold shadow-lg shadow-slate-200">
+          Book Your Demo
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="relative pt-36 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 mix-blend-multiply filter blur-[100px] animate-blob"></div>
+      <div class="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-400/20 mix-blend-multiply filter blur-[100px] animate-blob animation-delay-2000"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+        
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/60 border border-white backdrop-blur-md shadow-sm mb-6">
+            <span class="text-xs font-semibold text-brand-accent tracking-wide uppercase">Contact Us</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-brand-navy mb-6 leading-tight">
+            Let's build <br>
+            <span class="bg-gradient-to-r from-brand-accent to-indigo-600 text-gradient">something great.</span>
+          </h1>
+          <p class="text-lg text-slate-500 mb-10 max-w-md leading-relaxed font-medium">
+            We'd love to hear from you. Please fill out the form or reach out to our team directly.
+          </p>
+
+          <div class="space-y-4">
+            <a href="mailto:eli@simplecodeai.com" class="flex items-center gap-5 p-5 rounded-2xl bg-white/50 border border-white hover:bg-white hover:shadow-lg transition-all duration-300 group">
+              <div class="w-12 h-12 rounded-full bg-blue-50 text-brand-accent flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Email</p>
+                <p class="text-brand-navy font-semibold">eli@simplecodeai.com</p>
+              </div>
+            </a>
+            
+            <a href="tel:9292165491" class="flex items-center gap-5 p-5 rounded-2xl bg-white/50 border border-white hover:bg-white hover:shadow-lg transition-all duration-300 group">
+              <div class="w-12 h-12 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Phone</p>
+                <p class="text-brand-navy font-semibold">(929) 216-5491</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-5 p-5 rounded-2xl bg-white/50 border border-white hover:bg-white hover:shadow-lg transition-all duration-300 group">
+              <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">Office</p>
+                <p class="text-brand-navy font-semibold">40 Wall Street Suite 3100<br>New York, NY 10005</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal delay-200">
+          <div class="glass-card rounded-[2rem] p-8 md:p-10 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <form id="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.'); this.reset();" class="relative z-10">
+              
+              <div class="mb-6">
+                <label for="name" class="block text-sm font-semibold text-brand-navy mb-2">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe" 
+                  class="w-full px-5 py-4 rounded-xl border border-slate-200/80 bg-white/50 backdrop-blur-sm text-brand-navy placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent/50 focus:border-brand-accent/50 transition-all shadow-sm">
+              </div>
+
+              <div class="mb-6">
+                <label for="email" class="block text-sm font-semibold text-brand-navy mb-2">Work Email</label>
+                <input type="email" id="email" name="email" required placeholder="john@company.com" 
+                  class="w-full px-5 py-4 rounded-xl border border-slate-200/80 bg-white/50 backdrop-blur-sm text-brand-navy placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent/50 focus:border-brand-accent/50 transition-all shadow-sm">
+              </div>
+
+              <div class="mb-8">
+                <label for="message" class="block text-sm font-semibold text-brand-navy mb-2">How can we help?</label>
+                <textarea id="message" name="message" required placeholder="Tell us about your project or inquiry..." rows="5" 
+                  class="w-full px-5 py-4 rounded-xl border border-slate-200/80 bg-white/50 backdrop-blur-sm text-brand-navy placeholder-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-accent/50 focus:border-brand-accent/50 transition-all shadow-sm resize-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full relative group overflow-hidden rounded-xl p-[1px]">
+                <span class="absolute inset-0 bg-gradient-to-r from-brand-accent via-indigo-500 to-brand-accent rounded-xl opacity-70 group-hover:opacity-100 blur-sm transition-opacity duration-500"></span>
+                <div class="relative bg-brand-navy text-white w-full py-4 rounded-xl text-base font-semibold flex items-center justify-center gap-2 group-hover:bg-slate-900 transition-colors shadow-lg shadow-brand-navy/20">
+                  Send Message
+                  <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </div>
+              </button>
+            </form>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#050B14] pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
+        <div class="lg:col-span-5">
+          <a href="index.html" class="flex items-center gap-3 mb-6">
+            <img src="./index_files/AIcrop.JPG" alt="AI My Advance" class="h-10 w-auto rounded-lg object-cover brightness-125" onerror="this.style.display='none'">
+            <span class="font-bold text-2xl tracking-tight text-white">MyAdvance</span>
+          </a>
+          <p class="text-slate-400 text-base leading-relaxed max-w-sm">
+            Enterprise-grade MCA tracking and risk management platform powered by predictive intelligence. Automate underwriting, track repayments, and predict defaults.
+          </p>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-semibold mb-6 tracking-wide">Platform</h4>
+          <ul class="space-y-4">
+            <li><a href="index.html#process" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">Solutions</a></li>
+            <li><a href="index.html#solution" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">Features</a></li>
+            <li><a href="index.html#integration" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">Integrations</a></li>
+            <li><a href="index.html#pricing" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-semibold mb-6 tracking-wide">Company</h4>
+          <ul class="space-y-4">
+            <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">Contact Us</a></li>
+            <li><a href="privacy.html" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">Privacy Policy</a></li>
+            <li><a href="terms.html" class="text-slate-400 hover:text-white transition-colors text-sm font-medium">Terms of Use</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-semibold mb-6 tracking-wide">Contact</h4>
+          <ul class="space-y-5 text-sm text-slate-400 font-medium">
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-slate-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>40 Wall Street Suite 3100<br>New York, NY 10005</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              <a href="mailto:eli@simplecodeai.com" class="hover:text-white transition-colors">eli@simplecodeai.com</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <svg class="w-5 h-5 text-slate-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <a href="tel:9292165491" class="hover:text-white transition-colors">(929) 216-5491</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8">
+        <div class="text-sm text-slate-500 mb-6 md:mb-0 font-medium">
+          © 2026 AI My Advance. All rights reserved.
+        </div>
+        
+        <div class="flex gap-3">
+          <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent hover:-translate-y-1 transition-all duration-300 group">
+            <img loading="lazy" src="./index_files/youtube-logo.svg" alt="Youtube" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all" onerror="this.style.display='none'">
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent hover:-translate-y-1 transition-all duration-300 group">
+            <img loading="lazy" src="./index_files/facebook.svg" alt="Facebook" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all" onerror="this.style.display='none'">
+          </a>
+          <a href="https://x.com/" target="_blank" aria-label="Twitter/X" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent hover:-translate-y-1 transition-all duration-300 group">
+            <img loading="lazy" src="./index_files/twitter.svg" alt="Twitter" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all" onerror="this.style.display='none'">
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent hover:-translate-y-1 transition-all duration-300 group">
+            <img loading="lazy" src="./index_files/linkedin-logo.svg" alt="Linkedin" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all" onerror="this.style.display='none'">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="demoModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+    <div class="absolute inset-0 modal-overlay" onclick="closeModal()"></div>
+    <div class="relative bg-white/90 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white w-full max-w-[1096px] h-auto max-h-[90vh] mx-4 flex flex-col transform transition-transform scale-95 opacity-0 overflow-hidden" id="modalContent">
+      <div class="flex justify-between items-center p-5 border-b border-slate-100 bg-white">
+        <h3 class="font-bold text-xl text-brand-navy tracking-tight">Book a Demo</h3>
+        <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-brand-navy transition-colors text-xl leading-none">&times;</button>
+      </div>
+      <div class="flex-1 overflow-y-auto w-full bg-white flex justify-center">
+        <iframe src="https://zcal.co/i/QpeZHeWF?embed=1&embedType=iframe" loading="lazy" style="border:none; min-width: 320px; min-height: 544px; height: 731px; width: 100%; max-width: 1096px;" id="zcal-invite" scrolling="yes"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Scroll Reveal (Intersection Observer)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      });
+    }, revealOptions);
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Dropdown Logic
+    function toggleDropdown(id) {
+      const el = document.getElementById(id);
+      const arrow = document.getElementById('login-arrow');
+      if (el.classList.contains('invisible')) {
+        el.classList.remove('invisible', 'opacity-0', 'translate-y-4');
+        el.classList.add('visible', 'opacity-100', 'translate-y-0');
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        el.classList.add('invisible', 'opacity-0', 'translate-y-4');
+        el.classList.remove('visible', 'opacity-100', 'translate-y-0');
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+
+    // Close Dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      const dropdown = document.getElementById('desktop-login-dropdown');
+      const button = dropdown.previousElementSibling;
+      const arrow = document.getElementById('login-arrow');
+      if (!dropdown.contains(e.target) && !button.contains(e.target)) {
+        dropdown.classList.add('invisible', 'opacity-0', 'translate-y-4');
+        dropdown.classList.remove('visible', 'opacity-100', 'translate-y-0');
+        if(arrow) arrow.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    // Mobile Menu Logic
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // Modal Logic
+    const modal = document.getElementById('demoModal');
+    const modalContent = document.getElementById('modalContent');
+    function openModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden'; 
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95', 'opacity-0');
+        modalContent.classList.add('scale-100', 'opacity-100');
+      }, 10);
+    }
+    function closeModal() {
+      modalContent.classList.remove('scale-100', 'opacity-100');
+      modalContent.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }, 400); 
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+    });
+  </script>
+</body>
+</html>
