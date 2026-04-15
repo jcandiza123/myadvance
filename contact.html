@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <link rel="stylesheet" href="./css/style.css">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -42,51 +44,7 @@
     }
   </script>
 
-  <style>
-    body { -webkit-font-smoothing: antialiased; overflow-x: hidden; background-color: #fafafa; }
-    html { scroll-behavior: smooth; }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #f1f5f9; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-
-    /* Glassmorphism Styles */
-    .glass-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Scroll Reveal Animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .delay-100 { transition-delay: 100ms; }
-    .delay-200 { transition-delay: 200ms; }
-    .delay-300 { transition-delay: 300ms; }
-
-    .modal-overlay {
-      background: rgba(11, 17, 32, 0.8);
-      backdrop-filter: blur(8px);
-    }
-
-    .text-gradient {
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  </style>
+  <script src="./js/main.js" defer></script>
 </head>
 <body class="text-brand-navy font-sans relative selection:bg-brand-accent selection:text-white">
 
@@ -96,7 +54,7 @@
         
         <a href="index.html" class="flex items-center gap-3 flex-shrink-0 group">
           <div class="relative overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
-            <img src="./index_files/AIcrop.JPG" alt="AI My Advance" class="h-10 w-auto object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+            <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-10 w-auto object-cover transform group-hover:scale-105 transition-transform duration-500">
           </div>
           <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-brand-navy to-brand-accent text-gradient">MyAdvance</span>
         </a>
@@ -261,7 +219,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
         <div class="lg:col-span-5">
           <a href="index.html" class="flex items-center gap-3 mb-6">
-            <img src="./index_files/AIcrop.JPG" alt="AI My Advance" class="h-10 w-auto rounded-lg object-cover brightness-125" onerror="this.style.display='none'">
+            <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-10 w-auto rounded-lg object-cover brightness-125">
             <span class="font-bold text-2xl tracking-tight text-white">MyAdvance</span>
           </a>
           <p class="text-slate-400 text-base leading-relaxed max-w-sm">
@@ -314,16 +272,16 @@
         
         <div class="flex gap-3">
           <a href="https://www.youtube.com/" target="_blank" aria-label="YouTube" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent hover:-translate-y-1 transition-all duration-300 group">
-            <img loading="lazy" src="./index_files/youtube-logo.svg" alt="Youtube" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all" onerror="this.style.display='none'">
+            <img loading="lazy" src="./images/youtube-logo.svg" alt="Youtube" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all">
           </a>
           <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent hover:-translate-y-1 transition-all duration-300 group">
-            <img loading="lazy" src="./index_files/facebook.svg" alt="Facebook" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all" onerror="this.style.display='none'">
+            <img loading="lazy" src="./images/facebook.svg" alt="Facebook" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all">
           </a>
           <a href="https://x.com/" target="_blank" aria-label="Twitter/X" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent hover:-translate-y-1 transition-all duration-300 group">
-            <img loading="lazy" src="./index_files/twitter.svg" alt="Twitter" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all" onerror="this.style.display='none'">
+            <img loading="lazy" src="./images/twitter.svg" alt="Twitter" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all">
           </a>
           <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent hover:-translate-y-1 transition-all duration-300 group">
-            <img loading="lazy" src="./index_files/linkedin-logo.svg" alt="Linkedin" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all" onerror="this.style.display='none'">
+            <img loading="lazy" src="./images/linkedin-logo.svg" alt="Linkedin" class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition-all">
           </a>
         </div>
       </div>
@@ -343,76 +301,5 @@
     </div>
   </div>
 
-  <script>
-    // Scroll Reveal (Intersection Observer)
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('active');
-        observer.unobserve(entry.target);
-      });
-    }, revealOptions);
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // Dropdown Logic
-    function toggleDropdown(id) {
-      const el = document.getElementById(id);
-      const arrow = document.getElementById('login-arrow');
-      if (el.classList.contains('invisible')) {
-        el.classList.remove('invisible', 'opacity-0', 'translate-y-4');
-        el.classList.add('visible', 'opacity-100', 'translate-y-0');
-        arrow.style.transform = 'rotate(180deg)';
-      } else {
-        el.classList.add('invisible', 'opacity-0', 'translate-y-4');
-        el.classList.remove('visible', 'opacity-100', 'translate-y-0');
-        arrow.style.transform = 'rotate(0deg)';
-      }
-    }
-
-    // Close Dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      const dropdown = document.getElementById('desktop-login-dropdown');
-      const button = dropdown.previousElementSibling;
-      const arrow = document.getElementById('login-arrow');
-      if (!dropdown.contains(e.target) && !button.contains(e.target)) {
-        dropdown.classList.add('invisible', 'opacity-0', 'translate-y-4');
-        dropdown.classList.remove('visible', 'opacity-100', 'translate-y-0');
-        if(arrow) arrow.style.transform = 'rotate(0deg)';
-      }
-    });
-
-    // Mobile Menu Logic
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      menu.classList.toggle('hidden');
-    }
-
-    // Modal Logic
-    const modal = document.getElementById('demoModal');
-    const modalContent = document.getElementById('modalContent');
-    function openModal() {
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden'; 
-      setTimeout(() => {
-        modalContent.classList.remove('scale-95', 'opacity-0');
-        modalContent.classList.add('scale-100', 'opacity-100');
-      }, 10);
-    }
-    function closeModal() {
-      modalContent.classList.remove('scale-100', 'opacity-100');
-      modalContent.classList.add('scale-95', 'opacity-0');
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      }, 400); 
-    }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
-    });
-  </script>
 </body>
 </html>
