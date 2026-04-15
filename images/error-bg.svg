@@ -1,0 +1,34 @@
+<svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_17139_65433)">
+<rect width="1440" height="1024" fill="white"/>
+<g opacity="0.3" filter="url(#filter0_fn_17139_65433)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1437.88 570C1409.51 429.258 1368.49 192.82 720.006 192.82C81.4993 192.82 30.4802 429.258 2.11327 570H0L0.0117187 0H1440L1439.99 570H1437.88Z" fill="url(#paint0_linear_17139_65433)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_fn_17139_65433" x="-300" y="-300" width="2040" height="1170" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_17139_65433"/>
+<feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="985" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="effect1_foregroundBlur_17139_65433" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(0, 0, 0, 0.25)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect2_noise_17139_65433">
+<feMergeNode in="effect1_foregroundBlur_17139_65433" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<linearGradient id="paint0_linear_17139_65433" x1="1453.65" y1="228.607" x2="13.6586" y2="228.607" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFE866"/>
+<stop offset="1" stop-color="#6687FF"/>
+</linearGradient>
+<clipPath id="clip0_17139_65433">
+<rect width="1440" height="1024" fill="white"/>
+</clipPath>
+</defs>
+</svg>
