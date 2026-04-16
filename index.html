@@ -26,7 +26,7 @@
               primary: '#0e59f2',    /* Corporate Blue */
               dark: '#06132d',       /* Deep Navy / Dark Background */
               text: '#6b7280',       /* Body text gray */
-              light: '#f5f8ff',      /* Light blue/gray section bg */
+              light: '#f5f8ff',      /* Light blue/gray section background */
               border: '#e5e7eb'
             }
           },
@@ -44,7 +44,7 @@
   <style>
     body { -webkit-font-smoothing: antialiased; }
     
-    /* Hero Image Overlay Background */
+    /* Hero Image Overlay Background - Corporate Style */
     .hero-bg {
       background-image: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
       background-size: cover;
@@ -71,7 +71,7 @@
       animation: fadeIn 0.5s ease-in-out;
     }
     .tab-content.active {
-      display: grid;
+      display: block; /* Changed to block so image and grid stack nicely */
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -116,8 +116,8 @@
         </a>
 
         <div class="hidden lg:flex space-x-8 items-center font-sans font-semibold text-theme-dark">
+          <a href="#about" class="hover:text-theme-primary transition">About Us</a>
           <a href="#platform" class="hover:text-theme-primary transition">Platform</a>
-          <a href="#services" class="hover:text-theme-primary transition">Services</a>
           <a href="#integrations" class="hover:text-theme-primary transition">Integrations</a>
           <a href="#pricing" class="hover:text-theme-primary transition">Pricing</a>
           <a href="contact.html" class="hover:text-theme-primary transition">Contact</a>
@@ -153,8 +153,8 @@
 
   <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
     <div class="px-4 py-6 space-y-4 font-sans font-semibold text-theme-dark">
+      <a href="#about" class="block hover:text-theme-primary">About Us</a>
       <a href="#platform" class="block hover:text-theme-primary">Platform</a>
-      <a href="#services" class="block hover:text-theme-primary">Services</a>
       <a href="#integrations" class="block hover:text-theme-primary">Integrations</a>
       <a href="#pricing" class="block hover:text-theme-primary">Pricing</a>
       <a href="contact.html" class="block hover:text-theme-primary">Contact</a>
@@ -185,8 +185,8 @@
           <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-4 font-sans font-semibold hover:bg-blue-700 transition">
             Learn More
           </button>
-          <a href="#services" class="flex items-center gap-3 text-white font-sans font-semibold hover:text-theme-primary transition group">
-            Our Services 
+          <a href="#platform" class="flex items-center gap-3 text-white font-sans font-semibold hover:text-theme-primary transition group">
+            Our Platform 
             <span class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-theme-primary transition">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </span>
@@ -196,7 +196,7 @@
     </div>
   </section>
 
-  <section id="services" class="relative z-20 -mt-24 lg:-mt-32 pb-24">
+  <section class="relative z-20 -mt-24 lg:-mt-32 pb-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
@@ -249,185 +249,262 @@
     </div>
   </section>
 
-  <section id="platform" class="py-20 bg-white border-b border-theme-border">
+  <section id="about" class="py-20 bg-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         
-        <div class="w-full lg:w-1/3 reveal">
-          <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-lg mb-4">
-            <span class="w-10 h-0.5 bg-theme-primary"></span>
-            Our Platform
-          </div>
-          <h2 class="text-4xl font-heading font-extrabold text-theme-dark mb-6 leading-tight">
-            Built For The Entire Ecosystem
-          </h2>
-          <p class="text-theme-text mb-8 leading-relaxed">
-            AI My Advance replaces fragmented spreadsheets with a single source of truth. Select your role to see how we accelerate your specific workflow.
-          </p>
-
-          <div class="flex flex-col gap-3">
-            
-            <button onclick="switchTab('tab-iso', this)" class="tab-btn w-full text-left px-6 py-4 rounded font-heading font-bold text-lg transition-all bg-theme-primary text-white shadow-corporate-badge flex justify-between items-center group">
-              For ISOs
-              <svg class="w-5 h-5 tab-arrow transition-opacity opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-
-            <button onclick="switchTab('tab-funders', this)" class="tab-btn w-full text-left px-6 py-4 rounded font-heading font-bold text-lg transition-all bg-theme-light text-theme-dark hover:bg-gray-100 flex justify-between items-center group">
-              For Funders
-              <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-
-            <button onclick="switchTab('tab-syndicators', this)" class="tab-btn w-full text-left px-6 py-4 rounded font-heading font-bold text-lg transition-all bg-theme-light text-theme-dark hover:bg-gray-100 flex justify-between items-center group">
-              For Syndicators
-              <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-
-            <button onclick="switchTab('tab-merchants', this)" class="tab-btn w-full text-left px-6 py-4 rounded font-heading font-bold text-lg transition-all bg-theme-light text-theme-dark hover:bg-gray-100 flex justify-between items-center group">
-              For Merchants
-              <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            </button>
-
+        <div class="relative reveal">
+          <img src="./images/financial report.png" alt="Infrastructure" class="w-full rounded object-cover shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'">
+          
+          <div class="absolute -bottom-8 -right-8 bg-theme-primary text-white p-8 shadow-corporate-badge max-w-xs hidden sm:block">
+            <h4 class="text-4xl font-heading font-extrabold mb-2">500+</h4>
+            <p class="font-sans font-semibold text-lg leading-snug">Active Funders Worldwide</p>
           </div>
         </div>
 
-        <div class="w-full lg:w-2/3 reveal delay-100 mt-6 lg:mt-0">
+        <div class="reveal delay-100 mt-12 lg:mt-0">
+          <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-lg mb-4">
+            <span class="w-10 h-0.5 bg-theme-primary"></span>
+            About Us
+          </div>
+          <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-theme-dark mb-6 leading-tight">
+            Simplify Complex Processes For Business Growth
+          </h2>
+          <p class="text-lg text-theme-text mb-8 leading-relaxed">
+            AI My Advance replaces fragmented spreadsheets with a single source of truth for your entire portfolio. Built for institutions that demand precision, speed, and reliability.
+          </p>
+
+          <div class="space-y-6 mb-10">
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold font-heading text-theme-dark mb-2">Automated Syndication</h4>
+                <p class="text-theme-text">Split deals instantly. Manage participants, calculate management fees, and distribute remittances automatically.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold font-heading text-theme-dark mb-2">Real-Time Collections</h4>
+                <p class="text-theme-text">Direct integration with ACH processors. Track missed payments and trigger automated cure notices instantly.</p>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-4 font-sans font-semibold hover:bg-blue-700 transition">
+            Learn More
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="platform" class="py-24 bg-theme-light border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <div class="inline-flex items-center justify-center gap-2 text-theme-primary font-heading font-semibold text-lg mb-4">
+          <span class="w-10 h-0.5 bg-theme-primary"></span>
+          Our Platform
+          <span class="w-10 h-0.5 bg-theme-primary"></span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-theme-dark mb-6 leading-tight">
+          Built For The Entire Ecosystem
+        </h2>
+        <p class="text-lg text-theme-text leading-relaxed">
+          AI My Advance replaces fragmented spreadsheets with a single source of truth. Select your role to see how we accelerate your specific workflow.
+        </p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+        
+        <div class="w-full lg:w-1/3 reveal flex flex-col gap-3">
           
-          <div id="tab-iso" class="tab-content active grid-cols-1 sm:grid-cols-2 gap-8">
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Automated Lead Intake</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Capture deals instantly</p>
-                <p class="text-theme-text text-sm">Eliminate manual data entry. Capture documents and applications instantly from merchants.</p>
-              </div>
+          <button onclick="switchTab('tab-iso', this)" class="tab-btn w-full text-left px-6 py-4 rounded font-heading font-bold text-lg transition-all bg-theme-primary text-white shadow-corporate-badge flex justify-between items-center group">
+            For ISOs
+            <svg class="w-5 h-5 tab-arrow transition-opacity opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+          <button onclick="switchTab('tab-funders', this)" class="tab-btn w-full text-left px-6 py-4 rounded font-heading font-bold text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
+            For Funders
+            <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+          <button onclick="switchTab('tab-syndicators', this)" class="tab-btn w-full text-left px-6 py-4 rounded font-heading font-bold text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
+            For Syndicators
+            <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+          <button onclick="switchTab('tab-merchants', this)" class="tab-btn w-full text-left px-6 py-4 rounded font-heading font-bold text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
+            For Merchants
+            <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+        </div>
+
+        <div class="w-full lg:w-2/3 reveal delay-100">
+          
+          <div id="tab-iso" class="tab-content active">
+            <div class="mb-8 rounded-xl overflow-hidden shadow-corporate-card border border-gray-200">
+              <img src="./images/Screenshot 2026-01-30 132835.png" alt="ISO Dashboard" class="w-full h-auto object-cover max-h-[350px] object-top" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80'">
             </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Smart Matching</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Route to the right funders</p>
-                <p class="text-theme-text text-sm">Intelligently route qualified leads to the specific funders most likely to approve them.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Automated Lead Intake</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Capture deals instantly</p>
+                  <p class="text-theme-text text-sm">Eliminate manual data entry. Capture documents and applications instantly from merchants.</p>
+                </div>
               </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Commission Tracking</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Track exact earnings</p>
-                <p class="text-theme-text text-sm">Monitor your deal commissions and syndication residuals in real-time, all in one place.</p>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Smart Matching</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Route to the right funders</p>
+                  <p class="text-theme-text text-sm">Intelligently route qualified leads to the specific funders most likely to approve them.</p>
+                </div>
               </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Real-Time Updates</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Live status from funders</p>
-                <p class="text-theme-text text-sm">Stop chasing emails. View live status updates directly from underwriters and lenders.</p>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Commission Tracking</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Track exact earnings</p>
+                  <p class="text-theme-text text-sm">Monitor your deal commissions and syndication residuals in real-time, all in one place.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Real-Time Updates</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Live status from funders</p>
+                  <p class="text-theme-text text-sm">Stop chasing emails. View live status updates directly from underwriters and lenders.</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div id="tab-funders" class="tab-content grid-cols-1 sm:grid-cols-2 gap-8">
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Custom Formulas</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Build specific fee formulas</p>
-                <p class="text-theme-text text-sm">Build your own fee formulas with tier configurations that match your complex business logic.</p>
-              </div>
+          <div id="tab-funders" class="tab-content">
+            <div class="mb-8 rounded-xl overflow-hidden shadow-corporate-card border border-gray-200">
+              <img src="./images/financial report.png" alt="Funder Dashboard" class="w-full h-auto object-cover max-h-[350px] object-top" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80'">
             </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Real-Time Collections</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">ACH integrations & triggers</p>
-                <p class="text-theme-text text-sm">Direct integration with ACH processors. Track missed payments and trigger automated cure notices.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Custom Formulas</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Build specific fee formulas</p>
+                  <p class="text-theme-text text-sm">Build your own fee formulas with tier configurations that match your complex business logic.</p>
+                </div>
               </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Performance Tracking</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Monitor merchant health</p>
-                <p class="text-theme-text text-sm">Visualize payment trends, flag at-risk accounts, and get early default alerts.</p>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Real-Time Collections</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">ACH integrations & triggers</p>
+                  <p class="text-theme-text text-sm">Direct integration with ACH processors. Track missed payments and trigger automated cure notices.</p>
+                </div>
               </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Automated Syndication</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Manage participants</p>
-                <p class="text-theme-text text-sm">Split deals instantly, calculate management fees, and distribute remittances automatically.</p>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Performance Tracking</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Monitor merchant health</p>
+                  <p class="text-theme-text text-sm">Visualize payment trends, flag at-risk accounts, and get early default alerts.</p>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div id="tab-syndicators" class="tab-content grid-cols-1 sm:grid-cols-2 gap-8">
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Digital Wallet</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Set up in minutes</p>
-                <p class="text-theme-text text-sm">Set up your digital wallet rapidly and start managing multi-deal paybacks with ease.</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Auto Syndication</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Distribute payments</p>
-                <p class="text-theme-text text-sm">Seamlessly receive and distribute syndication payments without manual ledger entries.</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Deal Management</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Optimize from the start</p>
-                <p class="text-theme-text text-sm">Review funding history and participation splits directly within the Syndicator Portal.</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Transparent ROI</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Track actual returns</p>
-                <p class="text-theme-text text-sm">Visualize total principal deployed versus daily collections to track your specific portfolio health.</p>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Automated Syndication</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Manage participants</p>
+                  <p class="text-theme-text text-sm">Split deals instantly, calculate management fees, and distribute remittances automatically.</p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div id="tab-merchants" class="tab-content grid-cols-1 sm:grid-cols-2 gap-8">
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Financial Tracking</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Track status & balances</p>
-                <p class="text-theme-text text-sm">Allow merchants full transparency into their current balance and payoff amounts.</p>
+          <div id="tab-syndicators" class="tab-content">
+            <div class="mb-8 rounded-xl overflow-hidden shadow-corporate-card border border-gray-200">
+              <img src="./images/localhost_3000_application-offer (1).png" alt="Syndicator Dashboard" class="w-full h-auto object-cover max-h-[350px] object-top" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80'">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Digital Wallet</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Set up in minutes</p>
+                  <p class="text-theme-text text-sm">Set up your digital wallet rapidly and start managing multi-deal paybacks with ease.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Auto Syndication</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Distribute payments</p>
+                  <p class="text-theme-text text-sm">Seamlessly receive and distribute syndication payments without manual ledger entries.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Deal Management</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Optimize from the start</p>
+                  <p class="text-theme-text text-sm">Review funding history and participation splits directly within the Syndicator Portal.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Transparent ROI</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Track actual returns</p>
+                  <p class="text-theme-text text-sm">Visualize total principal deployed versus daily collections to track your specific portfolio health.</p>
+                </div>
               </div>
             </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Payment Schedules</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">View upcoming remittances</p>
-                <p class="text-theme-text text-sm">Merchants can view historical payments and future scheduled drafts directly on their dashboard.</p>
-              </div>
+          </div>
+
+          <div id="tab-merchants" class="tab-content">
+            <div class="mb-8 rounded-xl overflow-hidden shadow-corporate-card border border-gray-200">
+              <img src="./images/performance.png" alt="Merchant Dashboard" class="w-full h-auto object-cover max-h-[350px] object-top" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'">
             </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Document Uploads</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Securely upload stips</p>
-                <p class="text-theme-text text-sm">Provide a secure upload portal for bank statements, IDs, and other underwriting stipulations.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Financial Tracking</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Track status & balances</p>
+                  <p class="text-theme-text text-sm">Allow merchants full transparency into their current balance and payoff amounts.</p>
+                </div>
               </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
-              <div>
-                <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Clear Communication</h4>
-                <p class="text-sm font-semibold text-theme-primary mb-2">Direct channel to lenders</p>
-                <p class="text-theme-text text-sm">A centralized inbox to communicate directly with funders without losing history.</p>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Payment Schedules</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">View upcoming remittances</p>
+                  <p class="text-theme-text text-sm">Merchants can view historical payments and future scheduled drafts directly on their dashboard.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Document Uploads</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Securely upload stips</p>
+                  <p class="text-theme-text text-sm">Provide a secure upload portal for bank statements, IDs, and other underwriting stipulations.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
+                <div>
+                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-lg">Clear Communication</h4>
+                  <p class="text-sm font-semibold text-theme-primary mb-2">Direct channel to lenders</p>
+                  <p class="text-theme-text text-sm">A centralized inbox to communicate directly with funders without losing history.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -437,39 +514,41 @@
     </div>
   </section>
 
-  <section id="integrations" class="py-20 bg-theme-light border-y border-gray-200">
+  <section id="integrations" class="py-20 bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
       <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-lg mb-4">
         <span class="w-10 h-0.5 bg-theme-primary"></span>
         Partners
+        <span class="w-10 h-0.5 bg-theme-primary"></span>
       </div>
       <h2 class="text-4xl font-heading font-extrabold text-theme-dark mb-12">Powering Industry Leaders</h2>
       
       <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-70 hover:opacity-100 transition duration-500">
-        <img loading="lazy" src="https://www.actumprocessing.com/wp-content/uploads/2019/01/actum-logo-dark.png" alt="Actum" class="h-10 object-contain hover:scale-105 transition-all">
-        <img loading="lazy" src="https://ww3.achworks.com/wp-content/uploads/2022/03/ACH_PoweredByLogo_concept3B_APPROVED-01-300x79.png" alt="ACH" class="h-10 object-contain hover:scale-105 transition-all">
-        <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Experian_logo.svg/1280px-Experian_logo.svg.png" alt="Experian" class="h-8 object-contain hover:scale-105 transition-all">
-        <img loading="lazy" src="https://quote2fund.com/wp-content/uploads/2023/03/datamerchlogo.jpg" alt="DataMerch" class="h-10 object-contain hover:scale-105 transition-all">
-        <img loading="lazy" src="https://wicket.io/app/uploads/2025/07/Intuit_QuickBooks_logo.svg.png" alt="QuickBooks" class="h-8 object-contain hover:scale-105 transition-all">
-        <img loading="lazy" src="https://prometheustechs.com/wp-content/uploads/2025/09/google-workspace-logo.png" alt="Google Workspace" class="h-8 object-contain hover:scale-105 transition-all">
-        <img loading="lazy" src="https://www.lawyer-monthly.com/wp-content/uploads/2024/11/1200px-Thomson_Reuters_logo_2020-1024x311.jpg" alt="Thomson Reuters" class="h-8 object-contain hover:scale-105 transition-all">
+        <img loading="lazy" src="https://www.actumprocessing.com/wp-content/uploads/2019/01/actum-logo-dark.png" alt="Actum" class="h-10 object-contain hover:scale-105 transition-all" onerror="this.style.display='none'">
+        <img loading="lazy" src="https://ww3.achworks.com/wp-content/uploads/2022/03/ACH_PoweredByLogo_concept3B_APPROVED-01-300x79.png" alt="ACH" class="h-10 object-contain hover:scale-105 transition-all" onerror="this.style.display='none'">
+        <img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Experian_logo.svg/1280px-Experian_logo.svg.png" alt="Experian" class="h-8 object-contain hover:scale-105 transition-all" onerror="this.style.display='none'">
+        <img loading="lazy" src="https://quote2fund.com/wp-content/uploads/2023/03/datamerchlogo.jpg" alt="DataMerch" class="h-10 object-contain hover:scale-105 transition-all" onerror="this.style.display='none'">
+        <img loading="lazy" src="https://wicket.io/app/uploads/2025/07/Intuit_QuickBooks_logo.svg.png" alt="QuickBooks" class="h-8 object-contain hover:scale-105 transition-all" onerror="this.style.display='none'">
+        <img loading="lazy" src="https://prometheustechs.com/wp-content/uploads/2025/09/google-workspace-logo.png" alt="Google Workspace" class="h-8 object-contain hover:scale-105 transition-all" onerror="this.style.display='none'">
+        <img loading="lazy" src="https://www.lawyer-monthly.com/wp-content/uploads/2024/11/1200px-Thomson_Reuters_logo_2020-1024x311.jpg" alt="Thomson Reuters" class="h-8 object-contain hover:scale-105 transition-all" onerror="this.style.display='none'">
       </div>
     </div>
   </section>
 
-  <section id="pricing" class="py-24 bg-white">
+  <section id="pricing" class="py-24 bg-theme-light">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
       
       <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-lg mb-4">
         <span class="w-10 h-0.5 bg-theme-primary"></span>
-        Pricing
+        Pricing Model
+        <span class="w-10 h-0.5 bg-theme-primary"></span>
       </div>
       <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-theme-dark mb-12">You Stop Paying, And Start Earning.</h2>
 
       <div class="bg-white p-10 md:p-14 text-center shadow-corporate-card border border-gray-100 reveal delay-100 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-2 bg-theme-primary"></div>
 
-        <div class="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4 bg-theme-light px-6 py-3 mb-4 rounded-full">
+        <div class="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4 bg-theme-light px-6 py-3 mb-4 rounded-full border border-gray-200">
           <span class="text-theme-dark font-heading font-bold text-lg">Merchants pay $34.99/mo</span>
           <span class="hidden md:block text-gray-300">|</span>
           <span class="text-theme-primary font-bold">$10 goes to funder/mo</span>
@@ -483,7 +562,7 @@
             <div class="text-sm text-red-500 font-semibold">instead of paying $50k</div>
           </div>
           
-          <div class="p-8 bg-theme-primary text-white hover:bg-blue-700 transition">
+          <div class="p-8 bg-theme-primary text-white shadow-lg">
             <div class="text-sm font-bold uppercase tracking-widest text-blue-200 mb-2">Total Impact</div>
             <div class="text-4xl font-heading font-extrabold text-white mb-2">$60k – $120k</div>
             <div class="text-sm font-semibold">back in your pocket</div>
@@ -600,7 +679,7 @@
       // Reset all buttons
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.classList.remove('bg-theme-primary', 'text-white', 'shadow-corporate-badge');
-        btn.classList.add('bg-theme-light', 'text-theme-dark', 'hover:bg-gray-100');
+        btn.classList.add('bg-white', 'text-theme-dark', 'hover:bg-gray-100', 'shadow-sm', 'border', 'border-gray-100');
         btn.querySelector('.tab-arrow').classList.remove('opacity-100');
         btn.querySelector('.tab-arrow').classList.add('opacity-0');
       });
@@ -609,7 +688,7 @@
       document.getElementById(tabId).classList.add('active');
       
       // Highlight selected button
-      btnElement.classList.remove('bg-theme-light', 'text-theme-dark', 'hover:bg-gray-100');
+      btnElement.classList.remove('bg-white', 'text-theme-dark', 'hover:bg-gray-100', 'shadow-sm', 'border', 'border-gray-100');
       btnElement.classList.add('bg-theme-primary', 'text-white', 'shadow-corporate-badge');
       btnElement.querySelector('.tab-arrow').classList.remove('opacity-0');
       btnElement.querySelector('.tab-arrow').classList.add('opacity-100');
