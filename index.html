@@ -26,7 +26,7 @@
               primary: '#0e59f2',    /* Corporate Blue */
               dark: '#06132d',       /* Deep Navy / Dark Background */
               text: '#6b7280',       /* Body text gray */
-              light: '#f5f8ff',      /* Light blue/gray section background */
+              light: '#f5f8ff',      /* Light blue/gray section bg */
               border: '#e5e7eb'
             }
           },
@@ -44,14 +44,6 @@
   <style>
     body { -webkit-font-smoothing: antialiased; }
     
-    /* Hero Image Overlay Background - Corporate Style */
-    .hero-bg {
-      background-image: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: scroll;
-    }
-
     /* Scroll Animations */
     .reveal {
       opacity: 0;
@@ -71,7 +63,7 @@
       animation: fadeIn 0.5s ease-in-out;
     }
     .tab-content.active {
-      display: block; /* Changed to block so image and grid stack nicely */
+      display: block; 
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -167,7 +159,15 @@
     </div>
   </div>
 
-  <section class="hero-bg pt-28 pb-48 lg:pt-40 lg:pb-64 relative">
+  <section class="relative pt-28 pb-48 lg:pt-40 lg:pb-64 overflow-hidden">
+    
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+      <source src="./images/videobg.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    
+    <div class="absolute inset-0 z-0" style="background: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85));"></div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="max-w-3xl reveal">
         <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-lg mb-6">
@@ -185,8 +185,8 @@
           <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-4 font-sans font-semibold hover:bg-blue-700 transition">
             Learn More
           </button>
-          <a href="#platform" class="flex items-center gap-3 text-white font-sans font-semibold hover:text-theme-primary transition group">
-            Our Platform 
+          <a href="#services" class="flex items-center gap-3 text-white font-sans font-semibold hover:text-theme-primary transition group">
+            Our Services 
             <span class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-theme-primary transition">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </span>
@@ -196,7 +196,7 @@
     </div>
   </section>
 
-  <section class="relative z-20 -mt-24 lg:-mt-32 pb-24">
+  <section id="services" class="relative z-20 -mt-24 lg:-mt-32 pb-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
