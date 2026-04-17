@@ -44,14 +44,6 @@
   <style>
     body { -webkit-font-smoothing: antialiased; }
     
-    /* Hero Image Overlay Background */
-    .hero-bg {
-      background-image: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-      background-size: cover;
-      background-position: center;
-      background-attachment: scroll;
-    }
-
     /* Scroll Animations */
     .reveal {
       opacity: 0;
@@ -665,6 +657,21 @@
     </div>
   </div>
 
+  <div id="gif-agent-widget" class="hidden md:block fixed bottom-0 right-4 lg:right-10 z-[100] w-40 lg:w-48 cursor-pointer transform origin-bottom hover:scale-105 transition-transform duration-300 drop-shadow-2xl">
+    
+    <button onclick="document.getElementById('gif-agent-widget').style.display='none'" class="absolute top-0 right-0 bg-white text-gray-500 hover:text-red-500 rounded-full w-6 h-6 flex items-center justify-center text-sm shadow-md z-10 translate-x-2 -translate-y-2">
+      &times;
+    </button>
+
+    <img src="./images/agent.gif" alt="Customer Support" class="w-full h-auto drop-shadow-xl" onclick="openModal()">
+    
+    <div class="absolute top-10 -left-12 bg-white text-theme-dark text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap animate-bounce" onclick="openModal()">
+      Need help? 👋
+      <div class="absolute top-1/2 -right-1 w-2 h-2 bg-white transform rotate-45 -translate-y-1/2"></div>
+    </div>
+
+  </div>
+
   <script>
     // Reveal Animation
     const revealElements = document.querySelectorAll('.reveal');
@@ -758,21 +765,5 @@
       if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
     });
   </script>
-
-
-  <div id="gif-agent-widget" class="fixed bottom-6 right-6 z-[100] w-32 md:w-40 cursor-pointer transform hover:scale-105 transition-transform duration-300 drop-shadow-2xl">
-    
-    <button onclick="document.getElementById('gif-agent-widget').style.display='none'" class="absolute -top-2 -right-2 bg-white text-gray-500 hover:text-red-500 rounded-full w-6 h-6 flex items-center justify-center text-sm shadow-md z-10">
-      &times;
-    </button>
-
-    <img src="./images/agent.gif" alt="Customer Support" class="w-full h-auto drop-shadow-xl" onclick="openModal()">
-    
-    <div class="absolute -top-8 right-8 bg-white text-theme-dark text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap animate-bounce" onclick="openModal()">
-      Need help? 👋
-      <div class="absolute bottom-[-4px] right-4 w-2 h-2 bg-white transform rotate-45"></div>
-    </div>
-
-  </div>
 </body>
 </html>
