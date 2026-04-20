@@ -65,6 +65,14 @@
     .tab-content.active {
       display: block; 
     }
+    
+    /* Floating Animation for Hero Cards */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -169,29 +177,82 @@
     <div class="absolute inset-0 z-0" style="background: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85));"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="max-w-3xl reveal">
-        <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-base sm:text-lg mb-4 sm:mb-6">
-          <span class="w-8 sm:w-10 h-0.5 bg-theme-primary"></span>
-          Enterprise Risk Management
-        </div>
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight mb-6 sm:mb-8">
-          Predictive Intelligence <br class="hidden sm:block"/>For Smarter Lending
-        </h1>
-        <p class="text-base sm:text-lg text-gray-300 mb-8 sm:mb-10 leading-relaxed font-sans max-w-2xl">
-          The intelligent operating system for funders, syndicators, ISOs, and merchants. Automate underwriting, track repayments, and predict defaults with institutional precision.
-        </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         
-        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-          <button onclick="openModal()" class="w-full sm:w-auto text-center bg-theme-primary text-white px-8 py-4 font-sans font-semibold hover:bg-blue-700 transition">
-            Learn More
-          </button>
-          <a href="#services" class="w-full sm:w-auto flex items-center justify-center sm:justify-start gap-3 text-white font-sans font-semibold hover:text-theme-primary transition group py-2">
-            Our Services 
-            <span class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-theme-primary transition">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-            </span>
-          </a>
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-base sm:text-lg mb-4 sm:mb-6">
+            <span class="w-8 sm:w-10 h-0.5 bg-theme-primary"></span>
+            Enterprise Risk Management
+          </div>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight mb-6 sm:mb-8">
+            Predictive Intelligence <br class="hidden sm:block"/>For Smarter Lending
+          </h1>
+          <p class="text-base sm:text-lg text-gray-300 mb-8 sm:mb-10 leading-relaxed font-sans max-w-xl">
+            The intelligent operating system for funders, syndicators, ISOs, and merchants. Automate underwriting, track repayments, and predict defaults with institutional precision.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+            <button onclick="openModal()" class="w-full sm:w-auto text-center bg-theme-primary text-white px-8 py-4 font-sans font-semibold hover:bg-blue-700 transition">
+              Learn More
+            </button>
+            <a href="#services" class="w-full sm:w-auto flex items-center justify-center sm:justify-start gap-3 text-white font-sans font-semibold hover:text-theme-primary transition group py-2">
+              Our Services 
+              <span class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-theme-primary transition">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </span>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 mt-12 lg:hidden border-t border-gray-700 pt-8">
+            <div class="text-center">
+              <div class="text-xl sm:text-2xl font-heading font-bold text-white mb-1">99.9%</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wide">Uptime</div>
+            </div>
+            <div class="text-center border-l border-gray-700">
+              <div class="text-xl sm:text-2xl font-heading font-bold text-white mb-1">&lt; 60s</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wide">Decisions</div>
+            </div>
+            <div class="text-center border-l border-gray-700">
+              <div class="text-xl sm:text-2xl font-heading font-bold text-white mb-1">$250M+</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wide">Tracked</div>
+            </div>
+          </div>
         </div>
+
+        <div class="hidden lg:block relative h-[450px] w-full reveal delay-200">
+          
+          <div class="absolute top-4 right-8 bg-white p-6 shadow-2xl rounded-lg border-l-4 border-theme-primary w-64 animate-[float_6s_ease-in-out_infinite]">
+            <div class="flex items-center gap-4 mb-2">
+              <div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <span class="font-heading font-extrabold text-4xl text-theme-dark">99.9%</span>
+            </div>
+            <p class="text-sm font-semibold text-theme-text uppercase tracking-wider mt-2">System Uptime</p>
+          </div>
+          
+          <div class="absolute top-40 left-0 bg-theme-dark p-6 shadow-2xl rounded-lg border-l-4 border-theme-primary w-72 animate-[float_8s_ease-in-out_infinite_reverse] z-10 border border-gray-800">
+            <div class="flex items-center gap-4 mb-2">
+              <div class="w-12 h-12 rounded-full bg-blue-900/50 flex items-center justify-center text-theme-primary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <span class="font-heading font-extrabold text-4xl text-white">&lt; 60s</span>
+            </div>
+            <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider mt-2">Avg. Underwriting Time</p>
+          </div>
+
+          <div class="absolute bottom-4 right-0 bg-white p-6 shadow-2xl rounded-lg border-l-4 border-theme-primary w-64 animate-[float_7s_ease-in-out_infinite_1s]">
+            <div class="flex items-center gap-4 mb-2">
+              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <span class="font-heading font-extrabold text-4xl text-theme-dark">$250M+</span>
+            </div>
+            <p class="text-sm font-semibold text-theme-text uppercase tracking-wider mt-2">Principal Tracked</p>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
@@ -657,7 +718,7 @@
     </div>
   </div>
 
-  <div id="gif-agent-widget" class="hidden md:block fixed bottom-0 right-4 lg:right-10 z-[100] w-40 lg:w-48 cursor-pointer transform origin-bottom hover:scale-105 transition-transform duration-300 drop-shadow-2xl">
+  <div id="gif-agent-widget" class="hidden lg:block fixed bottom-0 right-4 lg:right-10 z-[100] w-40 lg:w-48 cursor-pointer transform origin-bottom hover:scale-105 transition-transform duration-300 drop-shadow-2xl">
     
     <button onclick="document.getElementById('gif-agent-widget').style.display='none'" class="absolute top-0 right-0 bg-white text-gray-500 hover:text-red-500 rounded-full w-6 h-6 flex items-center justify-center text-sm shadow-md z-10 translate-x-2 -translate-y-2">
       &times;
