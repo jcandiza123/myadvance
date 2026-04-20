@@ -66,10 +66,10 @@
       display: block; 
     }
     
-    /* Floating Animation for Hero Cards */
+    /* Floating Animation for Hybrid Trust Cards */
     @keyframes float {
       0% { transform: translateY(0px); }
-      50% { transform: translateY(-15px); }
+      50% { transform: translateY(-12px); }
       100% { transform: translateY(0px); }
     }
     
@@ -167,7 +167,7 @@
     </div>
   </div>
 
-  <section class="relative pt-20 pb-32 md:pt-32 md:pb-48 lg:pt-40 lg:pb-64 overflow-hidden">
+  <section class="relative pt-20 pb-32 md:pt-28 md:pb-40 lg:pt-36 lg:pb-56 overflow-hidden">
     
     <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
       <source src="./images/videobg.mp4" type="video/mp4">
@@ -184,7 +184,7 @@
             <span class="w-8 sm:w-10 h-0.5 bg-theme-primary"></span>
             Enterprise Risk Management
           </div>
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight mb-6 sm:mb-8">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-white leading-tight mb-6 sm:mb-8">
             Predictive Intelligence <br class="hidden sm:block"/>For Smarter Lending
           </h1>
           <p class="text-base sm:text-lg text-gray-300 mb-8 sm:mb-10 leading-relaxed font-sans max-w-xl">
@@ -193,10 +193,10 @@
           
           <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
             <button onclick="openModal()" class="w-full sm:w-auto text-center bg-theme-primary text-white px-8 py-4 font-sans font-semibold hover:bg-blue-700 transition">
-              Learn More
+              Book a Demo
             </button>
             <a href="#services" class="w-full sm:w-auto flex items-center justify-center sm:justify-start gap-3 text-white font-sans font-semibold hover:text-theme-primary transition group py-2">
-              Our Services 
+              Explore Platform 
               <span class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-theme-primary transition">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
               </span>
@@ -205,50 +205,66 @@
 
           <div class="grid grid-cols-3 gap-4 mt-12 lg:hidden border-t border-gray-700 pt-8">
             <div class="text-center">
-              <div class="text-xl sm:text-2xl font-heading font-bold text-white mb-1">99.9%</div>
+              <div class="text-xl font-heading font-bold text-white mb-1">99.9%</div>
               <div class="text-xs text-gray-400 uppercase tracking-wide">Uptime</div>
             </div>
             <div class="text-center border-l border-gray-700">
-              <div class="text-xl sm:text-2xl font-heading font-bold text-white mb-1">&lt; 60s</div>
+              <div class="text-xl font-heading font-bold text-white mb-1">&lt; 60s</div>
               <div class="text-xs text-gray-400 uppercase tracking-wide">Decisions</div>
             </div>
             <div class="text-center border-l border-gray-700">
-              <div class="text-xl sm:text-2xl font-heading font-bold text-white mb-1">$250M+</div>
+              <div class="text-xl font-heading font-bold text-white mb-1">$250M+</div>
               <div class="text-xs text-gray-400 uppercase tracking-wide">Tracked</div>
             </div>
           </div>
         </div>
 
-        <div class="hidden lg:block relative h-[450px] w-full reveal delay-200">
+        <div class="relative w-full reveal delay-200 mt-8 lg:mt-0 flex justify-center lg:justify-end">
           
-          <div class="absolute top-4 right-8 bg-white p-6 shadow-2xl rounded-lg border-l-4 border-theme-primary w-64 animate-[float_6s_ease-in-out_infinite]">
-            <div class="flex items-center gap-4 mb-2">
-              <div class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center text-green-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+          <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl relative z-20 w-full max-w-md border-t-4 border-theme-primary">
+            <h3 class="text-2xl font-heading font-bold text-theme-dark mb-2">Get Portal Access</h3>
+            <p class="text-sm text-theme-text mb-6">See how much you could save and earn.</p>
+            
+            <form action="contact.html" class="space-y-4">
+              <div>
+                <input type="text" placeholder="Full Name" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
               </div>
-              <span class="font-heading font-extrabold text-4xl text-theme-dark">99.9%</span>
-            </div>
-            <p class="text-sm font-semibold text-theme-text uppercase tracking-wider mt-2">System Uptime</p>
-          </div>
-          
-          <div class="absolute top-40 left-0 bg-theme-dark p-6 shadow-2xl rounded-lg border-l-4 border-theme-primary w-72 animate-[float_8s_ease-in-out_infinite_reverse] z-10 border border-gray-800">
-            <div class="flex items-center gap-4 mb-2">
-              <div class="w-12 h-12 rounded-full bg-blue-900/50 flex items-center justify-center text-theme-primary">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div>
+                <input type="email" placeholder="Work Email" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
               </div>
-              <span class="font-heading font-extrabold text-4xl text-white">&lt; 60s</span>
-            </div>
-            <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider mt-2">Avg. Underwriting Time</p>
+              <div>
+                <select required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-gray-500 font-sans text-sm appearance-none">
+                  <option value="" disabled selected>Select your portal...</option>
+                  <option value="iso">ISO Portal</option>
+                  <option value="funder">Funder Portal</option>
+                  <option value="syndicator">Syndicator Portal</option>
+                  <option value="merchant">Merchant Portal</option>
+                </select>
+              </div>
+              <button type="submit" class="w-full bg-theme-dark text-white font-sans font-bold py-3.5 rounded hover:bg-theme-primary transition mt-2">
+                Request Access
+              </button>
+            </form>
           </div>
 
-          <div class="absolute bottom-4 right-0 bg-white p-6 shadow-2xl rounded-lg border-l-4 border-theme-primary w-64 animate-[float_7s_ease-in-out_infinite_1s]">
-            <div class="flex items-center gap-4 mb-2">
-              <div class="w-12 h-12 rounded-full bg-theme-light flex items-center justify-center text-theme-primary">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              </div>
-              <span class="font-heading font-extrabold text-4xl text-theme-dark">$250M+</span>
+          <div class="hidden lg:flex absolute -top-8 -left-10 bg-theme-dark p-4 shadow-2xl rounded-lg border-l-4 border-theme-primary animate-[float_8s_ease-in-out_infinite_reverse] z-30 border border-gray-800 items-center gap-4 w-56">
+            <div class="w-10 h-10 rounded-full bg-blue-900/50 flex items-center justify-center text-theme-primary flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
-            <p class="text-sm font-semibold text-theme-text uppercase tracking-wider mt-2">Principal Tracked</p>
+            <div>
+              <div class="font-heading font-extrabold text-xl text-white">&lt; 60s</div>
+              <div class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Underwriting</div>
+            </div>
+          </div>
+
+          <div class="hidden lg:flex absolute -bottom-10 -right-6 bg-white p-4 shadow-2xl rounded-lg border-l-4 border-theme-primary animate-[float_6s_ease-in-out_infinite] z-30 items-center gap-4 w-56">
+            <div class="w-10 h-10 rounded-full bg-theme-light flex items-center justify-center text-theme-primary flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <div>
+              <div class="font-heading font-extrabold text-xl text-theme-dark">$250M+</div>
+              <div class="text-[10px] font-semibold text-theme-text uppercase tracking-wider">Tracked</div>
+            </div>
           </div>
 
         </div>
