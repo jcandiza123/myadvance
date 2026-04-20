@@ -193,7 +193,7 @@
     <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute left-0 top-full w-full shadow-2xl z-50 pb-6">
       <div class="px-4 py-6 space-y-4 font-sans font-semibold text-theme-dark">
         <a href="#about" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">About Us</a>
-        <a href="how-it-works.html" class="block hover:text-theme-primary text-lg">How It Works</a>
+        <a href="how-it-works.html" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">How It Works</a>
         <a href="#platform" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Platform</a>
         <a href="#integrations" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Integrations</a>
         <a href="#pricing" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Pricing</a>
@@ -686,7 +686,8 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 lg:mb-16 border-b border-gray-800 pb-12 lg:pb-16">
         
         <div>
-          <a href="index.html" class="block mb-6">
+          <a href="index.html" class="flex items-center gap-2 sm:gap-3 mb-6">
+            <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-8 md:h-10 w-auto object-cover rounded" onerror="this.style.display='none'">
             <span class="font-heading text-2xl lg:text-3xl text-white">MyAdvance</span>
           </a>
           <p class="mb-6 leading-relaxed text-sm lg:text-base font-sans">
@@ -702,6 +703,7 @@
           <h4 class="text-white font-heading text-lg lg:text-xl mb-6">Useful Links</h4>
           <ul class="space-y-4 text-sm lg:text-base font-sans">
             <li><a href="#platform" class="hover:text-theme-primary transition">Platform</a></li>
+            <li><a href="#integrations" class="hover:text-theme-primary transition">Integrations</a></li>
             <li><a href="how-it-works.html" class="hover:text-theme-primary transition">How It Works</a></li>
             <li><a href="#pricing" class="hover:text-theme-primary transition">Pricing</a></li>
             <li><a href="contact.html" class="hover:text-theme-primary transition">Contact Us</a></li>
