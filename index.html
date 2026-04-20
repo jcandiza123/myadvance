@@ -19,7 +19,6 @@
         extend: {
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'sans-serif'],
-            // Updated to use your new custom font
             heading: ['"Airlash Raiders"', 'sans-serif'], 
           },
           colors: {
@@ -46,11 +45,15 @@
     /* LOAD YOUR CUSTOM FONT HERE */
     @font-face {
       font-family: 'Airlash Raiders';
-      /* UPDATE THE FILENAME AND EXTENSION (.ttf, .otf, .woff2) TO MATCH YOUR EXACT FILE */
-      src: url('./fonts/Airlash Raiders.ttf'); 
+      src: url('./fonts/AirlashRaiders.ttf'); /* Make sure this matches your exact filename */
       font-weight: normal;
       font-style: normal;
       font-display: swap;
+    }
+
+    /* ADDS BREATHING ROOM TO YOUR CUSTOM FONT */
+    .font-heading {
+      letter-spacing: 0.04em;
     }
 
     body { -webkit-font-smoothing: antialiased; }
@@ -123,7 +126,7 @@
         
         <a href="index.html" class="flex items-center gap-2 sm:gap-3">
           <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-8 md:h-10 w-auto object-cover rounded" onerror="this.style.display='none'">
-          <span class="font-heading text-xl md:text-2xl tracking-tight text-theme-dark">MyAdvance</span>
+          <span class="font-heading text-xl md:text-2xl text-theme-dark">MyAdvance</span>
         </a>
 
         <div class="hidden lg:flex space-x-8 items-center font-sans font-semibold text-theme-dark">
@@ -217,15 +220,15 @@
           <div class="grid grid-cols-3 gap-4 mt-12 lg:hidden border-t border-gray-700 pt-8">
             <div class="text-center">
               <div class="text-xl font-heading text-white mb-1">99.9%</div>
-              <div class="text-xs text-gray-400 uppercase tracking-wide">Uptime</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wide font-sans">Uptime</div>
             </div>
             <div class="text-center border-l border-gray-700">
               <div class="text-xl font-heading text-white mb-1">&lt; 60s</div>
-              <div class="text-xs text-gray-400 uppercase tracking-wide">Decisions</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wide font-sans">Decisions</div>
             </div>
             <div class="text-center border-l border-gray-700">
               <div class="text-xl font-heading text-white mb-1">$250M+</div>
-              <div class="text-xs text-gray-400 uppercase tracking-wide">Tracked</div>
+              <div class="text-xs text-gray-400 uppercase tracking-wide font-sans">Tracked</div>
             </div>
           </div>
         </div>
@@ -234,7 +237,7 @@
           
           <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl relative z-20 w-full max-w-md border-t-4 border-theme-primary">
             <h3 class="text-2xl font-heading text-theme-dark mb-2">Get Portal Access</h3>
-            <p class="text-sm text-theme-text mb-6">See how much you could save and earn.</p>
+            <p class="text-sm text-theme-text mb-6 font-sans">See how much you could save and earn.</p>
             
             <form action="contact.html" class="space-y-4">
               <div>
@@ -264,7 +267,7 @@
             </div>
             <div>
               <div class="font-heading text-xl text-white">&lt; 60s</div>
-              <div class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Underwriting</div>
+              <div class="text-[10px] font-sans font-semibold text-gray-400 uppercase tracking-wider">Underwriting</div>
             </div>
           </div>
 
@@ -274,7 +277,7 @@
             </div>
             <div>
               <div class="font-heading text-xl text-theme-dark">$250M+</div>
-              <div class="text-[10px] font-semibold text-theme-text uppercase tracking-wider">Tracked</div>
+              <div class="text-[10px] font-sans font-semibold text-theme-text uppercase tracking-wider">Tracked</div>
             </div>
           </div>
 
@@ -294,10 +297,10 @@
           </div>
           <div class="p-6 md:p-8">
             <h3 class="text-xl md:text-2xl font-heading text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">Syndicator Portal</h3>
-            <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base">
+            <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base font-sans">
               Set up your digital wallet in minutes. Benefit from auto syndication to seamlessly distribute payments and optimize deal management.
             </p>
-            <a href="https://www.aimyadvance.com/syndicator/login" class="inline-flex items-center font-bold text-theme-dark group-hover:text-theme-primary transition text-sm md:text-base">
+            <a href="https://www.aimyadvance.com/syndicator/login" class="inline-flex items-center font-bold text-theme-dark group-hover:text-theme-primary transition text-sm md:text-base font-sans">
               Login Now <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
           </div>
@@ -309,10 +312,10 @@
           </div>
           <div class="p-6 md:p-8">
             <h3 class="text-xl md:text-2xl font-heading text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">ISO Portal</h3>
-            <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base">
+            <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base font-sans">
               Automate lead intake, underwriting, and smart matching. Instantly route qualified leads to the right funders without manual data entry.
             </p>
-            <a href="https://aimyadvance.com/iso" class="inline-flex items-center font-bold text-theme-dark group-hover:text-theme-primary transition text-sm md:text-base">
+            <a href="https://aimyadvance.com/iso" class="inline-flex items-center font-bold text-theme-dark group-hover:text-theme-primary transition text-sm md:text-base font-sans">
               Login Now <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
           </div>
@@ -324,10 +327,10 @@
           </div>
           <div class="p-6 md:p-8">
             <h3 class="text-xl md:text-2xl font-heading text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">Merchant Portal</h3>
-            <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base">
+            <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base font-sans">
               Provide complete transparency. Allow merchants to track their financial status, view payment schedules, and securely request documents.
             </p>
-            <a href="contact.html" class="inline-flex items-center font-bold text-theme-dark group-hover:text-theme-primary transition text-sm md:text-base">
+            <a href="contact.html" class="inline-flex items-center font-bold text-theme-dark group-hover:text-theme-primary transition text-sm md:text-base font-sans">
               Learn More <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
             </a>
           </div>
@@ -351,14 +354,14 @@
         </div>
 
         <div class="reveal delay-100 mt-8 lg:mt-0">
-          <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-base lg:text-lg mb-4">
+          <div class="inline-flex items-center gap-2 text-theme-primary font-heading text-base lg:text-lg mb-4">
             <span class="w-8 lg:w-10 h-0.5 bg-theme-primary"></span>
             About Us
           </div>
           <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-theme-dark mb-6 leading-tight">
             Simplify Complex Processes For Business Growth
           </h2>
-          <p class="text-base lg:text-lg text-theme-text mb-8 leading-relaxed">
+          <p class="text-base lg:text-lg text-theme-text mb-8 leading-relaxed font-sans">
             AI My Advance replaces fragmented spreadsheets with a single source of truth for your entire portfolio. Built for institutions that demand precision, speed, and reliability.
           </p>
 
@@ -368,8 +371,8 @@
                 <svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
               </div>
               <div>
-                <h4 class="text-lg lg:text-xl font-bold font-heading text-theme-dark mb-2">Automated Syndication</h4>
-                <p class="text-theme-text text-sm lg:text-base">Split deals instantly. Manage participants, calculate management fees, and distribute remittances automatically.</p>
+                <h4 class="text-lg lg:text-xl font-heading text-theme-dark mb-2">Automated Syndication</h4>
+                <p class="text-theme-text text-sm lg:text-base font-sans">Split deals instantly. Manage participants, calculate management fees, and distribute remittances automatically.</p>
               </div>
             </div>
             <div class="flex gap-4">
@@ -377,8 +380,8 @@
                 <svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               </div>
               <div>
-                <h4 class="text-lg lg:text-xl font-bold font-heading text-theme-dark mb-2">Real-Time Collections</h4>
-                <p class="text-theme-text text-sm lg:text-base">Direct integration with ACH processors. Track missed payments and trigger automated cure notices instantly.</p>
+                <h4 class="text-lg lg:text-xl font-heading text-theme-dark mb-2">Real-Time Collections</h4>
+                <p class="text-theme-text text-sm lg:text-base font-sans">Direct integration with ACH processors. Track missed payments and trigger automated cure notices instantly.</p>
               </div>
             </div>
           </div>
@@ -396,7 +399,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-10 lg:mb-16 reveal">
-        <div class="inline-flex items-center justify-center gap-2 text-theme-primary font-heading font-semibold text-base lg:text-lg mb-4">
+        <div class="inline-flex items-center justify-center gap-2 text-theme-primary font-heading text-base lg:text-lg mb-4">
           <span class="w-8 lg:w-10 h-0.5 bg-theme-primary"></span>
           Our Platform
           <span class="w-8 lg:w-10 h-0.5 bg-theme-primary"></span>
@@ -404,7 +407,7 @@
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-theme-dark mb-4 lg:mb-6 leading-tight">
           Built For The Entire Ecosystem
         </h2>
-        <p class="text-base lg:text-lg text-theme-text leading-relaxed px-4 sm:px-0">
+        <p class="text-base lg:text-lg text-theme-text leading-relaxed px-4 sm:px-0 font-sans">
           AI My Advance replaces fragmented spreadsheets with a single source of truth. Select your role to see how we accelerate your specific workflow.
         </p>
       </div>
@@ -445,33 +448,33 @@
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Automated Lead Intake</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Capture deals instantly</p>
-                  <p class="text-theme-text text-sm">Eliminate manual data entry. Capture documents and applications instantly from merchants.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Automated Lead Intake</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Capture deals instantly</p>
+                  <p class="text-theme-text text-sm font-sans">Eliminate manual data entry. Capture documents and applications instantly from merchants.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Smart Matching</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Route to the right funders</p>
-                  <p class="text-theme-text text-sm">Intelligently route qualified leads to the specific funders most likely to approve them.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Smart Matching</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Route to the right funders</p>
+                  <p class="text-theme-text text-sm font-sans">Intelligently route qualified leads to the specific funders most likely to approve them.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Commission Tracking</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Track exact earnings</p>
-                  <p class="text-theme-text text-sm">Monitor your deal commissions and syndication residuals in real-time, all in one place.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Commission Tracking</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Track exact earnings</p>
+                  <p class="text-theme-text text-sm font-sans">Monitor your deal commissions and syndication residuals in real-time, all in one place.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Real-Time Updates</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Live status from funders</p>
-                  <p class="text-theme-text text-sm">Stop chasing emails. View live status updates directly from underwriters and lenders.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Real-Time Updates</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Live status from funders</p>
+                  <p class="text-theme-text text-sm font-sans">Stop chasing emails. View live status updates directly from underwriters and lenders.</p>
                 </div>
               </div>
             </div>
@@ -485,33 +488,33 @@
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Custom Formulas</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Build specific fee formulas</p>
-                  <p class="text-theme-text text-sm">Build your own fee formulas with tier configurations that match your complex business logic.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Custom Formulas</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Build specific fee formulas</p>
+                  <p class="text-theme-text text-sm font-sans">Build your own fee formulas with tier configurations that match your complex business logic.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Real-Time Collections</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">ACH integrations & triggers</p>
-                  <p class="text-theme-text text-sm">Direct integration with ACH processors. Track missed payments and trigger automated cure notices.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Real-Time Collections</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">ACH integrations & triggers</p>
+                  <p class="text-theme-text text-sm font-sans">Direct integration with ACH processors. Track missed payments and trigger automated cure notices.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Performance Tracking</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Monitor merchant health</p>
-                  <p class="text-theme-text text-sm">Visualize payment trends, flag at-risk accounts, and get early default alerts.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Performance Tracking</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Monitor merchant health</p>
+                  <p class="text-theme-text text-sm font-sans">Visualize payment trends, flag at-risk accounts, and get early default alerts.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Automated Syndication</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Manage participants</p>
-                  <p class="text-theme-text text-sm">Split deals instantly, calculate management fees, and distribute remittances automatically.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Automated Syndication</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Manage participants</p>
+                  <p class="text-theme-text text-sm font-sans">Split deals instantly, calculate management fees, and distribute remittances automatically.</p>
                 </div>
               </div>
             </div>
@@ -525,33 +528,33 @@
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Digital Wallet</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Set up in minutes</p>
-                  <p class="text-theme-text text-sm">Set up your digital wallet rapidly and start managing multi-deal paybacks with ease.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Digital Wallet</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Set up in minutes</p>
+                  <p class="text-theme-text text-sm font-sans">Set up your digital wallet rapidly and start managing multi-deal paybacks with ease.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Auto Syndication</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Distribute payments</p>
-                  <p class="text-theme-text text-sm">Seamlessly receive and distribute syndication payments without manual ledger entries.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Auto Syndication</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Distribute payments</p>
+                  <p class="text-theme-text text-sm font-sans">Seamlessly receive and distribute syndication payments without manual ledger entries.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Deal Management</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Optimize from the start</p>
-                  <p class="text-theme-text text-sm">Review funding history and participation splits directly within the Syndicator Portal.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Deal Management</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Optimize from the start</p>
+                  <p class="text-theme-text text-sm font-sans">Review funding history and participation splits directly within the Syndicator Portal.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Transparent ROI</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Track actual returns</p>
-                  <p class="text-theme-text text-sm">Visualize total principal deployed versus daily collections to track your specific portfolio health.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Transparent ROI</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Track actual returns</p>
+                  <p class="text-theme-text text-sm font-sans">Visualize total principal deployed versus daily collections to track your specific portfolio health.</p>
                 </div>
               </div>
             </div>
@@ -565,33 +568,33 @@
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Financial Tracking</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Track status & balances</p>
-                  <p class="text-theme-text text-sm">Allow merchants full transparency into their current balance and payoff amounts.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Financial Tracking</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Track status & balances</p>
+                  <p class="text-theme-text text-sm font-sans">Allow merchants full transparency into their current balance and payoff amounts.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Payment Schedules</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">View upcoming remittances</p>
-                  <p class="text-theme-text text-sm">Merchants can view historical payments and future scheduled drafts directly on their dashboard.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Payment Schedules</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">View upcoming remittances</p>
+                  <p class="text-theme-text text-sm font-sans">Merchants can view historical payments and future scheduled drafts directly on their dashboard.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Document Uploads</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Securely upload stips</p>
-                  <p class="text-theme-text text-sm">Provide a secure upload portal for bank statements, IDs, and other underwriting stipulations.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Document Uploads</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Securely upload stips</p>
+                  <p class="text-theme-text text-sm font-sans">Provide a secure upload portal for bank statements, IDs, and other underwriting stipulations.</p>
                 </div>
               </div>
               <div class="flex gap-4">
                 <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-white flex items-center justify-center text-theme-primary flex-shrink-0 shadow-sm border border-gray-100"><svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div>
                 <div>
-                  <h4 class="font-heading font-bold text-theme-dark mb-1 text-base lg:text-lg">Clear Communication</h4>
-                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2">Direct channel to lenders</p>
-                  <p class="text-theme-text text-sm">A centralized inbox to communicate directly with funders without losing history.</p>
+                  <h4 class="font-heading text-theme-dark mb-1 text-base lg:text-lg">Clear Communication</h4>
+                  <p class="text-xs lg:text-sm font-semibold text-theme-primary mb-1 lg:mb-2 font-sans">Direct channel to lenders</p>
+                  <p class="text-theme-text text-sm font-sans">A centralized inbox to communicate directly with funders without losing history.</p>
                 </div>
               </div>
             </div>
@@ -609,7 +612,7 @@
         Partners
         <span class="w-8 lg:w-10 h-0.5 bg-theme-primary"></span>
       </div>
-      <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-theme-dark mb-8 lg:mb-12">Powering Industry Leaders</h2>
+      <h2 class="text-3xl sm:text-4xl font-heading text-theme-dark mb-8 lg:mb-12">Powering Industry Leaders</h2>
       
       <div class="flex flex-wrap justify-center items-center gap-8 md:gap-10 lg:gap-16 opacity-70 hover:opacity-100 transition duration-500">
         <img loading="lazy" src="https://www.actumprocessing.com/wp-content/uploads/2019/01/actum-logo-dark.png" alt="Actum" class="h-8 md:h-10 object-contain hover:scale-105 transition-all" onerror="this.style.display='none'">
@@ -631,34 +634,34 @@
         Pricing Model
         <span class="w-8 lg:w-10 h-0.5 bg-theme-primary"></span>
       </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-theme-dark mb-10 lg:mb-12">You Stop Paying, And Start Earning.</h2>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-theme-dark mb-10 lg:mb-12">You Stop Paying, And Start Earning.</h2>
 
       <div class="bg-white p-6 sm:p-10 md:p-14 text-center shadow-corporate-card border border-gray-100 reveal delay-100 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-2 bg-theme-primary"></div>
 
         <div class="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4 bg-theme-light px-4 sm:px-6 py-3 mb-4 rounded-full border border-gray-200">
-          <span class="text-theme-dark font-heading font-bold text-base sm:text-lg">Merchants pay $34.99/mo</span>
+          <span class="text-theme-dark font-heading text-base sm:text-lg">Merchants pay $34.99/mo</span>
           <span class="hidden md:block text-gray-300">|</span>
-          <span class="text-theme-primary font-bold text-sm sm:text-base">$10 goes to funder/mo</span>
+          <span class="text-theme-primary font-bold text-sm sm:text-base font-sans">$10 goes to funder/mo</span>
         </div>
-        <p class="text-xs sm:text-sm text-gray-400 mb-8 sm:mb-10">(Rate changes to $5/merchant/mo after 2026)</p>
+        <p class="text-xs sm:text-sm text-gray-400 mb-8 sm:mb-10 font-sans">(Rate changes to $5/merchant/mo after 2026)</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-8 sm:mb-10 text-left">
           <div class="p-6 sm:p-8 border border-gray-100 hover:border-theme-primary transition bg-white text-center md:text-left">
-            <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Annual Earnings</div>
-            <div class="text-3xl sm:text-4xl font-heading font-extrabold text-theme-dark mb-2">$30k – $60k</div>
-            <div class="text-xs sm:text-sm text-red-500 font-semibold">instead of paying $50k</div>
+            <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-gray-400 mb-2 font-sans">Annual Earnings</div>
+            <div class="text-3xl sm:text-4xl font-heading text-theme-dark mb-2">$30k – $60k</div>
+            <div class="text-xs sm:text-sm text-red-500 font-semibold font-sans">instead of paying $50k</div>
           </div>
           
           <div class="p-6 sm:p-8 bg-theme-primary text-white shadow-lg text-center md:text-left">
-            <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-200 mb-2">Total Impact</div>
-            <div class="text-3xl sm:text-4xl font-heading font-extrabold text-white mb-2">$60k – $120k</div>
-            <div class="text-xs sm:text-sm font-semibold">back in your pocket</div>
+            <div class="text-xs sm:text-sm font-bold uppercase tracking-widest text-blue-200 mb-2 font-sans">Total Impact</div>
+            <div class="text-3xl sm:text-4xl font-heading text-white mb-2">$60k – $120k</div>
+            <div class="text-xs sm:text-sm font-semibold font-sans">back in your pocket</div>
           </div>
         </div>
 
-        <p class="text-theme-text text-base sm:text-lg max-w-lg mx-auto">
-          <strong class="text-theme-dark">No cost to you.</strong> Merchants pay the fee, and you receive a share of every transaction.
+        <p class="text-theme-text text-base sm:text-lg max-w-lg mx-auto font-sans">
+          <strong class="text-theme-dark font-bold">No cost to you.</strong> Merchants pay the fee, and you receive a share of every transaction.
         </p>
       </div>
 
@@ -671,9 +674,9 @@
         
         <div>
           <a href="index.html" class="block mb-6">
-            <span class="font-heading font-extrabold text-2xl lg:text-3xl text-white">MyAdvance</span>
+            <span class="font-heading text-2xl lg:text-3xl text-white">MyAdvance</span>
           </a>
-          <p class="mb-6 leading-relaxed text-sm lg:text-base">
+          <p class="mb-6 leading-relaxed text-sm lg:text-base font-sans">
             Enterprise-grade MCA tracking and risk management platform powered by predictive intelligence. Automate underwriting, track repayments, and predict defaults.
           </p>
           <div class="flex gap-3">
@@ -683,8 +686,8 @@
         </div>
 
         <div>
-          <h4 class="text-white font-heading font-bold text-lg lg:text-xl mb-6">Useful Links</h4>
-          <ul class="space-y-4 text-sm lg:text-base">
+          <h4 class="text-white font-heading text-lg lg:text-xl mb-6">Useful Links</h4>
+          <ul class="space-y-4 text-sm lg:text-base font-sans">
             <li><a href="#platform" class="hover:text-theme-primary transition">Platform</a></li>
             <li><a href="#services" class="hover:text-theme-primary transition">Services</a></li>
             <li><a href="#pricing" class="hover:text-theme-primary transition">Pricing</a></li>
@@ -693,8 +696,8 @@
         </div>
 
         <div>
-          <h4 class="text-white font-heading font-bold text-lg lg:text-xl mb-6">Login Portals</h4>
-          <ul class="space-y-4 text-sm lg:text-base">
+          <h4 class="text-white font-heading text-lg lg:text-xl mb-6">Login Portals</h4>
+          <ul class="space-y-4 text-sm lg:text-base font-sans">
             <li><a href="https://aimyadvance.com/iso" class="hover:text-theme-primary transition">ISO Portal Login</a></li>
             <li><a href="https://www.aimyadvance.com/funder/login" class="hover:text-theme-primary transition">Funder Login</a></li>
             <li><a href="https://www.aimyadvance.com/syndicator/login" class="hover:text-theme-primary transition">Syndicator Login</a></li>
@@ -702,8 +705,8 @@
         </div>
 
         <div>
-          <h4 class="text-white font-heading font-bold text-lg lg:text-xl mb-6">Contact Us</h4>
-          <ul class="space-y-4 text-sm lg:text-base">
+          <h4 class="text-white font-heading text-lg lg:text-xl mb-6">Contact Us</h4>
+          <ul class="space-y-4 text-sm lg:text-base font-sans">
             <li class="flex items-start gap-4">
               <svg class="w-5 h-5 lg:w-6 lg:h-6 text-theme-primary mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
               <span>40 Wall Street Suite 3100<br>New York, NY 10005</span>
@@ -720,7 +723,7 @@
         </div>
       </div>
       
-      <div class="flex flex-col md:flex-row justify-between items-center text-xs lg:text-sm">
+      <div class="flex flex-col md:flex-row justify-between items-center text-xs lg:text-sm font-sans">
         <div class="mb-4 md:mb-0">
           © 2026 AI My Advance. All Rights Reserved.
         </div>
