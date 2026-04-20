@@ -8,7 +8,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./css/style.css">
   
@@ -19,7 +19,8 @@
         extend: {
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'sans-serif'],
-            heading: ['Outfit', 'sans-serif'],
+            // Updated to use your new custom font
+            heading: ['"Airlash Raiders"', 'sans-serif'], 
           },
           colors: {
             theme: {
@@ -42,6 +43,16 @@
   <script src="./js/main.js" defer></script>
 
   <style>
+    /* LOAD YOUR CUSTOM FONT HERE */
+    @font-face {
+      font-family: 'Airlash Raiders';
+      /* UPDATE THE FILENAME AND EXTENSION (.ttf, .otf, .woff2) TO MATCH YOUR EXACT FILE */
+      src: url('./fonts/Airlash Raiders.ttf'); 
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
     body { -webkit-font-smoothing: antialiased; }
     
     /* Scroll Animations */
@@ -112,7 +123,7 @@
         
         <a href="index.html" class="flex items-center gap-2 sm:gap-3">
           <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-8 md:h-10 w-auto object-cover rounded" onerror="this.style.display='none'">
-          <span class="font-heading font-extrabold text-xl md:text-2xl tracking-tight text-theme-dark">MyAdvance</span>
+          <span class="font-heading text-xl md:text-2xl tracking-tight text-theme-dark">MyAdvance</span>
         </a>
 
         <div class="hidden lg:flex space-x-8 items-center font-sans font-semibold text-theme-dark">
@@ -180,11 +191,11 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         
         <div class="reveal">
-          <div class="inline-flex items-center gap-2 text-theme-primary font-heading font-semibold text-base sm:text-lg mb-4 sm:mb-6">
+          <div class="inline-flex items-center gap-2 text-theme-primary font-heading text-base sm:text-lg mb-4 sm:mb-6">
             <span class="w-8 sm:w-10 h-0.5 bg-theme-primary"></span>
             Enterprise Risk Management
           </div>
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-white leading-tight mb-6 sm:mb-8">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-heading text-white leading-tight mb-6 sm:mb-8">
             Predictive Intelligence <br class="hidden sm:block"/>For Smarter Lending
           </h1>
           <p class="text-base sm:text-lg text-gray-300 mb-8 sm:mb-10 leading-relaxed font-sans max-w-xl">
@@ -205,15 +216,15 @@
 
           <div class="grid grid-cols-3 gap-4 mt-12 lg:hidden border-t border-gray-700 pt-8">
             <div class="text-center">
-              <div class="text-xl font-heading font-bold text-white mb-1">99.9%</div>
+              <div class="text-xl font-heading text-white mb-1">99.9%</div>
               <div class="text-xs text-gray-400 uppercase tracking-wide">Uptime</div>
             </div>
             <div class="text-center border-l border-gray-700">
-              <div class="text-xl font-heading font-bold text-white mb-1">&lt; 60s</div>
+              <div class="text-xl font-heading text-white mb-1">&lt; 60s</div>
               <div class="text-xs text-gray-400 uppercase tracking-wide">Decisions</div>
             </div>
             <div class="text-center border-l border-gray-700">
-              <div class="text-xl font-heading font-bold text-white mb-1">$250M+</div>
+              <div class="text-xl font-heading text-white mb-1">$250M+</div>
               <div class="text-xs text-gray-400 uppercase tracking-wide">Tracked</div>
             </div>
           </div>
@@ -222,7 +233,7 @@
         <div class="relative w-full reveal delay-200 mt-8 lg:mt-0 flex justify-center lg:justify-end">
           
           <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl relative z-20 w-full max-w-md border-t-4 border-theme-primary">
-            <h3 class="text-2xl font-heading font-bold text-theme-dark mb-2">Get Portal Access</h3>
+            <h3 class="text-2xl font-heading text-theme-dark mb-2">Get Portal Access</h3>
             <p class="text-sm text-theme-text mb-6">See how much you could save and earn.</p>
             
             <form action="contact.html" class="space-y-4">
@@ -252,7 +263,7 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <div>
-              <div class="font-heading font-extrabold text-xl text-white">&lt; 60s</div>
+              <div class="font-heading text-xl text-white">&lt; 60s</div>
               <div class="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Underwriting</div>
             </div>
           </div>
@@ -262,7 +273,7 @@
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <div>
-              <div class="font-heading font-extrabold text-xl text-theme-dark">$250M+</div>
+              <div class="font-heading text-xl text-theme-dark">$250M+</div>
               <div class="text-[10px] font-semibold text-theme-text uppercase tracking-wider">Tracked</div>
             </div>
           </div>
@@ -282,7 +293,7 @@
             <img src="./images/localhost_3000_application-offer (1).png" alt="Syndicator Portal" class="w-full h-48 md:h-56 object-cover transform group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80'">
           </div>
           <div class="p-6 md:p-8">
-            <h3 class="text-xl md:text-2xl font-heading font-bold text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">Syndicator Portal</h3>
+            <h3 class="text-xl md:text-2xl font-heading text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">Syndicator Portal</h3>
             <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base">
               Set up your digital wallet in minutes. Benefit from auto syndication to seamlessly distribute payments and optimize deal management.
             </p>
@@ -297,7 +308,7 @@
             <img src="./images/Screenshot 2026-01-30 132835.png" alt="ISO Portal" class="w-full h-48 md:h-56 object-cover object-top transform group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80'">
           </div>
           <div class="p-6 md:p-8">
-            <h3 class="text-xl md:text-2xl font-heading font-bold text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">ISO Portal</h3>
+            <h3 class="text-xl md:text-2xl font-heading text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">ISO Portal</h3>
             <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base">
               Automate lead intake, underwriting, and smart matching. Instantly route qualified leads to the right funders without manual data entry.
             </p>
@@ -312,7 +323,7 @@
             <img src="./images/performance.png" alt="Merchant Portal" class="w-full h-48 md:h-56 object-cover object-top transform group-hover:scale-105 transition duration-500" onerror="this.src='https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80'">
           </div>
           <div class="p-6 md:p-8">
-            <h3 class="text-xl md:text-2xl font-heading font-bold text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">Merchant Portal</h3>
+            <h3 class="text-xl md:text-2xl font-heading text-theme-dark mb-3 md:mb-4 hover:text-theme-primary transition cursor-pointer">Merchant Portal</h3>
             <p class="text-theme-text mb-6 leading-relaxed text-sm md:text-base">
               Provide complete transparency. Allow merchants to track their financial status, view payment schedules, and securely request documents.
             </p>
@@ -334,7 +345,7 @@
           <img src="./images/financial report.png" alt="Infrastructure" class="w-full rounded object-cover shadow-lg" onerror="this.src='https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80'">
           
           <div class="absolute -bottom-6 -right-6 lg:-bottom-8 lg:-right-8 bg-theme-primary text-white p-6 lg:p-8 shadow-corporate-badge max-w-[200px] lg:max-w-xs hidden sm:block">
-            <h4 class="text-3xl lg:text-4xl font-heading font-extrabold mb-1 lg:mb-2">500+</h4>
+            <h4 class="text-3xl lg:text-4xl font-heading mb-1 lg:mb-2">500+</h4>
             <p class="font-sans font-semibold text-sm lg:text-lg leading-snug">Active Funders Worldwide</p>
           </div>
         </div>
@@ -344,7 +355,7 @@
             <span class="w-8 lg:w-10 h-0.5 bg-theme-primary"></span>
             About Us
           </div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-theme-dark mb-6 leading-tight">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-theme-dark mb-6 leading-tight">
             Simplify Complex Processes For Business Growth
           </h2>
           <p class="text-base lg:text-lg text-theme-text mb-8 leading-relaxed">
@@ -390,7 +401,7 @@
           Our Platform
           <span class="w-8 lg:w-10 h-0.5 bg-theme-primary"></span>
         </div>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-theme-dark mb-4 lg:mb-6 leading-tight">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-heading text-theme-dark mb-4 lg:mb-6 leading-tight">
           Built For The Entire Ecosystem
         </h2>
         <p class="text-base lg:text-lg text-theme-text leading-relaxed px-4 sm:px-0">
@@ -402,22 +413,22 @@
         
         <div class="w-full lg:w-1/3 reveal flex flex-col gap-3">
           
-          <button onclick="switchTab('tab-iso', this)" class="tab-btn w-full text-left px-5 py-4 lg:px-6 rounded font-heading font-bold text-base lg:text-lg transition-all bg-theme-primary text-white shadow-corporate-badge flex justify-between items-center group">
+          <button onclick="switchTab('tab-iso', this)" class="tab-btn w-full text-left px-5 py-4 lg:px-6 rounded font-heading text-base lg:text-lg transition-all bg-theme-primary text-white shadow-corporate-badge flex justify-between items-center group">
             For ISOs
             <svg class="w-5 h-5 tab-arrow transition-opacity opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
 
-          <button onclick="switchTab('tab-funders', this)" class="tab-btn w-full text-left px-5 py-4 lg:px-6 rounded font-heading font-bold text-base lg:text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
+          <button onclick="switchTab('tab-funders', this)" class="tab-btn w-full text-left px-5 py-4 lg:px-6 rounded font-heading text-base lg:text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
             For Funders
             <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
 
-          <button onclick="switchTab('tab-syndicators', this)" class="tab-btn w-full text-left px-5 py-4 lg:px-6 rounded font-heading font-bold text-base lg:text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
+          <button onclick="switchTab('tab-syndicators', this)" class="tab-btn w-full text-left px-5 py-4 lg:px-6 rounded font-heading text-base lg:text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
             For Syndicators
             <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
 
-          <button onclick="switchTab('tab-merchants', this)" class="tab-btn w-full text-left px-5 py-4 lg:px-6 rounded font-heading font-bold text-base lg:text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
+          <button onclick="switchTab('tab-merchants', this)" class="tab-btn w-full text-left px-5 py-4 lg:px-6 rounded font-heading text-base lg:text-lg transition-all bg-white text-theme-dark hover:bg-gray-100 flex justify-between items-center group shadow-sm border border-gray-100">
             For Merchants
             <svg class="w-5 h-5 tab-arrow transition-opacity opacity-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
