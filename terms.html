@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Use | AI My Advance</title>
-  <meta name="description" content="Terms of use governing access to and use of the AI My Advance platform, portals, and services.">
+  <title>Terms of Service | AI My Advance</title>
+  <meta name="description" content="Terms of Service and user agreement for the AI My Advance risk management platform.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./css/style.css">
   
@@ -19,14 +19,14 @@
         extend: {
           fontFamily: {
             sans: ['Plus Jakarta Sans', 'sans-serif'],
-            heading: ['Outfit', 'sans-serif'],
+            heading: ['"Airlash Raiders"', 'sans-serif'], 
           },
           colors: {
             theme: {
               primary: '#0e59f2',    /* Corporate Blue */
               dark: '#06132d',       /* Deep Navy / Dark Background */
               text: '#6b7280',       /* Body text gray */
-              light: '#f5f8ff',      /* Light blue/gray section background */
+              light: '#f5f8ff',      /* Light blue/gray section bg */
               border: '#e5e7eb'
             }
           },
@@ -42,11 +42,25 @@
   <script src="./js/main.js" defer></script>
 
   <style>
+    /* LOAD YOUR CUSTOM FONT HERE */
+    @font-face {
+      font-family: 'Airlash Raiders';
+      src: url('./fonts/AirlashRaiders.ttf'); /* Make sure this matches your exact filename */
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ADDS BREATHING ROOM TO YOUR CUSTOM FONT */
+    .font-heading {
+      letter-spacing: 0.04em;
+    }
+
     body { -webkit-font-smoothing: antialiased; }
     
-    /* Hero Image Overlay Background - Corporate Style */
+    /* Hero Image Overlay Background */
     .hero-bg {
-      background-image: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+      background-image: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85)), url('./images/howitworksBG.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: scroll;
@@ -62,8 +76,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .delay-100 { transition-delay: 100ms; }
-    .delay-200 { transition-delay: 200ms; }
   </style>
 </head>
 <body class="text-theme-text font-sans bg-theme-light">
@@ -77,12 +89,12 @@
         </div>
         <div class="flex items-center gap-6">
           <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-            <span>+1 (929) 216-5491</span>
+            <svg class="w-4 h-4 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+            <span>+1 (929) 526-0752</span>
           </div>
           <div class="flex items-center gap-2">
             <svg class="w-4 h-4 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-            <span>eli@simplecodeai.com</span>
+            <span>info@aimyadvance.com</span>
           </div>
         </div>
       </div>
@@ -93,19 +105,19 @@
     </div>
   </div>
 
-  <nav class="w-full z-50 bg-white shadow-sm sticky top-0 transition-all duration-300">
+  <nav class="w-full z-50 bg-white shadow-sm sticky top-0 transition-all duration-300 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-24">
+      <div class="flex justify-between items-center h-20 md:h-24">
         
-        <a href="index.html" class="flex items-center gap-3">
-          <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-10 w-auto object-cover rounded" onerror="this.style.display='none'">
-          <span class="font-heading font-extrabold text-2xl tracking-tight text-theme-dark">MyAdvance</span>
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3">
+          <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-8 md:h-10 w-auto object-cover rounded" onerror="this.style.display='none'">
+          <span class="font-heading text-xl md:text-2xl text-theme-dark">MyAdvance</span>
         </a>
 
         <div class="hidden lg:flex space-x-8 items-center font-sans font-semibold text-theme-dark">
           <a href="index.html#about" class="hover:text-theme-primary transition">About Us</a>
+          <a href="how-it-works.html" class="hover:text-theme-primary transition">How It Works</a>
           <a href="index.html#platform" class="hover:text-theme-primary transition">Platform</a>
-          <a href="index.html#integrations" class="hover:text-theme-primary transition">Integrations</a>
           <a href="index.html#pricing" class="hover:text-theme-primary transition">Pricing</a>
           <a href="contact.html" class="hover:text-theme-primary transition">Contact</a>
         </div>
@@ -113,18 +125,27 @@
         <div class="hidden lg:flex items-center space-x-4">
           
           <div class="relative group">
-            <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-1 font-sans font-semibold text-theme-dark hover:text-theme-primary transition">
+            <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-2 font-sans font-semibold text-theme-dark bg-gray-50 border border-gray-200 px-5 py-2.5 rounded-full hover:border-theme-primary hover:text-theme-primary hover:shadow-sm transition-all duration-300">
               Portals
               <svg class="w-4 h-4 transition-transform duration-300" id="login-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div id="desktop-login-dropdown" class="absolute right-0 mt-6 w-48 bg-white border-t-4 border-theme-primary shadow-corporate-card opacity-0 invisible transition-all duration-300 z-50">
-              <a href="https://www.aimyadvance.com/funder/login" class="block px-4 py-3 text-sm text-theme-text border-b border-gray-50 hover:bg-theme-light hover:text-theme-primary transition">Funder Portal</a>
-              <a href="https://aimyadvance.com/iso" class="block px-4 py-3 text-sm text-theme-text border-b border-gray-50 hover:bg-theme-light hover:text-theme-primary transition">ISO Portal</a>
-              <a href="https://www.aimyadvance.com/syndicator/login" class="block px-4 py-3 text-sm text-theme-text hover:bg-theme-light hover:text-theme-primary transition">Syndicator Portal</a>
+            
+            <div id="desktop-login-dropdown" class="absolute right-0 mt-3 w-60 bg-white border border-gray-100 rounded-xl shadow-2xl opacity-0 invisible translate-y-2 transition-all duration-300 z-50 overflow-hidden">
+              <div class="p-2 space-y-1">
+                <a href="https://www.aimyadvance.com/funder/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> Funder Portal
+                </a>
+                <a href="https://aimyadvance.com/iso" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> ISO Portal
+                </a>
+                <a href="https://www.aimyadvance.com/syndicator/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> Syndicator Portal
+                </a>
+              </div>
             </div>
           </div>
 
-          <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-3.5 font-sans font-semibold hover:bg-blue-700 transition">
+          <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-3 font-sans font-semibold hover:bg-blue-700 transition rounded-sm">
             Book Demo
           </button>
         </div>
@@ -136,157 +157,114 @@
         </div>
       </div>
     </div>
-  </nav>
 
-  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
-    <div class="px-4 py-6 space-y-4 font-sans font-semibold text-theme-dark">
-      <a href="index.html#about" class="block hover:text-theme-primary">About Us</a>
-      <a href="index.html#platform" class="block hover:text-theme-primary">Platform</a>
-      <a href="index.html#integrations" class="block hover:text-theme-primary">Integrations</a>
-      <a href="index.html#pricing" class="block hover:text-theme-primary">Pricing</a>
-      <a href="contact.html" class="block hover:text-theme-primary">Contact</a>
-      <hr>
-      <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">PORTALS LOGIN</p>
-      <a href="https://www.aimyadvance.com/funder/login" class="block text-theme-text font-normal text-sm hover:text-theme-primary">Funder Portal</a>
-      <a href="https://aimyadvance.com/iso" class="block text-theme-text font-normal text-sm hover:text-theme-primary">ISO Portal</a>
-      <a href="https://www.aimyadvance.com/syndicator/login" class="block text-theme-text font-normal text-sm hover:text-theme-primary">Syndicator Portal</a>
-      <button onclick="openModal()" class="w-full mt-4 bg-theme-primary text-white px-5 py-3 text-center">Book Demo</button>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute left-0 top-full w-full shadow-2xl z-50 pb-6">
+      <div class="px-4 py-6 space-y-4 font-sans font-semibold text-theme-dark">
+        <a href="index.html#about" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">About Us</a>
+        <a href="how-it-works.html" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">How It Works</a>
+        <a href="index.html#platform" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Platform</a>
+        <a href="index.html#pricing" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Pricing</a>
+        <a href="contact.html" class="block hover:text-theme-primary text-lg">Contact</a>
+        
+        <div class="bg-theme-light p-5 rounded-xl border border-blue-100 mt-6">
+          <p class="text-xs text-theme-primary font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
+            Secure Portals
+          </p>
+          <div class="space-y-2">
+            <a href="https://www.aimyadvance.com/funder/login" class="flex items-center justify-between bg-white p-3.5 rounded-lg shadow-sm border-l-4 border-theme-primary text-theme-dark hover:text-theme-primary transition">
+              <span>Funder Portal</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            <a href="https://aimyadvance.com/iso" class="flex items-center justify-between bg-white p-3.5 rounded-lg shadow-sm border-l-4 border-theme-primary text-theme-dark hover:text-theme-primary transition">
+              <span>ISO Portal</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            <a href="https://www.aimyadvance.com/syndicator/login" class="flex items-center justify-between bg-white p-3.5 rounded-lg shadow-sm border-l-4 border-theme-primary text-theme-dark hover:text-theme-primary transition">
+              <span>Syndicator Portal</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <button onclick="openModal(); toggleMobileMenu();" class="w-full mt-4 bg-theme-primary text-white px-5 py-4 text-center rounded-sm">Book Demo</button>
+      </div>
     </div>
-  </div>
+  </nav>
 
   <section class="hero-bg pt-24 pb-32 lg:pt-32 lg:pb-40 relative flex items-center justify-center text-center">
     <div class="relative z-10 reveal">
-      <h1 class="text-5xl lg:text-6xl font-heading font-extrabold text-white mb-4">Terms of Use</h1>
+      <h1 class="text-5xl lg:text-6xl font-heading font-extrabold text-white mb-4">Terms of Service</h1>
       <div class="flex items-center justify-center gap-3 text-gray-300 font-sans font-medium text-lg">
         <a href="index.html" class="hover:text-theme-primary transition">Home</a>
         <span>/</span>
-        <span class="text-white">Terms of Use</span>
+        <span class="text-white">Terms</span>
       </div>
     </div>
   </section>
 
-  <section class="relative z-20 -mt-16 lg:-mt-24 pb-24">
+  <section class="relative z-20 -mt-16 lg:-mt-24 pb-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal delay-100">
-      <div class="bg-white p-8 md:p-12 lg:p-16 shadow-corporate-card border-t-4 border-theme-primary">
+      <div class="bg-white p-8 md:p-12 lg:p-16 shadow-corporate-card border-t-4 border-theme-primary rounded-sm font-sans text-theme-text leading-relaxed">
         
-        <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 mb-10 text-sm font-semibold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-6">
-          <span>Effective date: January 15, 2026</span>
-          <span class="hidden sm:inline text-gray-300">|</span>
-          <span>Last updated: January 15, 2026</span>
+        <p class="text-sm uppercase tracking-widest text-gray-400 mb-8 font-bold">Last Updated: April 2026</p>
+
+        <h2 class="text-2xl font-heading text-theme-dark mb-4">1. Acceptance of Terms</h2>
+        <p class="mb-8">
+          By accessing and using the AI My Advance website, portals, and services (collectively, the "Platform"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our Platform. These terms apply to all visitors, users, funders, ISOs, syndicators, and merchants who access the platform.
+        </p>
+
+        <h2 class="text-2xl font-heading text-theme-dark mb-4">2. Use of the Platform</h2>
+        <p class="mb-4">AI My Advance provides an intelligent risk management and underwriting operating system. By using the Platform, you agree that:</p>
+        <ul class="list-disc pl-6 mb-8 space-y-2">
+          <li>You will only use the Platform for lawful, professional business purposes.</li>
+          <li>You are responsible for the accuracy of the documents and data you upload to our system.</li>
+          <li>You will not attempt to reverse engineer, decompile, or bypass the security protocols of our AI underwriting engine or our integrations.</li>
+          <li>You will maintain the confidentiality of your portal login credentials.</li>
+        </ul>
+
+        <h2 class="text-2xl font-heading text-theme-dark mb-4">3. Fees and Payments</h2>
+        <p class="mb-8">
+          Certain features of the Platform, such as our AI Underwriting engine, are subject to fees. By submitting documents or connecting bank accounts for parsing, you agree to the pricing structure detailed on our platform ($1.50 base fee, subject to statement limits). Pricing is subject to change, and we will provide adequate notice of any fee modifications.
+        </p>
+
+        <h2 class="text-2xl font-heading text-theme-dark mb-4">4. Intellectual Property</h2>
+        <p class="mb-8">
+          All content, software, AI models, algorithms, designs, text, and graphics on the Platform are the exclusive property of AI My Advance. You are granted a limited, non-exclusive, non-transferable license to access and use the Platform for your internal business operations. You may not copy, modify, or distribute our proprietary software without express written permission.
+        </p>
+
+        <h2 class="text-2xl font-heading text-theme-dark mb-4">5. Limitation of Liability</h2>
+        <p class="mb-8">
+          While our AI models are engineered for 99.9% accuracy, AI My Advance provides the Platform on an "as-is" basis. We are not a lender, and we do not guarantee funding approvals or collections. AI My Advance shall not be held liable for any indirect, incidental, or consequential financial losses arising from underwriting decisions made based on our predictive intelligence tools.
+        </p>
+
+        <h2 class="text-2xl font-heading text-theme-dark mb-4">6. Governing Law</h2>
+        <p class="mb-8">
+          These Terms of Service shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of law provisions. Any legal action or proceeding related to the Platform shall be brought exclusively in a federal or state court of competent jurisdiction located in New York.
+        </p>
+
+        <div class="bg-theme-light p-6 rounded border border-blue-100 mt-10">
+          <h3 class="text-xl font-heading text-theme-dark mb-2">Questions About Our Terms?</h3>
+          <p class="mb-4">If you have any questions or require clarification on our Terms of Service, please contact our legal team at:</p>
+          <p class="font-bold text-theme-dark">AI My Advance</p>
+          <p>40 Wall Street Suite 3100, New York, NY 10005</p>
+          <p>Email: <a href="mailto:info@aimyadvance.com" class="text-theme-primary hover:underline">info@aimyadvance.com</a></p>
+          <p>Phone: <a href="tel:19295260752" class="text-theme-primary hover:underline">+1 (929) 526-0752</a></p>
         </div>
 
-        <div class="prose prose-slate max-w-none text-theme-text">
-          
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">1. Acceptance of these terms</h2>
-          <p class="leading-relaxed mb-4">These Terms of Use (“Terms”) form a binding agreement between you and AI My Advance (“AI My Advance,” “we,” “our,” or “us”). By accessing or using <strong>aimyadvance.com</strong>, any related landing pages, or any AI My Advance portals or services, you agree to be bound by these Terms.</p>
-          <p class="leading-relaxed mb-6">If you are using the services on behalf of a company or other legal entity, you represent that you have authority to bind that entity, and “you” refers to that entity. If you do not agree to these Terms, you must not access or use the services.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">2. Our services</h2>
-          <p class="leading-relaxed mb-4">AI My Advance provides a software platform and related services that help funders, syndicators, ISOs, lenders, underwriters, and merchants manage underwriting workflows, funding arrangements, collections, and portfolio performance.</p>
-          <p class="leading-relaxed mb-6">We provide the technology and infrastructure. We do not originate, fund, or make credit or funding decisions ourselves. Decisions regarding merchant funding, deal structures, and risk remain solely with you and your organization.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">3. Eligibility and accounts</h2>
-          <ul class="list-disc pl-6 space-y-2 mb-6">
-            <li>You must be at least 18 years old and legally able to enter into contracts to use the services.</li>
-            <li>Accounts may be provisioned by your organization’s administrators. You are responsible for maintaining the confidentiality of your login credentials and for all activity under your account.</li>
-            <li>You agree to notify us or your administrator promptly if you suspect unauthorized access to your account.</li>
-          </ul>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">4. Subscription model and merchant fees</h2>
-          <p class="leading-relaxed mb-4">Our pricing model is structured so that merchants, rather than funders, pay a subscription fee to use certain features of the platform.</p>
-          <ul class="list-disc pl-6 space-y-2 mb-4">
-            <li>Merchants pay <strong>$34.99 per month</strong> for access to the merchant experience and related tools.</li>
-            <li><strong>$10 per merchant per month</strong> is shared with the funder as platform revenue.</li>
-            <li>After 2026, the revenue share rate for funders is scheduled to adjust to <strong>$5 per merchant per month</strong>, unless otherwise agreed in writing.</li>
-          </ul>
-          <p class="leading-relaxed mb-6">Specific commercial terms, billing arrangements, and revenue shares with your organization may be documented in separate order forms, statements of work, or platform agreements. If there is a conflict between those written commercial terms and these Terms, the written commercial terms will control for the conflicting subject matter.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">5. Acceptable use</h2>
-          <p class="leading-relaxed mb-4">You agree not to misuse the services. In particular, you must not:</p>
-          <ul class="list-disc pl-6 space-y-2 mb-4">
-            <li>Use the platform for unlawful, fraudulent, or deceptive activities;</li>
-            <li>Upload or transmit malware, malicious code, or content that interferes with the operation of the services;</li>
-            <li>Attempt to access accounts, data, or systems without authorization;</li>
-            <li>Reverse engineer, decompile, or attempt to derive source code from the services, except where permitted by law;</li>
-            <li>Use automated scripts to unduly burden or scrape the platform, except as expressly authorized;</li>
-            <li>Use the services to infringe, misappropriate, or violate the rights of others.</li>
-          </ul>
-          <p class="leading-relaxed mb-6">We may suspend or terminate access to the services if we reasonably believe you have violated these acceptable use obligations.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">6. Data, privacy, and confidentiality</h2>
-          <p class="leading-relaxed mb-4">Your use of the services is also governed by our <a href="privacy.html" class="text-theme-primary hover:text-blue-700 transition-colors">Privacy Policy</a>, which explains how we collect, use, and protect information.</p>
-          <p class="leading-relaxed mb-4">To provide the services, we may process merchant data, portfolio data, and other information that you or your organization upload to the platform or connect via integrations. We treat such information as confidential and use it only to provide and improve the services, comply with legal obligations, and perform functions described in our agreements and policies.</p>
-          <p class="leading-relaxed mb-6">Where we act as a data processor or service provider to your organization, we will process personal information in accordance with applicable data processing terms agreed between AI My Advance and your organization.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">7. Third‑party services and integrations</h2>
-          <p class="leading-relaxed mb-4">The platform may integrate with third‑party services such as ACH processors, bank data providers, accounting systems, analytics providers, and credit bureaus. Your use of those third‑party services is governed by their own terms and privacy policies.</p>
-          <p class="leading-relaxed mb-6">We are not responsible for third‑party services, and we do not control how those providers handle data once it is transferred to them at your direction or in connection with an integration you enable.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">8. Ownership and intellectual property</h2>
-          <ul class="list-disc pl-6 space-y-2 mb-6">
-            <li>AI My Advance and its licensors own all rights, title, and interest in and to the platform, including underlying software, interfaces, designs, and documentation, subject only to the limited rights expressly granted to you in these Terms and any applicable commercial agreement.</li>
-            <li>You and your organization retain all rights in your own data and content that you upload to the platform. You grant us a limited license to use that data solely to provide, secure, and improve the services, and as otherwise permitted in our agreements and policies.</li>
-          </ul>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">9. Disclaimers</h2>
-          <p class="leading-relaxed mb-4">The services, including any analytics, predictions, or insights, are provided for informational and operational support purposes. They do not constitute financial, legal, or investment advice.</p>
-          <p class="leading-relaxed mb-6">To the fullest extent permitted by law, the services are provided “as is” and “as available,” without warranties of any kind, whether express, implied, statutory, or otherwise, including implied warranties of merchantability, fitness for a particular purpose, title, and non‑infringement.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">10. Limitation of liability</h2>
-          <p class="leading-relaxed mb-4">To the fullest extent permitted by law, neither AI My Advance nor its officers, employees, or affiliates will be liable for any indirect, incidental, consequential, special, punitive, or exemplary damages, or for any loss of profits, revenue, or business, arising out of or relating to your use of the services, even if we have been advised of the possibility of such damages.</p>
-          <p class="leading-relaxed mb-6">To the extent permitted by law, our total aggregate liability arising out of or relating to the services and these Terms will not exceed the amounts paid to us by your organization for the services during the twelve (12) months immediately preceding the event giving rise to the claim.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">11. Indemnification</h2>
-          <p class="leading-relaxed mb-4">You agree to indemnify and hold harmless AI My Advance and its officers, directors, employees, and affiliates from and against any claims, losses, liabilities, damages, costs, and expenses (including reasonable attorneys’ fees) arising out of or related to:</p>
-          <ul class="list-disc pl-6 space-y-2 mb-6">
-            <li>Your use of the services in violation of these Terms or applicable law;</li>
-            <li>Your content, data, or dealings with merchants and other third parties;</li>
-            <li>Any unauthorized use of your account.</li>
-          </ul>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">12. Suspension and termination</h2>
-          <p class="leading-relaxed mb-4">We may suspend or terminate your access to the services if we believe you are violating these Terms, using the services in a way that creates risk or harm to us or others, or as otherwise permitted under a separate commercial agreement with your organization.</p>
-          <p class="leading-relaxed mb-6">Your organization may also manage user access and revoke credentials at any time. Upon termination, your right to access and use the services will cease, but any provisions that by their nature should survive (including ownership, confidentiality, disclaimers, limitations of liability, and dispute resolution) will remain in effect.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">13. Governing law and disputes</h2>
-          <p class="leading-relaxed mb-4">These Terms are governed by the laws of the State of New York, without regard to its conflict of laws principles.</p>
-          <p class="leading-relaxed mb-6">Any dispute arising out of or relating to these Terms or the services will be subject to the exclusive jurisdiction of the state and federal courts located in New York County, New York, and you consent to the personal jurisdiction of those courts.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">14. Changes to these Terms</h2>
-          <p class="leading-relaxed mb-4">We may update these Terms from time to time to reflect changes in our services, business, or legal requirements. When we make material changes, we will update the “Effective date” at the top of this page and may provide additional notice, such as in‑app notifications or email.</p>
-          <p class="leading-relaxed mb-6">Your continued use of the services after the updated Terms become effective constitutes your acceptance of them.</p>
-
-          <h2 class="text-2xl font-heading font-bold text-theme-dark mt-10 mb-4">15. Contact us</h2>
-          <p class="leading-relaxed mb-4">If you have questions about these Terms or the services, you can contact us at:</p>
-          
-          <div class="bg-theme-light p-8 rounded-sm border border-theme-border mt-8">
-            <p class="mb-2 font-heading font-bold text-theme-dark text-lg">AI My Advance</p>
-            <p class="mb-1 text-theme-text">40 Wall Street Suite 3100</p>
-            <p class="mb-6 text-theme-text">New York, NY 10005</p>
-            <p class="mb-2 flex items-center gap-3">
-              <svg class="w-5 h-5 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-              <a href="mailto:eli@simplecodeai.com" class="text-theme-dark hover:text-theme-primary font-semibold transition-colors">eli@simplecodeai.com</a>
-            </p>
-            <p class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-              <a href="tel:9292165491" class="text-theme-dark hover:text-theme-primary font-semibold transition-colors">(929) 216-5491</a>
-            </p>
-          </div>
-
-        </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-theme-dark pt-20 pb-6 relative text-gray-400 font-sans">
+  <footer class="bg-theme-dark pt-16 lg:pt-20 pb-6 relative text-gray-400 font-sans">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 border-b border-gray-800 pb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 lg:mb-16 border-b border-gray-800 pb-12 lg:pb-16">
         
         <div>
           <a href="index.html" class="block mb-6">
-            <span class="font-heading font-extrabold text-3xl text-white">MyAdvance</span>
+            <span class="font-heading text-2xl lg:text-3xl text-white">MyAdvance</span>
           </a>
-          <p class="mb-6 leading-relaxed">
+          <p class="mb-6 leading-relaxed text-sm lg:text-base font-sans">
             Enterprise-grade MCA tracking and risk management platform powered by predictive intelligence. Automate underwriting, track repayments, and predict defaults.
           </p>
           <div class="flex gap-3">
@@ -296,18 +274,18 @@
         </div>
 
         <div>
-          <h4 class="text-white font-heading font-bold text-xl mb-6">Useful Links</h4>
-          <ul class="space-y-4">
+          <h4 class="text-white font-heading text-lg lg:text-xl mb-6">Useful Links</h4>
+          <ul class="space-y-4 text-sm lg:text-base font-sans">
             <li><a href="index.html#platform" class="hover:text-theme-primary transition">Platform</a></li>
-            <li><a href="index.html#services" class="hover:text-theme-primary transition">Services</a></li>
+            <li><a href="how-it-works.html" class="hover:text-theme-primary transition">How It Works</a></li>
             <li><a href="index.html#pricing" class="hover:text-theme-primary transition">Pricing</a></li>
             <li><a href="contact.html" class="hover:text-theme-primary transition">Contact Us</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="text-white font-heading font-bold text-xl mb-6">Login Portals</h4>
-          <ul class="space-y-4">
+          <h4 class="text-white font-heading text-lg lg:text-xl mb-6">Login Portals</h4>
+          <ul class="space-y-4 text-sm lg:text-base font-sans">
             <li><a href="https://aimyadvance.com/iso" class="hover:text-theme-primary transition">ISO Portal Login</a></li>
             <li><a href="https://www.aimyadvance.com/funder/login" class="hover:text-theme-primary transition">Funder Login</a></li>
             <li><a href="https://www.aimyadvance.com/syndicator/login" class="hover:text-theme-primary transition">Syndicator Login</a></li>
@@ -315,29 +293,29 @@
         </div>
 
         <div>
-          <h4 class="text-white font-heading font-bold text-xl mb-6">Contact Us</h4>
-          <ul class="space-y-4">
+          <h4 class="text-white font-heading text-lg lg:text-xl mb-6">Contact Us</h4>
+          <ul class="space-y-4 text-sm lg:text-base font-sans">
             <li class="flex items-start gap-4">
-              <svg class="w-6 h-6 text-theme-primary mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+              <svg class="w-5 h-5 lg:w-6 lg:h-6 text-theme-primary mt-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
               <span>40 Wall Street Suite 3100<br>New York, NY 10005</span>
             </li>
             <li class="flex items-center gap-4">
-              <svg class="w-6 h-6 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-              <a href="mailto:eli@simplecodeai.com" class="hover:text-white transition">eli@simplecodeai.com</a>
+              <svg class="w-5 h-5 lg:w-6 lg:h-6 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+              <a href="mailto:info@aimyadvance.com" class="hover:text-white transition break-all">info@aimyadvance.com</a>
             </li>
             <li class="flex items-center gap-4">
-              <svg class="w-6 h-6 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-              <a href="tel:9292165491" class="hover:text-white transition">+1 (929) 216-5491</a>
+              <svg class="w-5 h-5 lg:w-6 lg:h-6 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+              <a href="tel:19295260752" class="hover:text-white transition">+1 (929) 526-0752</a>
             </li>
           </ul>
         </div>
       </div>
       
-      <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+      <div class="flex flex-col md:flex-row justify-between items-center text-xs lg:text-sm font-sans">
         <div class="mb-4 md:mb-0">
           © 2026 AI My Advance. All Rights Reserved.
         </div>
-        <div class="flex gap-6">
+        <div class="flex gap-4 lg:gap-6">
           <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a>
           <a href="terms.html" class="text-white transition">Terms of Service</a>
         </div>
@@ -345,17 +323,32 @@
     </div>
   </footer>
 
-  <div id="demoModal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+  <div id="demoModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
     <div class="absolute inset-0 bg-theme-dark/90" onclick="closeModal()"></div>
-    <div class="relative bg-white shadow-2xl w-full max-w-[1096px] h-auto max-h-[90vh] mx-4 flex flex-col transform transition-transform scale-95 opacity-0 overflow-hidden" id="modalContent">
-      <div class="flex justify-between items-center p-6 border-b border-gray-100 bg-white">
-        <h3 class="font-bold font-heading text-2xl text-theme-dark">Book a Demo</h3>
-        <button onclick="closeModal()" class="text-gray-400 hover:text-red-500 transition text-3xl leading-none">&times;</button>
+    <div class="relative bg-white shadow-2xl w-full max-w-[1096px] h-auto max-h-[90vh] flex flex-col transform transition-transform scale-95 opacity-0 overflow-hidden rounded" id="modalContent">
+      <div class="flex justify-between items-center p-4 lg:p-6 border-b border-gray-100 bg-white">
+        <h3 class="font-bold font-heading text-xl lg:text-2xl text-theme-dark">Book a Demo</h3>
+        <button onclick="closeModal()" class="text-gray-400 hover:text-red-500 transition text-2xl lg:text-3xl leading-none">&times;</button>
       </div>
       <div class="flex-1 overflow-y-auto w-full bg-white flex justify-center">
         <iframe src="https://zcal.co/i/QpeZHeWF?embed=1&embedType=iframe" loading="lazy" style="border:none; min-width: 320px; min-height: 544px; height: 731px; width: 100%; max-width: 1096px;" id="zcal-invite" scrolling="yes"></iframe>
       </div>
     </div>
+  </div>
+
+  <div id="gif-agent-widget" class="hidden lg:block fixed bottom-0 right-4 lg:right-10 z-[100] w-40 lg:w-48 cursor-pointer transform origin-bottom hover:scale-105 transition-transform duration-300 drop-shadow-2xl">
+    
+    <button onclick="document.getElementById('gif-agent-widget').style.display='none'" class="absolute top-0 right-0 bg-white text-gray-500 hover:text-red-500 rounded-full w-6 h-6 flex items-center justify-center text-sm shadow-md z-10 translate-x-2 -translate-y-2">
+      &times;
+    </button>
+
+    <img src="./images/agent.gif" alt="Customer Support" class="w-full h-auto drop-shadow-xl" onclick="openModal()">
+    
+    <div class="absolute top-10 -left-12 bg-white text-theme-dark text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap animate-bounce" onclick="openModal()">
+      Need help? 👋
+      <div class="absolute top-1/2 -right-1 w-2 h-2 bg-white transform rotate-45 -translate-y-1/2"></div>
+    </div>
+
   </div>
 
   <script>
@@ -376,12 +369,12 @@
       const el = document.getElementById(id);
       const arrow = document.getElementById('login-arrow');
       if (el.classList.contains('invisible')) {
-        el.classList.remove('invisible', 'opacity-0');
-        el.classList.add('visible', 'opacity-100');
+        el.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+        el.classList.add('visible', 'opacity-100', 'translate-y-0');
         arrow.style.transform = 'rotate(180deg)';
       } else {
-        el.classList.add('invisible', 'opacity-0');
-        el.classList.remove('visible', 'opacity-100');
+        el.classList.add('invisible', 'opacity-0', 'translate-y-2');
+        el.classList.remove('visible', 'opacity-100', 'translate-y-0');
         arrow.style.transform = 'rotate(0deg)';
       }
     }
@@ -391,8 +384,8 @@
       const button = dropdown.previousElementSibling;
       const arrow = document.getElementById('login-arrow');
       if (dropdown && !dropdown.contains(e.target) && !button.contains(e.target)) {
-        dropdown.classList.add('invisible', 'opacity-0');
-        dropdown.classList.remove('visible', 'opacity-100');
+        dropdown.classList.add('invisible', 'opacity-0', 'translate-y-2');
+        dropdown.classList.remove('visible', 'opacity-100', 'translate-y-0');
         if(arrow) arrow.style.transform = 'rotate(0deg)';
       }
     });
