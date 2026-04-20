@@ -45,7 +45,7 @@
     /* LOAD YOUR CUSTOM FONT HERE */
     @font-face {
       font-family: 'Airlash Raiders';
-      src: url('./fonts/Airlash Raiders.ttf'); /* Make sure this matches your exact filename */
+      src: url('./fonts/AirlashRaiders.ttf'); /* Make sure this matches your exact filename */
       font-weight: normal;
       font-style: normal;
       font-display: swap;
@@ -105,11 +105,11 @@
         <div class="flex items-center gap-6">
           <div class="flex items-center gap-2">
             <svg class="w-4 h-4 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-            <span>+1 (929) 216-5491</span>
+            <span>+1 (929) 526-0752</span>
           </div>
           <div class="flex items-center gap-2">
             <svg class="w-4 h-4 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-            <span>eli@simplecodeai.com</span>
+            <span>info@aimyadvance.com</span>
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@
     </div>
   </div>
 
-  <nav class="w-full z-50 bg-white shadow-sm sticky top-0 transition-all duration-300">
+  <nav class="w-full z-50 bg-white shadow-sm sticky top-0 transition-all duration-300 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20 md:h-24">
         
@@ -140,18 +140,27 @@
         <div class="hidden lg:flex items-center space-x-4">
           
           <div class="relative group">
-            <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-1 font-sans font-semibold text-theme-dark hover:text-theme-primary transition">
+            <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-2 font-sans font-semibold text-theme-dark bg-gray-50 border border-gray-200 px-5 py-2.5 rounded-full hover:border-theme-primary hover:text-theme-primary hover:shadow-sm transition-all duration-300">
               Portals
               <svg class="w-4 h-4 transition-transform duration-300" id="login-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            <div id="desktop-login-dropdown" class="absolute right-0 mt-6 w-48 bg-white border-t-4 border-theme-primary shadow-corporate-card opacity-0 invisible transition-all duration-300 z-50">
-              <a href="https://www.aimyadvance.com/funder/login" class="block px-4 py-3 text-sm text-theme-text border-b border-gray-50 hover:bg-theme-light hover:text-theme-primary transition">Funder Portal</a>
-              <a href="https://aimyadvance.com/iso" class="block px-4 py-3 text-sm text-theme-text border-b border-gray-50 hover:bg-theme-light hover:text-theme-primary transition">ISO Portal</a>
-              <a href="https://www.aimyadvance.com/syndicator/login" class="block px-4 py-3 text-sm text-theme-text hover:bg-theme-light hover:text-theme-primary transition">Syndicator Portal</a>
+            
+            <div id="desktop-login-dropdown" class="absolute right-0 mt-3 w-60 bg-white border border-gray-100 rounded-xl shadow-2xl opacity-0 invisible translate-y-2 transition-all duration-300 z-50 overflow-hidden">
+              <div class="p-2 space-y-1">
+                <a href="https://www.aimyadvance.com/funder/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> Funder Portal
+                </a>
+                <a href="https://aimyadvance.com/iso" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> ISO Portal
+                </a>
+                <a href="https://www.aimyadvance.com/syndicator/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> Syndicator Portal
+                </a>
+              </div>
             </div>
           </div>
 
-          <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-3 font-sans font-semibold hover:bg-blue-700 transition">
+          <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-3 font-sans font-semibold hover:bg-blue-700 transition rounded-sm">
             Book Demo
           </button>
         </div>
@@ -163,23 +172,23 @@
         </div>
       </div>
     </div>
-  </nav>
 
-  <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
-    <div class="px-4 py-6 space-y-4 font-sans font-semibold text-theme-dark">
-      <a href="#about" class="block hover:text-theme-primary">About Us</a>
-      <a href="#platform" class="block hover:text-theme-primary">Platform</a>
-      <a href="#integrations" class="block hover:text-theme-primary">Integrations</a>
-      <a href="#pricing" class="block hover:text-theme-primary">Pricing</a>
-      <a href="contact.html" class="block hover:text-theme-primary">Contact</a>
-      <hr>
-      <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">PORTALS LOGIN</p>
-      <a href="https://www.aimyadvance.com/funder/login" class="block text-theme-text font-normal text-sm hover:text-theme-primary">Funder Portal</a>
-      <a href="https://aimyadvance.com/iso" class="block text-theme-text font-normal text-sm hover:text-theme-primary">ISO Portal</a>
-      <a href="https://www.aimyadvance.com/syndicator/login" class="block text-theme-text font-normal text-sm hover:text-theme-primary">Syndicator Portal</a>
-      <button onclick="openModal()" class="w-full mt-4 bg-theme-primary text-white px-5 py-3 text-center">Book Demo</button>
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute left-0 top-full w-full shadow-2xl z-50">
+      <div class="px-4 py-6 space-y-4 font-sans font-semibold text-theme-dark">
+        <a href="#about" onclick="toggleMobileMenu()" class="block hover:text-theme-primary">About Us</a>
+        <a href="#platform" onclick="toggleMobileMenu()" class="block hover:text-theme-primary">Platform</a>
+        <a href="#integrations" onclick="toggleMobileMenu()" class="block hover:text-theme-primary">Integrations</a>
+        <a href="#pricing" onclick="toggleMobileMenu()" class="block hover:text-theme-primary">Pricing</a>
+        <a href="contact.html" class="block hover:text-theme-primary">Contact</a>
+        <hr>
+        <p class="text-xs text-gray-400 font-bold uppercase tracking-wider">PORTALS LOGIN</p>
+        <a href="https://www.aimyadvance.com/funder/login" class="block text-theme-text font-normal text-sm hover:text-theme-primary">Funder Portal</a>
+        <a href="https://aimyadvance.com/iso" class="block text-theme-text font-normal text-sm hover:text-theme-primary">ISO Portal</a>
+        <a href="https://www.aimyadvance.com/syndicator/login" class="block text-theme-text font-normal text-sm hover:text-theme-primary">Syndicator Portal</a>
+        <button onclick="openModal(); toggleMobileMenu();" class="w-full mt-4 bg-theme-primary text-white px-5 py-3 text-center">Book Demo</button>
+      </div>
     </div>
-  </div>
+  </nav>
 
   <section class="relative pt-20 pb-32 md:pt-28 md:pb-40 lg:pt-36 lg:pb-56 overflow-hidden">
     
@@ -713,11 +722,11 @@
             </li>
             <li class="flex items-center gap-4">
               <svg class="w-5 h-5 lg:w-6 lg:h-6 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
-              <a href="mailto:eli@simplecodeai.com" class="hover:text-white transition break-all">eli@simplecodeai.com</a>
+              <a href="mailto:info@aimyadvance.com" class="hover:text-white transition break-all">info@aimyadvance.com</a>
             </li>
             <li class="flex items-center gap-4">
               <svg class="w-5 h-5 lg:w-6 lg:h-6 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-              <a href="tel:9292165491" class="hover:text-white transition">+1 (929) 216-5491</a>
+              <a href="tel:19295260752" class="hover:text-white transition">+1 (929) 526-0752</a>
             </li>
           </ul>
         </div>
@@ -805,12 +814,12 @@
       const el = document.getElementById(id);
       const arrow = document.getElementById('login-arrow');
       if (el.classList.contains('invisible')) {
-        el.classList.remove('invisible', 'opacity-0');
-        el.classList.add('visible', 'opacity-100');
+        el.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+        el.classList.add('visible', 'opacity-100', 'translate-y-0');
         arrow.style.transform = 'rotate(180deg)';
       } else {
-        el.classList.add('invisible', 'opacity-0');
-        el.classList.remove('visible', 'opacity-100');
+        el.classList.add('invisible', 'opacity-0', 'translate-y-2');
+        el.classList.remove('visible', 'opacity-100', 'translate-y-0');
         arrow.style.transform = 'rotate(0deg)';
       }
     }
@@ -820,8 +829,8 @@
       const button = dropdown.previousElementSibling;
       const arrow = document.getElementById('login-arrow');
       if (dropdown && !dropdown.contains(e.target) && !button.contains(e.target)) {
-        dropdown.classList.add('invisible', 'opacity-0');
-        dropdown.classList.remove('visible', 'opacity-100');
+        dropdown.classList.add('invisible', 'opacity-0', 'translate-y-2');
+        dropdown.classList.remove('visible', 'opacity-100', 'translate-y-0');
         if(arrow) arrow.style.transform = 'rotate(0deg)';
       }
     });
