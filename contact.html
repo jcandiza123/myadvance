@@ -60,9 +60,6 @@
       background-position: center;
       background-attachment: scroll;
     }
-
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body class="text-theme-text font-sans bg-theme-light">
@@ -85,6 +82,10 @@
           </div>
         </div>
       </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-theme-primary transition">LinkedIn</a>
+        <a href="#" class="hover:text-theme-primary transition">Twitter</a>
+      </div>
     </div>
   </div>
 
@@ -104,13 +105,56 @@
           <a href="contact.html" class="text-theme-primary transition">Contact</a>
         </div>
         <div class="hidden lg:flex items-center space-x-4">
-          <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-3 font-sans font-semibold hover:bg-blue-700 transition rounded-sm">Book Demo</button>
+          <div class="relative group">
+            <button onclick="if(window.toggleDropdown) toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-2 font-sans font-semibold text-theme-dark bg-gray-50 border border-gray-200 px-5 py-2.5 rounded-full hover:border-theme-primary hover:text-theme-primary hover:shadow-sm transition-all duration-300">
+              Portals
+              <svg class="w-4 h-4 transition-transform duration-300" id="login-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div id="desktop-login-dropdown" class="absolute right-0 mt-3 w-60 bg-white border border-gray-100 rounded-xl shadow-2xl opacity-0 invisible translate-y-2 transition-all duration-300 z-50 overflow-hidden">
+              <div class="p-2 space-y-1">
+                <a href="https://www.aimyadvance.com/funder/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> Funder Portal
+                </a>
+                <a href="https://aimyadvance.com/iso" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> ISO Portal
+                </a>
+                <a href="https://www.aimyadvance.com/syndicator/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
+                  <span class="w-1.5 h-1.5 rounded-full bg-theme-primary mr-3"></span> Syndicator Portal
+                </a>
+              </div>
+            </div>
+          </div>
+          <button onclick="if(window.openModal) openModal()" class="bg-theme-primary text-white px-8 py-3 font-sans font-semibold hover:bg-blue-700 transition rounded-sm">
+            Book Demo
+          </button>
         </div>
         <div class="lg:hidden flex items-center">
-          <button onclick="toggleMobileMenu()" class="text-theme-dark focus:outline-none">
+          <button onclick="if(window.toggleMobileMenu) toggleMobileMenu()" class="text-theme-dark focus:outline-none">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
           </button>
         </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute left-0 top-full w-full shadow-2xl z-50 pb-6">
+      <div class="px-4 py-6 space-y-4 font-sans font-semibold text-theme-dark">
+        <a href="index.html#about" onclick="if(window.toggleMobileMenu) toggleMobileMenu()" class="block hover:text-theme-primary text-lg">About Us</a>
+        <a href="how-it-works.html" onclick="if(window.toggleMobileMenu) toggleMobileMenu()" class="block hover:text-theme-primary text-lg">How It Works</a>
+        <a href="index.html#platform" onclick="if(window.toggleMobileMenu) toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Platform</a>
+        <a href="index.html#integrations" onclick="if(window.toggleMobileMenu) toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Integrations</a>
+        <a href="index.html#pricing" onclick="if(window.toggleMobileMenu) toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Pricing</a>
+        <a href="contact.html" class="block text-theme-primary text-lg">Contact</a>
+        <div class="bg-theme-light p-5 rounded-xl border border-blue-100 mt-6">
+          <p class="text-xs text-theme-primary font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+            Secure Portals
+          </p>
+          <div class="space-y-2">
+            <a href="https://www.aimyadvance.com/funder/login" class="flex items-center justify-between bg-white p-3.5 rounded-lg shadow-sm border-l-4 border-theme-primary text-theme-dark">Funder Portal</a>
+            <a href="https://aimyadvance.com/iso" class="flex items-center justify-between bg-white p-3.5 rounded-lg shadow-sm border-l-4 border-theme-primary text-theme-dark">ISO Portal</a>
+            <a href="https://www.aimyadvance.com/syndicator/login" class="flex items-center justify-between bg-white p-3.5 rounded-lg shadow-sm border-l-4 border-theme-primary text-theme-dark">Syndicator Portal</a>
+          </div>
+        </div>
+        <button onclick="if(window.openModal) openModal(); if(window.toggleMobileMenu) toggleMobileMenu();" class="w-full mt-4 bg-theme-primary text-white px-5 py-4 text-center rounded-sm">Book Demo</button>
       </div>
     </div>
   </nav>
@@ -136,7 +180,7 @@
             <h2 class="text-3xl font-heading text-theme-dark mb-2">Get in Touch</h2>
             <p class="text-theme-text font-sans mb-8">Ready to streamline your operations? Fill out the form below and our team will get back to you within 24 hours.</p>
             
-            <form id="contactForm" class="space-y-6">
+            <form id="contactForm" action="javascript:void(0);" class="space-y-6">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">First Name</label>
@@ -161,7 +205,7 @@
 
               <div>
                 <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">Company Type</label>
-                <select name="companyType" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary outline-none transition text-theme-dark font-sans text-sm">
+                <select name="companyType" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary outline-none transition text-theme-dark font-sans text-sm appearance-none">
                   <option value="" disabled selected>Select your role...</option>
                   <option value="iso">ISO / Broker</option>
                   <option value="funder">Direct Funder</option>
@@ -251,75 +295,70 @@
 
   <div id="demoModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-theme-dark/90">
     <div class="relative bg-white shadow-2xl w-full max-w-[1096px] rounded p-4">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
-      <iframe src="https://zcal.co/i/QpeZHeWF?embed=1&embedType=iframe" style="border:none; height: 700px; w-full"></iframe>
+      <button onclick="if(window.closeModal) closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl">&times;</button>
+      <iframe src="https://zcal.co/i/QpeZHeWF?embed=1&embedType=iframe" style="border:none; height: 700px; width: 100%;"></iframe>
     </div>
   </div>
 
   <script>
-    // Fallback UI Functions (prevents console crashes if main.js is missing them)
-    function openModal() { document.getElementById('demoModal').classList.remove('hidden'); document.getElementById('demoModal').classList.add('flex'); }
-    function closeModal() { document.getElementById('demoModal').classList.add('hidden'); document.getElementById('demoModal').classList.remove('flex'); }
-    function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
-
     // ==========================================
     // ISOLATED MAKE.COM WEBHOOK SCRIPT
     // ==========================================
-    document.addEventListener('DOMContentLoaded', function() {
-      const contactForm = document.getElementById('contactForm');
+    window.addEventListener('load', function() {
+      var cForm = document.getElementById('contactForm');
       
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+      if (cForm) {
+        cForm.addEventListener('submit', function(e) {
           
-          // 1. STOP THE BROWSER FROM REFRESHING
+          // 1. Physically halt the browser from refreshing
           e.preventDefault(); 
           
-          const WEBHOOK_URL = 'https://hook.eu1.make.com/xo55bro4y8l7nnh8np5rw4b2bxx9muoo';
-          const formContainer = document.getElementById('formContainer');
-          const successMessage = document.getElementById('successMessage');
-          const submitBtn = document.getElementById('submitBtn');
-          const originalBtnText = submitBtn.innerHTML;
+          var WEBHOOK_URL = 'https://hook.eu1.make.com/xo55bro4y8l7nnh8np5rw4b2bxx9muoo';
+          var formContainer = document.getElementById('formContainer');
+          var successMessage = document.getElementById('successMessage');
+          var submitBtn = document.getElementById('submitBtn');
+          var originalBtnText = submitBtn.innerHTML;
 
-          // 2. SHOW LOADING SPINNER
+          // 2. Change the button to show "Sending..."
           submitBtn.innerHTML = `
             <svg class="animate-spin h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
             Sending...
           `;
           submitBtn.disabled = true;
 
-          // 3. PACKAGE THE DATA FOR MAKE.COM
-          const formData = new FormData(contactForm);
-          const data = Object.fromEntries(formData.entries());
+          // 3. Package the data for Make.com
+          var formData = new FormData(cForm);
+          var data = Object.fromEntries(formData.entries());
 
-          const payload = {
+          var payload = {
             "email": data.email,
             "name": data.firstName + " " + data.lastName,
             "title": "New Lead: " + data.companyType,
             "message": "Phone Number: " + (data.phone || 'Not Provided') + "\\n\\nMessage:\\n" + data.message
           };
 
-          // 4. SEND THE DATA
+          // 4. Send the data in the background
           fetch(WEBHOOK_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
+            body: JSON.stringify(payload)
           })
-          .then(response => {
+          .then(function(response) {
             if(response.ok || response.status === 200) {
-              // HIDE FORM & SHOW SUCCESS GREEN BOX
-              formContainer.classList.add('hidden');
+              // Hide form & show green success message
+              formContainer.style.display = 'none';
               successMessage.classList.remove('hidden');
               successMessage.classList.add('flex');
-              contactForm.reset();
+              cForm.reset();
             } else {
               alert('Error sending message. Status: ' + response.status);
               submitBtn.innerHTML = originalBtnText;
               submitBtn.disabled = false;
             }
           })
-          .catch(error => {
+          .catch(function(error) {
             console.error('Error:', error);
-            alert('Network Error! Could not connect to Make.com.');
+            alert('Network Error! Please check your connection.');
             submitBtn.innerHTML = originalBtnText;
             submitBtn.disabled = false;
           });
