@@ -1,7 +1,6 @@
 // ==========================================
 // GLOBAL FUNCTIONS (For HTML onclick events)
 // ==========================================
-
 window.toggleDropdown = function(id) {
   const el = document.getElementById(id);
   const arrow = document.getElementById('login-arrow');
@@ -79,15 +78,11 @@ window.switchTab = function(tabId, btnElement) {
   }
 };
 
-
 // ==========================================
 // SCOPED EVENT LISTENERS & ANIMATIONS
 // ==========================================
-// Wrapping this inside DOMContentLoaded prevents variables from clashing!
-
 document.addEventListener('DOMContentLoaded', function() {
   
-  // 1. GSAP Typing Animation (Restored from your original code!)
   const cursor = document.getElementById("cursor");
   const animatedText = document.getElementById("animated-text");
 
@@ -104,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 2. High-Performance Scroll Reveal 
   const revealElements = document.querySelectorAll('.reveal');
   if (revealElements.length > 0) {
     const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
@@ -115,11 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.unobserve(entry.target);
       });
     }, revealOptions);
-    
     revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  // 3. Click outside Desktop Dropdown to close it
   document.addEventListener('click', (e) => {
     const dropdown = document.getElementById('desktop-login-dropdown');
     if (dropdown) {
@@ -133,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // 4. Escape key to close the Demo Modal
   document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('demoModal');
     if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
@@ -141,7 +132,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // 5. ROI Calculator Logic (Only runs if elements exist on the page)
   const slider = document.getElementById('merchant-slider');
   const countDisplay = document.getElementById('merchant-count');
   const revenueDisplay = document.getElementById('revenue-output');
@@ -154,5 +144,4 @@ document.addEventListener('DOMContentLoaded', function() {
       revenueDisplay.textContent = '$' + annualRevenue.toLocaleString();
     });
   }
-
 });
