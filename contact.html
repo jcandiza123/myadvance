@@ -91,7 +91,7 @@
         </div>
         <div class="flex items-center gap-6">
           <div class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+            <svg class="w-4 h-4 text-theme-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
             <span>+1 (929) 526-0752</span>
           </div>
           <div class="flex items-center gap-2">
@@ -213,36 +213,36 @@
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           
-          <div>
+          <div id="formContainer">
             <h2 class="text-3xl font-heading text-theme-dark mb-2">Get in Touch</h2>
             <p class="text-theme-text font-sans mb-8">Ready to streamline your operations? Fill out the form below and our team will get back to you within 24 hours.</p>
             
-            <form action="#" class="space-y-6">
+            <form id="contactForm" class="space-y-6">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">First Name</label>
-                  <input type="text" placeholder="John" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
+                  <input type="text" name="firstName" placeholder="John" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
                 </div>
                 <div>
                   <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">Last Name</label>
-                  <input type="text" placeholder="Doe" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
+                  <input type="text" name="lastName" placeholder="Doe" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
                 </div>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">Work Email</label>
-                  <input type="email" placeholder="john@company.com" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
+                  <input type="email" name="email" placeholder="john@company.com" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
                 </div>
                 <div>
                   <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">Phone Number</label>
-                  <input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
+                  <input type="tel" name="phone" placeholder="+1 (555) 000-0000" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm">
                 </div>
               </div>
 
               <div>
                 <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">Company Type</label>
-                <select required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm appearance-none">
+                <select name="companyType" required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm appearance-none">
                   <option value="" disabled selected>Select your role...</option>
                   <option value="iso">ISO / Broker</option>
                   <option value="funder">Direct Funder</option>
@@ -253,13 +253,22 @@
 
               <div>
                 <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">How can we help you?</label>
-                <textarea rows="4" placeholder="Tell us about your needs..." required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm resize-none"></textarea>
+                <textarea name="message" rows="4" placeholder="Tell us about your needs..." required class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-theme-primary focus:ring-1 focus:ring-theme-primary outline-none transition text-theme-dark font-sans text-sm resize-none"></textarea>
               </div>
 
-              <button type="submit" class="w-full sm:w-auto bg-theme-primary text-white px-10 py-4 font-sans font-bold hover:bg-blue-700 transition rounded-sm shadow-md hover:shadow-lg">
-                Send Message
+              <button type="submit" id="submitBtn" class="w-full sm:w-auto bg-theme-primary text-white px-10 py-4 font-sans font-bold hover:bg-blue-700 transition rounded-sm shadow-md hover:shadow-lg flex justify-center items-center gap-2">
+                <span>Send Message</span>
               </button>
             </form>
+          </div>
+
+          <div id="successMessage" class="hidden flex-col items-center justify-center text-center py-10 h-full border-2 border-dashed border-green-200 rounded-xl bg-green-50">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            </div>
+            <h3 class="text-2xl font-heading text-theme-dark mb-2">Message Sent!</h3>
+            <p class="text-theme-text font-sans">Thank you for reaching out. Our team will get back to you within 24 hours.</p>
+            <button onclick="window.location.reload()" class="mt-6 text-theme-primary font-bold text-sm hover:underline font-sans">Send another message</button>
           </div>
 
           <div class="bg-theme-light p-8 lg:p-10 rounded-xl border border-blue-100 flex flex-col justify-center">
@@ -479,6 +488,66 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
     });
+
+    // ==========================================
+    // MAKE.COM WEBHOOK INTEGRATION
+    // ==========================================
+    const WEBHOOK_URL = 'https://hook.eu1.make.com/xo55bro4y8l7nnh8np5rw4b2bxx9muoo';
+
+    const contactForm = document.getElementById('contactForm');
+    const formContainer = document.getElementById('formContainer');
+    const successMessage = document.getElementById('successMessage');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if(contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault(); 
+        
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = `
+          <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+          Sending...
+        `;
+        submitBtn.disabled = true;
+
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+
+        // Transform the detailed form data into exactly what the Make Webhook expects
+        const payload = {
+          "email": data.email,
+          "name": data.firstName + " " + data.lastName,
+          "title": "New Lead: " + data.companyType,
+          "message": "Phone Number: " + (data.phone || 'Not Provided') + "\n\nMessage:\n" + data.message
+        };
+
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+        .then(response => {
+          if(response.ok) {
+            formContainer.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+            successMessage.classList.add('flex');
+            contactForm.reset(); // Clear the form
+          } else {
+            alert('There was a problem sending your message. Please try again.');
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Network error. Please check your connection and try again.');
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        });
+      });
+    }
   </script>
 </body>
 </html>
