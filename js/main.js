@@ -7,11 +7,11 @@ window.toggleDropdown = function(id) {
   const arrow = document.getElementById('login-arrow');
   if (el) {
     if (el.classList.contains('invisible')) {
-      el.classList.remove('invisible', 'opacity-0', 'translate-y-2');
+      el.classList.remove('invisible', 'opacity-0', 'translate-y-2', 'translate-y-4');
       el.classList.add('visible', 'opacity-100', 'translate-y-0');
       if (arrow) arrow.style.transform = 'rotate(180deg)';
     } else {
-      el.classList.add('invisible', 'opacity-0', 'translate-y-2');
+      el.classList.add('invisible', 'opacity-0', 'translate-y-2', 'translate-y-4');
       el.classList.remove('visible', 'opacity-100', 'translate-y-0');
       if (arrow) arrow.style.transform = 'rotate(0deg)';
     }
@@ -79,43 +79,61 @@ window.switchTab = function(tabId, btnElement) {
   }
 };
 
+
 // ==========================================
 // SCOPED EVENT LISTENERS & ANIMATIONS
 // ==========================================
-// Wrapping this inside DOMContentLoaded prevents "already declared" syntax errors!
+// Wrapping this inside DOMContentLoaded prevents variables from clashing!
 
 document.addEventListener('DOMContentLoaded', function() {
   
-  // 1. Reveal Animations (Scroll Observer)
+  // 1. GSAP Typing Animation (Restored from your original code!)
+  const cursor = document.getElementById("cursor");
+  const animatedText = document.getElementById("animated-text");
+
+  if (cursor && animatedText && typeof gsap !== 'undefined') {
+    if(typeof TextPlugin !== 'undefined') gsap.registerPlugin(TextPlugin);
+    const words = ["deals.", "funds.", "risk."];
+    gsap.to("#cursor", { opacity: 0, repeat: -1, yoyo: true, duration: 0.5, ease: "power2.inOut" });
+    
+    let tlMaster = gsap.timeline({ repeat: -1 });
+    words.forEach((word) => {
+      let tlText = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1.5 });
+      tlText.to("#animated-text", { duration: 0.7, text: word, ease: "none" });
+      tlMaster.add(tlText);
+    });
+  }
+
+  // 2. High-Performance Scroll Reveal 
   const revealElements = document.querySelectorAll('.reveal');
   if (revealElements.length > 0) {
+    const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
       });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    }, revealOptions);
     
     revealElements.forEach(el => revealObserver.observe(el));
   }
 
-  // 2. Click outside Desktop Dropdown to close it
+  // 3. Click outside Desktop Dropdown to close it
   document.addEventListener('click', (e) => {
     const dropdown = document.getElementById('desktop-login-dropdown');
     if (dropdown) {
       const button = dropdown.previousElementSibling;
       const arrow = document.getElementById('login-arrow');
       if (!dropdown.contains(e.target) && button && !button.contains(e.target)) {
-        dropdown.classList.add('invisible', 'opacity-0', 'translate-y-2');
+        dropdown.classList.add('invisible', 'opacity-0', 'translate-y-4', 'translate-y-2');
         dropdown.classList.remove('visible', 'opacity-100', 'translate-y-0');
         if (arrow) arrow.style.transform = 'rotate(0deg)';
       }
     }
   });
 
-  // 3. Escape key to close the Demo Modal
+  // 4. Escape key to close the Demo Modal
   document.addEventListener('keydown', (e) => {
     const modal = document.getElementById('demoModal');
     if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
@@ -123,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // 4. ROI Calculator Logic (Only runs if elements exist on the page)
+  // 5. ROI Calculator Logic (Only runs if elements exist on the page)
   const slider = document.getElementById('merchant-slider');
   const countDisplay = document.getElementById('merchant-count');
   const revenueDisplay = document.getElementById('revenue-output');
