@@ -39,26 +39,21 @@
     }
   </script>
 
-  <script src="./js/main.js?v=2" defer></script>
+  <script src="./js/main.js?v=final" defer></script>
 
   <style>
     /* LOAD YOUR CUSTOM FONT HERE */
     @font-face {
       font-family: 'Airlash Raiders';
-      src: url('./fonts/AirlashRaiders.ttf'); /* Make sure this matches your exact filename */
+      src: url('./fonts/AirlashRaiders.ttf'); 
       font-weight: normal;
       font-style: normal;
       font-display: swap;
     }
 
-    /* ADDS BREATHING ROOM TO YOUR CUSTOM FONT */
-    .font-heading {
-      letter-spacing: 0.04em;
-    }
-
+    .font-heading { letter-spacing: 0.04em; }
     body { -webkit-font-smoothing: antialiased; }
     
-    /* Hero Image Overlay Background */
     .hero-bg {
       background-image: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85)), url('./images/howitworksBG.jpg');
       background-size: cover;
@@ -97,12 +92,10 @@
   <nav class="w-full z-50 bg-white shadow-sm sticky top-0 transition-all duration-300 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20 md:h-24">
-        
         <a href="index.html" class="flex items-center gap-2 sm:gap-3">
           <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-8 md:h-10 w-auto object-cover rounded" onerror="this.style.display='none'">
           <span class="font-heading text-xl md:text-2xl text-theme-dark">MyAdvance</span>
         </a>
-
         <div class="hidden lg:flex space-x-8 items-center font-sans font-semibold text-theme-dark">
           <a href="index.html#about" class="hover:text-theme-primary transition">About Us</a>
           <a href="how-it-works.html" class="hover:text-theme-primary transition">How It Works</a>
@@ -111,7 +104,6 @@
           <a href="index.html#pricing" class="hover:text-theme-primary transition">Pricing</a>
           <a href="contact.html" class="text-theme-primary transition">Contact</a>
         </div>
-
         <div class="hidden lg:flex items-center space-x-4">
           <div class="relative group">
             <button onclick="if(window.toggleDropdown) toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-2 font-sans font-semibold text-theme-dark bg-gray-50 border border-gray-200 px-5 py-2.5 rounded-full hover:border-theme-primary hover:text-theme-primary hover:shadow-sm transition-all duration-300">
@@ -136,7 +128,6 @@
             Book Demo
           </button>
         </div>
-
         <div class="lg:hidden flex items-center">
           <button onclick="if(window.toggleMobileMenu) toggleMobileMenu()" class="text-theme-dark focus:outline-none">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
