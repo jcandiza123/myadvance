@@ -76,8 +76,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .delay-100 { transition-delay: 100ms; }
-    .delay-200 { transition-delay: 200ms; }
   </style>
 </head>
 <body class="text-theme-text font-sans bg-theme-light">
@@ -126,13 +124,11 @@
         </div>
 
         <div class="hidden lg:flex items-center space-x-4">
-          
           <div class="relative group">
             <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-2 font-sans font-semibold text-theme-dark bg-gray-50 border border-gray-200 px-5 py-2.5 rounded-full hover:border-theme-primary hover:text-theme-primary hover:shadow-sm transition-all duration-300">
               Portals
               <svg class="w-4 h-4 transition-transform duration-300" id="login-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            
             <div id="desktop-login-dropdown" class="absolute right-0 mt-3 w-60 bg-white border border-gray-100 rounded-xl shadow-2xl opacity-0 invisible translate-y-2 transition-all duration-300 z-50 overflow-hidden">
               <div class="p-2 space-y-1">
                 <a href="https://www.aimyadvance.com/funder/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
@@ -147,7 +143,6 @@
               </div>
             </div>
           </div>
-
           <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-3 font-sans font-semibold hover:bg-blue-700 transition rounded-sm">
             Book Demo
           </button>
@@ -169,7 +164,6 @@
         <a href="index.html#integrations" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Integrations</a>
         <a href="index.html#pricing" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Pricing</a>
         <a href="contact.html" class="block text-theme-primary text-lg">Contact</a>
-        
         <div class="bg-theme-light p-5 rounded-xl border border-blue-100 mt-6">
           <p class="text-xs text-theme-primary font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
@@ -190,7 +184,6 @@
             </a>
           </div>
         </div>
-
         <button onclick="openModal(); toggleMobileMenu();" class="w-full mt-4 bg-theme-primary text-white px-5 py-4 text-center rounded-sm">Book Demo</button>
       </div>
     </div>
@@ -217,7 +210,7 @@
             <h2 class="text-3xl font-heading text-theme-dark mb-2">Get in Touch</h2>
             <p class="text-theme-text font-sans mb-8">Ready to streamline your operations? Fill out the form below and our team will get back to you within 24 hours.</p>
             
-            <form id="contactForm" class="space-y-6">
+            <form id="contactForm" onsubmit="submitContactForm(event)" class="space-y-6">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">First Name</label>
@@ -492,60 +485,66 @@
     // ==========================================
     // MAKE.COM WEBHOOK INTEGRATION
     // ==========================================
-    const WEBHOOK_URL = 'https://hook.eu1.make.com/xo55bro4y8l7nnh8np5rw4b2bxx9muoo';
+    
+    // The main function called when the form is submitted
+    function submitContactForm(e) {
+      // This line is absolutely critical to stop the page from refreshing!
+      e.preventDefault(); 
+      
+      const WEBHOOK_URL = 'https://hook.eu1.make.com/xo55bro4y8l7nnh8np5rw4b2bxx9muoo';
+      const form = document.getElementById('contactForm');
+      const formContainer = document.getElementById('formContainer');
+      const successMessage = document.getElementById('successMessage');
+      const submitBtn = document.getElementById('submitBtn');
 
-    const contactForm = document.getElementById('contactForm');
-    const formContainer = document.getElementById('formContainer');
-    const successMessage = document.getElementById('successMessage');
-    const submitBtn = document.getElementById('submitBtn');
+      // Change button text to show activity
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        Sending...
+      `;
+      submitBtn.disabled = true;
 
-    if(contactForm) {
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); 
-        
-        const originalBtnText = submitBtn.innerHTML;
-        submitBtn.innerHTML = `
-          <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-          Sending...
-        `;
-        submitBtn.disabled = true;
+      // Extract data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
 
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
+      // Format data exactly for your Make.com Webhook
+      const payload = {
+        "email": data.email,
+        "name": data.firstName + " " + data.lastName,
+        "title": "New Lead: " + data.companyType,
+        "message": "Phone Number: " + (data.phone || 'Not Provided') + "\n\nMessage:\n" + data.message
+      };
 
-        // Transform the detailed form data into exactly what the Make Webhook expects
-        const payload = {
-          "email": data.email,
-          "name": data.firstName + " " + data.lastName,
-          "title": "New Lead: " + data.companyType,
-          "message": "Phone Number: " + (data.phone || 'Not Provided') + "\n\nMessage:\n" + data.message
-        };
-
-        fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        })
-        .then(response => {
-          if(response.ok) {
-            formContainer.classList.add('hidden');
-            successMessage.classList.remove('hidden');
-            successMessage.classList.add('flex');
-            contactForm.reset(); // Clear the form
-          } else {
-            alert('There was a problem sending your message. Please try again.');
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Network error. Please check your connection and try again.');
+      // Send to Make.com
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      .then(response => {
+        // If Make.com accepts the data (Status 200)
+        if(response.ok || response.status === 200) {
+          formContainer.classList.add('hidden');
+          successMessage.classList.remove('hidden');
+          successMessage.classList.add('flex');
+          form.reset();
+        } else {
+          // If Make.com rejects the data
+          alert('Make.com received the request but returned an error. Status: ' + response.status);
           submitBtn.innerHTML = originalBtnText;
           submitBtn.disabled = false;
-        });
+        }
+      })
+      .catch(error => {
+        // If the browser blocks the request (e.g. testing locally via file://)
+        console.error('Error:', error);
+        alert('Network Error! Could not connect to Make.com. If you are testing this file directly from your computer (file://), your browser is blocking it for security. You must upload it to a host or use a Local Server extension to test it properly.');
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
       });
     }
   </script>
