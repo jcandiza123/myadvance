@@ -1,4 +1,3 @@
-// ==========================================
 // GLOBAL FUNCTIONS (For HTML onclick events)
 // ==========================================
 window.toggleDropdown = function(id) {
