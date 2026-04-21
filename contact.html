@@ -45,15 +45,20 @@
     /* LOAD YOUR CUSTOM FONT HERE */
     @font-face {
       font-family: 'Airlash Raiders';
-      src: url('./fonts/AirlashRaiders.ttf'); 
+      src: url('./fonts/AirlashRaiders.ttf'); /* Make sure this matches your exact filename */
       font-weight: normal;
       font-style: normal;
       font-display: swap;
     }
 
-    .font-heading { letter-spacing: 0.04em; }
+    /* ADDS BREATHING ROOM TO YOUR CUSTOM FONT */
+    .font-heading {
+      letter-spacing: 0.04em;
+    }
+
     body { -webkit-font-smoothing: antialiased; }
     
+    /* Hero Image Overlay Background */
     .hero-bg {
       background-image: linear-gradient(rgba(6, 19, 45, 0.85), rgba(6, 19, 45, 0.85)), url('./images/howitworksBG.jpg');
       background-size: cover;
@@ -92,10 +97,12 @@
   <nav class="w-full z-50 bg-white shadow-sm sticky top-0 transition-all duration-300 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-20 md:h-24">
+        
         <a href="index.html" class="flex items-center gap-2 sm:gap-3">
           <img src="./images/AIcrop.JPG" alt="AI My Advance" class="h-8 md:h-10 w-auto object-cover rounded" onerror="this.style.display='none'">
           <span class="font-heading text-xl md:text-2xl text-theme-dark">MyAdvance</span>
         </a>
+
         <div class="hidden lg:flex space-x-8 items-center font-sans font-semibold text-theme-dark">
           <a href="index.html#about" class="hover:text-theme-primary transition">About Us</a>
           <a href="how-it-works.html" class="hover:text-theme-primary transition">How It Works</a>
@@ -104,6 +111,7 @@
           <a href="index.html#pricing" class="hover:text-theme-primary transition">Pricing</a>
           <a href="contact.html" class="text-theme-primary transition">Contact</a>
         </div>
+
         <div class="hidden lg:flex items-center space-x-4">
           <div class="relative group">
             <button onclick="if(window.toggleDropdown) toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-2 font-sans font-semibold text-theme-dark bg-gray-50 border border-gray-200 px-5 py-2.5 rounded-full hover:border-theme-primary hover:text-theme-primary hover:shadow-sm transition-all duration-300">
@@ -128,6 +136,7 @@
             Book Demo
           </button>
         </div>
+
         <div class="lg:hidden flex items-center">
           <button onclick="if(window.toggleMobileMenu) toggleMobileMenu()" class="text-theme-dark focus:outline-none">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -180,7 +189,7 @@
             <h2 class="text-3xl font-heading text-theme-dark mb-2">Get in Touch</h2>
             <p class="text-theme-text font-sans mb-8">Ready to streamline your operations? Fill out the form below and our team will get back to you within 24 hours.</p>
             
-            <form id="contactForm" action="javascript:void(0);" class="space-y-6">
+            <form id="contactForm" onsubmit="submitContactForm(event)" class="space-y-6">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-sans font-semibold text-theme-dark mb-2">First Name</label>
@@ -304,67 +313,61 @@
     // ==========================================
     // ISOLATED MAKE.COM WEBHOOK SCRIPT
     // ==========================================
-    window.addEventListener('load', function() {
-      var cForm = document.getElementById('contactForm');
+    function submitContactForm(e) {
+      // 1. Physically halt the browser from refreshing
+      e.preventDefault(); 
       
-      if (cForm) {
-        cForm.addEventListener('submit', function(e) {
-          
-          // 1. Physically halt the browser from refreshing
-          e.preventDefault(); 
-          
-          var WEBHOOK_URL = 'https://hook.eu1.make.com/xo55bro4y8l7nnh8np5rw4b2bxx9muoo';
-          var formContainer = document.getElementById('formContainer');
-          var successMessage = document.getElementById('successMessage');
-          var submitBtn = document.getElementById('submitBtn');
-          var originalBtnText = submitBtn.innerHTML;
+      const WEBHOOK_URL = 'https://hook.eu1.make.com/xo55bro4y8l7nnh8np5rw4b2bxx9muoo';
+      const formContainer = document.getElementById('formContainer');
+      const successMessage = document.getElementById('successMessage');
+      const submitBtn = document.getElementById('submitBtn');
+      const form = document.getElementById('contactForm');
+      const originalBtnText = submitBtn.innerHTML;
 
-          // 2. Change the button to show "Sending..."
-          submitBtn.innerHTML = `
-            <svg class="animate-spin h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-            Sending...
-          `;
-          submitBtn.disabled = true;
+      // 2. Change the button to show "Sending..."
+      submitBtn.innerHTML = `
+        <svg class="animate-spin h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+        Sending...
+      `;
+      submitBtn.disabled = true;
 
-          // 3. Package the data for Make.com
-          var formData = new FormData(cForm);
-          var data = Object.fromEntries(formData.entries());
+      // 3. Package the data for Make.com
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
 
-          var payload = {
-            "email": data.email,
-            "name": data.firstName + " " + data.lastName,
-            "title": "New Lead: " + data.companyType,
-            "message": "Phone Number: " + (data.phone || 'Not Provided') + "\\n\\nMessage:\\n" + data.message
-          };
+      const payload = {
+        "email": data.email,
+        "name": data.firstName + " " + data.lastName,
+        "title": "New Lead: " + data.companyType,
+        "message": "Phone Number: " + (data.phone || 'Not Provided') + "\\n\\nMessage:\\n" + data.message
+      };
 
-          // 4. Send the data in the background
-          fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-          })
-          .then(function(response) {
-            if(response.ok || response.status === 200) {
-              // Hide form & show green success message
-              formContainer.style.display = 'none';
-              successMessage.classList.remove('hidden');
-              successMessage.classList.add('flex');
-              cForm.reset();
-            } else {
-              alert('Error sending message. Status: ' + response.status);
-              submitBtn.innerHTML = originalBtnText;
-              submitBtn.disabled = false;
-            }
-          })
-          .catch(function(error) {
-            console.error('Error:', error);
-            alert('Network Error! Please check your connection.');
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-          });
-        });
-      }
-    });
+      // 4. Send the data in the background
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(response) {
+        if(response.ok || response.status === 200) {
+          // Hide form & show green success message
+          formContainer.style.display = 'none';
+          successMessage.classList.remove('hidden');
+          successMessage.classList.add('flex');
+          form.reset();
+        } else {
+          alert('Error sending message. Status: ' + response.status);
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+        }
+      })
+      .catch(function(error) {
+        console.error('Error:', error);
+        alert('Network Error! Please check your connection.');
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      });
+    }
   </script>
 </body>
 </html>
