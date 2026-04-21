@@ -124,11 +124,13 @@
         </div>
 
         <div class="hidden lg:flex items-center space-x-4">
+          
           <div class="relative group">
             <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-2 font-sans font-semibold text-theme-dark bg-gray-50 border border-gray-200 px-5 py-2.5 rounded-full hover:border-theme-primary hover:text-theme-primary hover:shadow-sm transition-all duration-300">
               Portals
               <svg class="w-4 h-4 transition-transform duration-300" id="login-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
+            
             <div id="desktop-login-dropdown" class="absolute right-0 mt-3 w-60 bg-white border border-gray-100 rounded-xl shadow-2xl opacity-0 invisible translate-y-2 transition-all duration-300 z-50 overflow-hidden">
               <div class="p-2 space-y-1">
                 <a href="https://www.aimyadvance.com/funder/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
@@ -143,6 +145,7 @@
               </div>
             </div>
           </div>
+
           <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-3 font-sans font-semibold hover:bg-blue-700 transition rounded-sm">
             Book Demo
           </button>
@@ -164,6 +167,7 @@
         <a href="index.html#integrations" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Integrations</a>
         <a href="index.html#pricing" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Pricing</a>
         <a href="contact.html" class="block text-theme-primary text-lg">Contact</a>
+        
         <div class="bg-theme-light p-5 rounded-xl border border-blue-100 mt-6">
           <p class="text-xs text-theme-primary font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
@@ -184,6 +188,7 @@
             </a>
           </div>
         </div>
+
         <button onclick="openModal(); toggleMobileMenu();" class="w-full mt-4 bg-theme-primary text-white px-5 py-4 text-center rounded-sm">Book Demo</button>
       </div>
     </div>
@@ -414,74 +419,6 @@
   </div>
 
   <script>
-    // Reveal Animation
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // Dropdown Logic
-    function toggleDropdown(id) {
-      const el = document.getElementById(id);
-      const arrow = document.getElementById('login-arrow');
-      if (el.classList.contains('invisible')) {
-        el.classList.remove('invisible', 'opacity-0', 'translate-y-2');
-        el.classList.add('visible', 'opacity-100', 'translate-y-0');
-        arrow.style.transform = 'rotate(180deg)';
-      } else {
-        el.classList.add('invisible', 'opacity-0', 'translate-y-2');
-        el.classList.remove('visible', 'opacity-100', 'translate-y-0');
-        arrow.style.transform = 'rotate(0deg)';
-      }
-    }
-
-    document.addEventListener('click', (e) => {
-      const dropdown = document.getElementById('desktop-login-dropdown');
-      const button = dropdown.previousElementSibling;
-      const arrow = document.getElementById('login-arrow');
-      if (dropdown && !dropdown.contains(e.target) && !button.contains(e.target)) {
-        dropdown.classList.add('invisible', 'opacity-0', 'translate-y-2');
-        dropdown.classList.remove('visible', 'opacity-100', 'translate-y-0');
-        if(arrow) arrow.style.transform = 'rotate(0deg)';
-      }
-    });
-
-    // Mobile Menu
-    function toggleMobileMenu() {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    }
-
-    // Modal Logic
-    const modal = document.getElementById('demoModal');
-    const modalContent = document.getElementById('modalContent');
-    function openModal() {
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden'; 
-      setTimeout(() => {
-        modalContent.classList.remove('scale-95', 'opacity-0');
-        modalContent.classList.add('scale-100', 'opacity-100');
-      }, 10);
-    }
-    function closeModal() {
-      modalContent.classList.remove('scale-100', 'opacity-100');
-      modalContent.classList.add('scale-95', 'opacity-0');
-      setTimeout(() => {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-        document.body.style.overflow = '';
-      }, 300); 
-    }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
-    });
-
     // ==========================================
     // MAKE.COM WEBHOOK INTEGRATION
     // ==========================================
@@ -540,9 +477,9 @@
         }
       })
       .catch(error => {
-        // If the browser blocks the request (e.g. testing locally via file://)
+        // If the browser blocks the request
         console.error('Error:', error);
-        alert('Network Error! Could not connect to Make.com. If you are testing this file directly from your computer (file://), your browser is blocking it for security. You must upload it to a host or use a Local Server extension to test it properly.');
+        alert('Network Error! Could not connect to Make.com.');
         submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
       });
