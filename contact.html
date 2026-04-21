@@ -65,17 +65,6 @@
       background-position: center;
       background-attachment: scroll;
     }
-
-    /* Scroll Animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
   </style>
 </head>
 <body class="text-theme-text font-sans bg-theme-light">
@@ -124,13 +113,11 @@
         </div>
 
         <div class="hidden lg:flex items-center space-x-4">
-          
           <div class="relative group">
             <button onclick="toggleDropdown('desktop-login-dropdown')" class="flex items-center gap-2 font-sans font-semibold text-theme-dark bg-gray-50 border border-gray-200 px-5 py-2.5 rounded-full hover:border-theme-primary hover:text-theme-primary hover:shadow-sm transition-all duration-300">
               Portals
               <svg class="w-4 h-4 transition-transform duration-300" id="login-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </button>
-            
             <div id="desktop-login-dropdown" class="absolute right-0 mt-3 w-60 bg-white border border-gray-100 rounded-xl shadow-2xl opacity-0 invisible translate-y-2 transition-all duration-300 z-50 overflow-hidden">
               <div class="p-2 space-y-1">
                 <a href="https://www.aimyadvance.com/funder/login" class="flex items-center px-4 py-3 text-sm text-theme-dark font-semibold rounded-lg hover:bg-theme-light hover:text-theme-primary transition">
@@ -145,7 +132,6 @@
               </div>
             </div>
           </div>
-
           <button onclick="openModal()" class="bg-theme-primary text-white px-8 py-3 font-sans font-semibold hover:bg-blue-700 transition rounded-sm">
             Book Demo
           </button>
@@ -167,7 +153,6 @@
         <a href="index.html#integrations" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Integrations</a>
         <a href="index.html#pricing" onclick="toggleMobileMenu()" class="block hover:text-theme-primary text-lg">Pricing</a>
         <a href="contact.html" class="block text-theme-primary text-lg">Contact</a>
-        
         <div class="bg-theme-light p-5 rounded-xl border border-blue-100 mt-6">
           <p class="text-xs text-theme-primary font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path></svg>
@@ -188,7 +173,6 @@
             </a>
           </div>
         </div>
-
         <button onclick="openModal(); toggleMobileMenu();" class="w-full mt-4 bg-theme-primary text-white px-5 py-4 text-center rounded-sm">Book Demo</button>
       </div>
     </div>
@@ -415,17 +399,13 @@
       Need help? 👋
       <div class="absolute top-1/2 -right-1 w-2 h-2 bg-white transform rotate-45 -translate-y-1/2"></div>
     </div>
-
   </div>
 
   <script>
     // ==========================================
     // MAKE.COM WEBHOOK INTEGRATION
     // ==========================================
-    
-    // The main function called when the form is submitted
     function submitContactForm(e) {
-      // This line is absolutely critical to stop the page from refreshing!
       e.preventDefault(); 
       
       const WEBHOOK_URL = 'https://hook.eu1.make.com/xo55bro4y8l7nnh8np5rw4b2bxx9muoo';
