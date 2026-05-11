@@ -145,6 +145,7 @@
   }, { passive: false });
 })();
 
+(function () {
   // iOS Safari sometimes requires one tap to blur a focused textarea, and a second tap to click the button.
   // This patch ensures "Update Song" runs on the first tap by:
   // 1) Delegating a touchend handler to the Update Song button while in edit mode.

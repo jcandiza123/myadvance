@@ -24,7 +24,7 @@ main_js = ''.join(lines[2877:6372])
 # Patches:
 patches_js1 = ''.join(lines[6376:6457])   # auto-grow patch
 patches_js2 = ''.join(lines[6461:6525])   # iOS modal scroll
-patches_js3 = ''.join(lines[6531:6575])   # iOS update single-tap
+patches_js3 = ''.join(lines[6530:6575])   # iOS update single-tap (start at "(function () {" line)
 
 out = Path('/app/uploads/extracted')
 out.mkdir(exist_ok=True)
