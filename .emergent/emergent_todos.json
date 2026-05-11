@@ -1,0 +1,50 @@
+[
+  {
+    "content": "Extract CSS, JS, HTML from monolithic index.html into separate files",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #1: Restrict to mobile/tablet only (max ~1440px), supports Lenovo Xiaoxin Pad Pro landscape",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #2: Full responsive portrait + landscape, all sections always visible",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #3: Alphabetical song-item list (A-Z)",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #4: Scrolling unresponsiveness and button-click issues on iOS/Android",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #5: Improve search-bar with dynamic filter dropdown, scrollable, responsive",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #6: Make Lineup dynamic (auto-update on song edit), match song chord view design, fix color styling",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #7: Add 'Interlude' section + fix iOS sectionSelect double-tap issue",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #8: Organize files (HTML/CSS/JS separated)",
+    "status": "completed"
+  },
+  {
+    "content": "Fix #9: Review and fix any other bugs / conflicts / inefficient code",
+    "status": "completed"
+  },
+  {
+    "content": "Configure CRA frontend to serve the static PWA",
+    "status": "completed"
+  },
+  {
+    "content": "Run comprehensive testing via testing_agent_v3",
+    "status": "in_progress"
+  }
+]

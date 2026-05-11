@@ -1,77 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Chords Pro</title>
-
-    <!-- PWA Meta Tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Chords Pro">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#1a1a1a">
-
-    <!-- Cache busting for updates -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-
-    <!-- Apple Touch Icons -->
-    <link rel="apple-touch-icon" href="prochords192.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="prochords192.png">
-    <link rel="apple-touch-icon" sizes="512x512" href="prochords512.png">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="prochords192.png">
-
-    <!-- External stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <!-- Token Verification Overlay (preserved from original) -->
-    <div id="tokenVerificationOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; backdrop-filter: blur(10px);">
-        <div style="display: flex; align-items: center; justify-content: center; height: 100%; padding: 20px;">
-            <div style="background: white; padding: 40px; border-radius: 15px; max-width: 400px; width: 100%; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
-                <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #6366f1, #8b5cf6); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;">
-                    <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                    </svg>
-                </div>
-                <h2 style="margin: 0 0 10px; color: #333; font-size: 24px; font-weight: bold;">🎹 Pro Version Access</h2>
-                <p style="margin: 0 0 30px; color: #666; font-size: 14px;">Enter your Pro version token to continue</p>
-
-                <input type="text" id="tokenVerificationInput" placeholder="Paste your PRO token here..." style="width: 100%; padding: 15px; border: 2px solid #e5e7eb; border-radius: 8px; margin-bottom: 20px; font-family: monospace; text-align: center; font-size: 14px; outline: none; transition: border-color 0.3s;">
-
-                <button id="tokenVerifyButton" style="width: 100%; padding: 15px; background: linear-gradient(45deg, #6366f1, #8b5cf6); color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-bottom: 15px; transition: transform 0.2s;">
-                    Verify Pro Token
-                </button>
-
-                <div id="tokenVerificationStatus" style="font-size: 14px; margin-bottom: 20px; min-height: 20px;"></div>
-
-                <div style="border-top: 1px solid #e5e7eb; padding-top: 20px;">
-                    <p style="margin: 0 0 10px; color: #999; font-size: 12px;">Need a Pro token?</p>
-                    <a href="https://gospelpianochord.com" target="_blank" style="color: #6366f1; text-decoration: none; font-size: 14px; font-weight: 500;">
-                        Generate Pro Token →
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Desktop Restriction Notice -->
     <div id="desktopNotice" class="desktop-notice">
         <div class="desktop-notice-content">
             <div class="desktop-notice-icon">📱</div>
-            <h2 class="desktop-notice-title">Mobile &amp; Tablet Only</h2>
+            <h2 class="desktop-notice-title">Mobile & Tablet Only</h2>
             <p class="desktop-notice-message">⚠️ This application is designed for tablet and mobile use only. For the best experience, please switch to a supported device or resize your screen.</p>
             <div class="desktop-notice-specs">
                 <p><strong>Supported sizes:</strong></p>
-                <p>📱 Mobile phones (any size)</p>
-                <p>📱 Tablets up to 1440px wide (Lenovo Xiaoxin Pad Pro and similar)</p>
+                <p>📱 Mobile devices</p>
+                <p>📱 iPad (up to 1024px portrait / 1366px landscape)</p>
             </div>
         </div>
     </div>
@@ -80,15 +15,14 @@
         <!-- Header Section -->
         <div class="header">
             <div class="logo">
-                <img src="Jem Logo.png" alt="Jem Logo" onerror="this.style.display='none'; const fb=document.createElement('div'); fb.textContent='🎹'; fb.style.cssText='font-size:48px;line-height:1;'; this.parentElement.appendChild(fb);" />
+                <img src="Jem Logo.png" alt="Jem Logo" />
             </div>
             <p class="app-subtitle">Professional chord management for musicians</p>
         </div>
 
         <!-- Search Section -->
         <div class="search-section">
-            <input type="text" class="search-bar" placeholder="Search songs..." id="searchBar" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-            <div id="searchResults" class="search-results" role="listbox"></div>
+            <input type="text" class="search-bar" placeholder="Search songs..." id="searchBar">
         </div>
 
         <!-- Control Panel -->
@@ -143,12 +77,12 @@
                     <label class="form-label">Song Title</label>
                     <input type="text" class="form-input" id="songTitle" placeholder="Enter song title">
                 </div>
-
+                
                 <div class="form-group">
                     <label class="form-label">Description</label>
                     <textarea class="form-input form-textarea" id="songDescription" placeholder="Enter song description"></textarea>
                 </div>
-
+                
                 <div class="form-group">
                     <label class="form-label">Add Section</label>
                     <select class="dropdown-select" id="sectionSelect">
@@ -159,14 +93,13 @@
                         <option value="Chorus">Chorus</option>
                         <option value="Instrumental">Instrumental</option>
                         <option value="Solo">Solo</option>
-                        <option value="Interlude">Interlude</option>
                         <option value="Bridge">Bridge</option>
                         <option value="Fade">Fade</option>
                         <option value="Ending">Ending</option>
                         <option value="Outro">Outro</option>
                     </select>
                 </div>
-
+                
                 <div class="sections-container" id="sectionsContainer"></div>
             </div>
             <div class="modal-footer">
@@ -216,9 +149,3 @@
         </div>
     </div>
 
-    <!-- External scripts -->
-    <script src="token-verify.js"></script>
-    <script src="app.js"></script>
-    <script src="patches.js"></script>
-</body>
-</html>

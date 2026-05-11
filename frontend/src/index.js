@@ -1,11 +1,2 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "@/index.css";
-import App from "@/App";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+// No React mount: the Chords Pro app is a static HTML/CSS/JS PWA served from /public.
+// Keeping this file empty so CRA's dev/build still succeeds without affecting the static page.
